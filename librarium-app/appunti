@@ -1,0 +1,3 @@
+Le funzioni all'interno dei modelli, vanno chiamati con il nome della tabella a cui si deve collegare, in modo UGUALE
+
+ $myBookings = Booking::with('user', 'book')->where('user', $userId)->get();
