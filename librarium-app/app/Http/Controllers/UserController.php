@@ -12,7 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('userlist', ['users' => $users]);
     }
 
     /**
@@ -36,7 +37,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('userdettaglio',['user'=>$user]);
     }
 
     /**
@@ -60,6 +61,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+     $user->destroy($user->id);
+    
+     return redirect()->route('user.index');
     }
 }

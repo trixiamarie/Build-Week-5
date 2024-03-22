@@ -26,7 +26,7 @@ class BookSeeder extends Seeder
                 'genre' => 1,
             ],
             [
-                'cover' => 'https://www.kobo.com/3cabc74b-bbb3-4847-9215-35ec920e8aef',
+                'cover' => 'https://m.media-amazon.com/images/I/71rfLwvICQL._SL1500_.jpg',
                 'title' => 'Animal Farm',
                 'released' => '1945-08-17',
                 'publisher' => 'Secker & Warburg',
