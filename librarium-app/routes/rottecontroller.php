@@ -16,6 +16,8 @@ Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name
 
 Route::resource('/author', AuthorController::class);
 Route::resource('/user', UserController::class);
+Route::get('/search', [BookController::class, 'search'])->name('search');
+
 
 // Route::get('/progetti/{id}', [ProgettoController::class, 'show'])->name('dettaglioprogetto');
 // Route::post('/nuovoprogetto',[ProgettoController::class, 'store'])->name('salvaprogetto');

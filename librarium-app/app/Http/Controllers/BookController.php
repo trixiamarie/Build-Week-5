@@ -96,4 +96,17 @@ class BookController extends Controller
         $book->delete();
         return redirect()->route('dashboard');
     }
+
+    public function search(Request $request)
+{
+    $searchTerm = $request->input('search');
+    
+    $results = Book::where('title', 'like', '%'.$searchTerm.'%')
+                   ->orWhere('author', 'like', '%'.$searchTerm.'%')
+                   ->get();
+    
+    return view('_search_results', ['results' => $results])->render();
+}
+
+
 }
