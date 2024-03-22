@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -45,16 +47,40 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $roles=Role::all();
+
+        return view('edituseradmin',['user' => $user, 'roles' => $roles]);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $user)
-    {
-        //
-    }
+{
+    
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'lastname' => ['required', 'string', 'max:255'],
+        'city' => ['required', 'string', 'max:255'],
+        'dateofbirth' => ['required', 'date'],
+        'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+        'role' => ['required', 'exists:roles,id'], // Assicurati che il ruolo esista nel database
+    ]);
+
+    
+    $user->update([
+        'name' => $request->name,
+        'lastname' => $request->lastname,
+        'city' => $request->city,
+        'dateofbirth' => $request->dateofbirth,
+        'email' => $request->email,
+        'role_id' => $request->role,
+    ]);
+
+    
+    return redirect()->route('user.show', $user->id)->with('success', 'Profilo aggiornato con successo.');
+}
+
 
     /**
      * Remove the specified resource from storage.

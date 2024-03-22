@@ -1,7 +1,15 @@
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Rosarivo:ital@0;1&display=swap');
+@font-face {
+    font-family: 'Silka';
+    src: url('{{ asset('fonts/silka.ttf') }}');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p {
+    font-family: 'Silka', sans-serif;
+}
 
 .hero {
     height: 90vh;
@@ -13,7 +21,8 @@ h1 {
     color: white !important;
     text-align: center;
     font-size: 5dvh !important;
-    font-family: 'Rosarivo', serif;
+    font-family: 'Silka', sans-serif;
+    position: relative;
 }
 
 .carouseldata {
@@ -26,19 +35,19 @@ h1 {
 }
 
 .carouseldata h5 {
-    font-size: 4dvh !important;
-    font-family: 'Rosarivo', serif;
+    font-size: 6dvh !important;
+    font-family: 'Silka', sans-serif;
 
 }
 
 .carouseldata h6 {
     font-size: 3dvh !important;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Silka', sans-serif;
 }
 
 .carouseldata p {
     font-size: 2dvh !important;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Silka', sans-serif;
 }
 
 .carouselimage {
@@ -83,9 +92,9 @@ div > img {
 }
 
 .btn-outline-info {
-    color: #44A8A4 !important;
-    border-color: #44A8A4 !important;
-    background-color: white !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    background-color: none !important;
 }
 
 .btn-outline-info:hover {
@@ -93,13 +102,55 @@ div > img {
     background-color: #44A8A4 !important;
 }
 
+.card {
+        position: relative;
+        overflow: hidden;
+        background-color: black !important;
+        border: none !important;
+    }
+
+    .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+    .card:hover img {
+        transform: scale(1.1);
+        opacity: 0.2;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .card:not(:hover) img {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+    .card-body {
+        position: absolute;
+        padding: 0 !important;
+        width: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+
+    .card:hover .card-body {
+        opacity: 1;
+        visibility: visible;
+    }
+
 </style>
 
 <x-app-layout>
 
-<div class="hero">
-    <h1 class="py-6" style="z-index: 5 !important;">Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
-    <img src="{{ asset('img/wave.svg') }}" alt="Descrizione dell'immagine SVG" style="margin-top: -20vh; z-index: -3 !important;">
+<div class="hero pb-6">
+    <h1 class="py-6">Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+    <img src="{{ asset('img/wave.svg') }}" alt="Descrizione dell'immagine SVG" style="margin-top: -20dvh;">
     <div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($books as $index => $book)
@@ -126,32 +177,34 @@ div > img {
             <span class="visually-hidden">Successivo</span>
         </button>
     </div>
+    <div style="transform: rotate(180deg); margin-top: -1dvh;">
+        <img src="{{ asset('img/wave.svg') }}" alt="Descrizione dell'immagine SVG">
+    </div>
 </div>
-<div style="transform: rotate(180deg);">
-    <img src="{{ asset('img/wave.svg') }}" alt="Descrizione dell'immagine SVG">
+
+<div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 27dvh !important;">
+  <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
+  <input type="text" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
 </div>
 
 <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            @foreach($books->shuffle() as $book)
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @foreach($books->shuffle() as $book)
                 <div class="col">
                     <div class="card h-100">
                         <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
                         <div class="card-body">
-                            <a href="{{route('book.show',$book->id)}}" class="btn btn-outline-info">Info</a>
-                            <div id="collapse{{ $book->id }}" class="collapse">
-                                <h5 class="card-title fw-bold fs-4 pt-4 pb-0" style="color: #3d4145 !important;">{{ $book->title }}</h5>
-                                <p class="card-text fs-5 pb-2" style="color: #3d4145 !important;">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
-                                <p class="card-text fs-6" style="color: #3d4145 !important;">{{ $book->plot }}</p>
-                            </div>
+                            <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
+                            <p class="card-text text-white py-3 fw-bold">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
+                            <p class="card-text text-white pb-3">{{ $book->plot }}</p>
+                            <a href="{{ route('book.show', $book->id) }}" class="btn btn-outline-info">Maggiori Informazioni</a>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
-
 
 </x-app-layout>
