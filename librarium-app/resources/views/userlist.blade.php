@@ -17,12 +17,11 @@
             </div>
 
             <ul class="list-group">
-                @foreach($books as $key=>$book)
+                @foreach($users as $key=>$user)
                 <li class="list-group-item">
-                    <p>Titolo: {{$book -> title}}</p>
-                    <p>Pseudonimo: {{ $book->authors->pseudonym }}</p>
-                    <p>Genere: {{ $book->genres->name }}</p>
-                    <a href="{{route('book.show',$book->id)}}"><button type="button" class="btn btn-outline-info">Info</button></a>
+                    <p>Nome: {{$user -> name}}</p>
+                    <p>Email: {{ $user->email }}</p>
+                    <a href="{{route('user.show',['user' => $user])}}"><button type="button" class="btn btn-outline-info">Info</button></a>
                 </li>
                 @endforeach
             </ul>

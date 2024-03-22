@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::resource('/book', BookController::class);
@@ -13,6 +15,7 @@ Route::get('/booking', [BookingController::class, 'index'])->name('booking.index
 Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
 
 Route::resource('/author', AuthorController::class);
+Route::resource('/user', UserController::class);
 
 // Route::get('/progetti/{id}', [ProgettoController::class, 'show'])->name('dettaglioprogetto');
 // Route::post('/nuovoprogetto',[ProgettoController::class, 'store'])->name('salvaprogetto');

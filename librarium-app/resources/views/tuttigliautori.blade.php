@@ -13,16 +13,17 @@
                 <a href="{{route('book.create')}}"><button type="button" class="btn btn-outline-info">Crea Libro</button"></a>
                 <a href="{{route('author.create')}}"><button type="button" class="btn btn-outline-info">Crea Autore</button"></a>
                 <a href="{{route('author.index')}}"><button type="button" class="btn btn-outline-info">Tutti gli autori</button"></a>
+                <a href="{{route('user.index')}}"><button type="button" class="btn btn-outline-info">Tutti gli utenti</button"></a>
                 <a href="#">
             </div>
 
             <ul class="list-group">
-                @foreach($books as $key=>$book)
+                @foreach($authors as $key=>$author)
                 <li class="list-group-item">
-                    <p>Titolo: {{$book -> title}}</p>
-                    <p>Pseudonimo: {{ $book->authors->pseudonym }}</p>
-                    <p>Genere: {{ $book->genres->name }}</p>
-                    <a href="{{route('book.show',$book->id)}}"><button type="button" class="btn btn-outline-info">Info</button></a>
+                    <p>Nome: {{$author -> name}}</p>
+                    <p>Cognome: {{ $author->lastname }}</p>
+                    <p>Pseudonimo: {{ $author->pseudonym }}</p>
+                    <a href="{{route('author.show',$author->id)}}"><button type="button" class="btn btn-outline-info">Info</button></a>
                 </li>
                 @endforeach
             </ul>

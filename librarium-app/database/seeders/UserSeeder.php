@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
+            'lastname' => 'Admin',
+            'city' => 'Texas',
             'dateofbirth' => Carbon::createFromFormat('d/m/Y', '28/12/2000')->format('Y-m-d'),
             'email' => 'admin@example.com',
             'password' => Hash::make('password'), 
@@ -26,6 +28,8 @@ class UserSeeder extends Seeder
         // Creazione dell'utente User
         User::create([
             'name' => 'User',
+            'lastname' => 'Admin',
+            'city' => 'Texas',
             'dateofbirth' => Carbon::createFromFormat('d/m/Y', '28/12/2000')->format('Y-m-d'),
             'email' => 'user@example.com',
             'password' => Hash::make('password'), 
@@ -35,6 +39,8 @@ class UserSeeder extends Seeder
         // Creazione dell'utente UserMinor
         User::create([
             'name' => 'UserMinor',
+            'lastname' => 'Admin',
+            'city' => 'Texas',
             'dateofbirth' => Carbon::createFromFormat('d/m/Y', '28/12/2010')->format('Y-m-d'),
             'email' => 'userminor@example.com',
             'password' => Hash::make('password'), 
