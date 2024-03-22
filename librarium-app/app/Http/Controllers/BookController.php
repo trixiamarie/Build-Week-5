@@ -33,7 +33,20 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $data = $request->validate([
+            'cover' => 'required|string',
+            'title' => 'required|string',
+            'released' => 'required|date',
+            'publisher' => 'required|string',
+            'plot' => 'required|string',
+            'isbn' => 'required|string|unique:books',
+            'author' => 'required|exists:authors,id',
+            'genre' => 'required|exists:genres,id',
+            'copies' => 'required|integer',
+            'category' => 'required|string',
+        ]);
+        $book = Book::create($data);
+        return redirect()->route('book.show', ['book' => $book->id])->with('message', 'Libro creato correttamente');
     }
 
     /**
@@ -42,14 +55,12 @@ class BookController extends Controller
     public function show(Book $book)
     {
         $userrole = Auth::user()->role_id;
-       
-        
+    
         if($userrole == 1){
-            return view('dettaglioadmin',['book'=>$book]);
+            return view('dettaglioadmin',['book'=>$book->load('authors', 'genres')]);
         } else if ($userrole == 2){
-            return view('dettagliobook',['book'=>$book]);
+            return view('dettagliobook',['book'=>$book->load('authors', 'genres')]);
         }
-        
     }
 
     /**
@@ -84,7 +95,7 @@ class BookController extends Controller
 
     $books = Book::with('authors', 'genres')->get();
 
-    return redirect()->route('book.show', ['book' => $book->id, 'books' => $books]);
+    return redirect()->route('book.show', ['book' => $book->id, 'books' => $books])->with('message', 'Libro aggiornato correttamente');
 }
 
 
@@ -94,6 +105,6 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboardadmin')->with('message', 'Libro eliminato correttamente');
     }
 }

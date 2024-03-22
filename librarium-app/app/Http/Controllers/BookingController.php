@@ -64,7 +64,7 @@ class BookingController extends Controller
         ]);
         
 
-        return redirect()->action([BookingController::class, 'index']);
+        return redirect()->action([BookingController::class, 'index'])->with('message', 'Prenotazione effettuata con successo!');
     }
 
     /**
@@ -98,6 +98,6 @@ class BookingController extends Controller
     {
 
         $booking->delete();
-        return redirect()->action([BookingController::class, 'index']);
+        return redirect()->action([BookingController::class, 'index'])->with('message', 'Prenotazione eliminata con successo!');
     }
 }

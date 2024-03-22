@@ -28,4 +28,5 @@
             </ul>
         </div>
     </div>
+    
 </x-app-layout>

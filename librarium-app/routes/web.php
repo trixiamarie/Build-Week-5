@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
@@ -50,5 +52,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('/book', BookingController::class);
+// Route::resource('/booking', BookingController::class);
+Route::get('/booking/create/{book}', [BookingController::class, 'create'])->name('booking.create');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+
+Route::resource('/author', AuthorController::class);
+
 
 require __DIR__.'/auth.php';

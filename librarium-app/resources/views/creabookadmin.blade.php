@@ -10,7 +10,6 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <form action="{{route('book.store')}}" method="POST">
                 @csrf
-                @method('PATCH')
                 <label for="cover">Cover Image URL:</label><br>
                 <input type="text" id="cover" name="cover" ><br>
                 
