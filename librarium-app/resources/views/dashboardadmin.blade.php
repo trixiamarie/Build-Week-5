@@ -21,7 +21,7 @@
                     <p>Titolo: {{$book -> title}}</p>
                     <p>Pseudonimo: {{ $book->authors->pseudonym }}</p>
                     <p>Genere: {{ $book->genres->name }}</p>
-                    <a href="{{route('book.show',$book->id)}}"><button type="button" class="btn btn-outline-info">Info</button></a>
+                    <a href="{{route('book.show',['book' => $book])}}"><button type="button" class="btn btn-outline-info">Info</button></a>
                 </li>
                 @endforeach
             </ul>

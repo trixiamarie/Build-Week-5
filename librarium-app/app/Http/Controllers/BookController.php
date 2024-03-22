@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-    
+        //
     }
 
     /**
@@ -105,6 +105,6 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('dashboardadmin')->with('message', 'Libro eliminato correttamente');
+        return redirect()->route('dashboard')->with('message', 'Libro eliminato correttamente');
     }
 }

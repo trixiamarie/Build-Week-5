@@ -12,7 +12,6 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <p>{{$book}}</p>
-                <p>{{session()->get('message')}}</p>
               
                 <a href="{{route('book.edit',['book'=>$book])}}"><button type="button" class="btn btn-outline-info">Modifica</button></a>
 

@@ -48,6 +48,7 @@ background: linear-gradient(90deg, rgba(68,180,176,1) 35%, rgba(69,149,146,1) 10
 
 a {
   font-size: 2dvh !important;
+  visibility: visible;
 }
 
 </style>

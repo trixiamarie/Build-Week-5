@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Book;
@@ -22,30 +23,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        $role = Auth::user()->role_id;
-        $books = Book::with('authors','genres')->get();
-        if ($role == 1) {
+        $user = Auth::user();
+        if ($user->role_id == 1) {
+            // Load admin dashboard
+            $books = Book::with('authors', 'genres')->get();
             return view('dashboardadmin', ['books' => $books]);
-        } elseif ($role == 2) {
+        } else if ($user->role_id == 2) {
+            // Load user dashboard
+            $books = Book::with('authors', 'genres')->get();
             return view('dashboard', ['books' => $books]);
-        } else {
-            abort(403, 'Unauthorized.'); 
         }
+        abort(403, 'Unauthorized action.');
     })->name('dashboard');
 });
-
-// Route::get('/dashboard', function () {
-//     $books = Book::with('authors','genres')->get();
-//     return view('dashboard', ['books' => $books]);
-// })->middleware(['auth', 'role:2'])->name('dashboardutente');
-
-// Route::get('/dashboardadmin', function () {
-//     $books = Book::with('authors','genres')->get();
-//     return view('dashboardadmin', ['books' => $books]);
-// })->middleware(['auth', 'role:1'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -53,14 +45,26 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/book', BookingController::class);
-// Route::resource('/booking', BookingController::class);
-Route::get('/booking/create/{book}', [BookingController::class, 'create'])->name('booking.create');
-Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
-Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+Route::middleware('auth')->group(function () {
+    Route::resource('/author', AuthorController::class);
 
-Route::resource('/author', AuthorController::class);
+    Route::resource('/booking', BookController::class);
+
+    Route::get('/book/create', [BookController::class, 'create'])->name('book.create');
+    Route::post('/book', [BookController::class, 'store'])->name('book.store');
+    Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show');
+    Route::get('/book/{book}/edit', [BookController::class, 'edit'])->name('book.edit');
+    Route::patch('/book/{book}', [BookController::class, 'update'])->name('book.update');
+    Route::delete('/book/{book}', [BookController::class, 'destroy'])->name('book.destroy');
+});
+
+
+// Route::get('/booking/create/{book}', [BookingController::class, 'create'])->name('booking.create');
+// Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+// Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+// Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+
+// Route::resource('/author', AuthorController::class);
 
 
 require __DIR__.'/auth.php';
