@@ -12,9 +12,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::all();
-
-        return view('tuttigliautori',['authors' => $authors]);
+        $authors = Author::all()->loadCount('books');
+        return view('listaautoriadmin', ['authors' => $authors]);
     }
 
     /**
@@ -41,7 +40,7 @@ class AuthorController extends Controller
         ]);
 
         Author::create($data);
-        return redirect()->route('author.show', ['author' => Author::latest()->first()->load('books')]);
+        return redirect()->route('author.show', ['author' => Author::latest()->first()->load('books')])->with('message', 'Autore creato correttamente');
 
     }
 
@@ -76,7 +75,7 @@ class AuthorController extends Controller
             'avatar'=>'required',
         ]);
         $author->update($data);
-        return redirect()->route('author.show', ['author' => $author]);
+        return redirect()->route('author.show', ['author' => $author])->with('message', 'Autore modificato correttamente');
     }
 
     /**
@@ -85,6 +84,6 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('message', 'Autore eliminato correttamente');
     }
 }

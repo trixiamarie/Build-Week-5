@@ -1,6 +1,11 @@
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@font-face {
+    font-family: 'Silka';
+    src: url('{{ asset('fonts/silka.ttf') }}');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .navbar {
   height: 10vh !important;
@@ -11,7 +16,7 @@ background: linear-gradient(90deg, rgba(68,180,176,1) 35%, rgba(69,149,146,1) 10
 
 .navbar .navbar-nav .nav-link {
   color: #e0ebf6 !important;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Silka', sans-serif;
 }
 
 .navbar .navbar-nav .nav-link.active {
@@ -50,22 +55,26 @@ a {
   font-size: 2dvh !important;
 }
 
+.navbar-brand img {
+  width: 16dvh !important;
+}
+
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
   <div class="container-fluid px-5">
     <!-- Logo -->
     <a class="navbar-brand" href="{{ route('dashboard') }}" style="color: #ffffff !important;">
-      <img src="{{ asset('img/logowhite.png') }}" alt="Logo" width="150">
+      <img src="{{ asset('img/logowhite.png') }}" alt="Logo">
     </a>
 
     <!-- Hamburger -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<!--     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
 
     <!-- Navigation Links -->
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+<!--     <div class="collapse navbar-collapse" id="navbarNavDropdown"> -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">{{ __('Home') }}</a>
