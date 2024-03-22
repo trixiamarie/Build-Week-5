@@ -12,13 +12,22 @@
                     {{ __("You're logged in!") }}
                 </div>
 
-                <p>{{$bookings}}</p>
+                <p>{{$bookings[0]}}</p>
 
                 <ul>
                     @foreach($bookings as $booking)
-                    <li>{{ $booking->user }}</li>
-                    <li>{{ $booking->book }}</li>
-                    <!-- Aggiungi altri attributi necessari qui -->
+                    <li>
+                        <p>{{ $booking->user}}</p>
+                        <img src="{{ $booking->books->cover}}" alt="iauydgf" />
+                        <p>Titolo: {{ $booking->books->title}}</p>
+                        <p>Autore: {{ $booking->books->authors->pseudonym}}</p>
+                        <p>Data di ritiro: {{ $booking->collectiondate }}</p>
+                        <p>Data di ritorno: {{$booking->return}} </p>
+                        <form method="post" action="{{route('booking.destroy', ['booking' => $booking])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type='submit' class="btn btn-outline-danger">Cancella Prenotazione</button>
+                        </form>
                     </li>
                     @endforeach
                 </ul>

@@ -30,6 +30,6 @@ class Book extends Model
     }
     public function bookings()
     {
-        return $this->belongsTo(Booking::class, 'book');
+        return $this->hasMany(Booking::class, 'book');
     }
 }

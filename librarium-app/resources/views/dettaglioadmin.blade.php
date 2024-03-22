@@ -1,5 +1,3 @@
-
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -14,11 +12,11 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <p>{{$book}}</p>
-                @if($book->copies > 0)
-                <a href="{{route('booking.create',['book'=>$book->id])}}"><button type="button" class="btn btn-outline-info">Prenotazione</button></a>
-                @else
-                <button type="button" class="btn btn-secondary disabled">Prenotazione non disponibile</button>
-                @endif
+              
+                <a href="{{route('book.edit',['book'=>$book->id])}}"><button type="button" class="btn btn-outline-info">Modifica</button></a>
+
+                <button type="button" class="btn btn-outline-danger">Cancella</button>
+              
             </div>
         </div>
     </div>

@@ -7,6 +7,8 @@ use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class BookingController extends Controller
 {
@@ -20,7 +22,7 @@ class BookingController extends Controller
 
     
     // $myBookings = Booking::where('user', $userId)->get();
-    $myBookings = Booking::where('user', $userId)->with('books')->get();
+    $myBookings = Booking::where('user', $userId)->with('books.authors')->get();
 
     
     return view('imieibooking', ['bookings' => $myBookings]);
@@ -32,7 +34,7 @@ class BookingController extends Controller
     public function create($book)
     {
         $user = Auth::id();
-     $mybook = Book::find($book);
+        $mybook = Book::find($book);
       return view('creaprenotazione', ['book' => $mybook, 'user' => $user]);
     }
 
@@ -57,7 +59,12 @@ class BookingController extends Controller
 
         $booking->save();
 
-        return view('imieibooking');
+        Book::where('id', $request->book)->update([
+            'copies' => DB::raw('copies - 1')
+        ]);
+        
+
+        return redirect()->action([BookingController::class, 'index']);
     }
 
     /**
@@ -89,6 +96,8 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
-        //
+
+        $booking->delete();
+        return redirect()->action([BookingController::class, 'index']);
     }
 }

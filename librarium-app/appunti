@@ -1,3 +1,7 @@
 Le funzioni all'interno dei modelli, vanno chiamati con il nome della tabella a cui si deve collegare, in modo UGUALE
 
  $myBookings = Booking::with('user', 'book')->where('user', $userId)->get();
+
+
+Quando devo collegare i risultati di una tabella relazionale, devo accederci con il . e ritorna un array
+ $myBookings = Booking::where('user', $userId)->with('books.authors')->get();
