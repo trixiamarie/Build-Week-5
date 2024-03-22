@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('lastname');
-            $table->string('pseudonym');
+            $table->string('pseudonym')->unique();
             $table->date('birthday');
             $table->string('city');
             $table->text('bio');

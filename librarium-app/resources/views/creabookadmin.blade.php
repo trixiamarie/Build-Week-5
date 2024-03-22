@@ -1,34 +1,33 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Create a Book') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <form action="{{route('book.update', ['book' => $book])}}" method="POST">
+            <form action="{{route('book.store')}}" method="POST">
                 @csrf
                 @method('PATCH')
-                <input type="hidden" name="id" value="{{$book->id}}">
                 <label for="cover">Cover Image URL:</label><br>
-                <input type="text" id="cover" name="cover" value="{{$book->cover}}"><br>
+                <input type="text" id="cover" name="cover" ><br>
                 
                 <label for="title">Title:</label><br>
-                <input type="text" id="title" name="title" value="{{$book->title}}"><br>
+                <input type="text" id="title" name="title" "><br>
                 
                 <label for="released">Released Date:</label><br>
-                <input type="date" id="released" name="released" value="{{$book->released}}"><br>
+                <input type="date" id="released" name="released"><br>
                 
                 <label for="publisher">Publisher:</label><br>
-                <input type="text" id="publisher" name="publisher" value="{{$book->publisher}}"><br>
+                <input type="text" id="publisher" name="publisher"><br>
                 
                 <label for="plot">Plot Summary:</label><br>
-                <textarea id="plot" name="plot" rows="4" cols="50">{{$book->plot}}</textarea><br>
+                <textarea id="plot" name="plot" rows="4" cols="50"></textarea><br>
                 
                 <label for="isbn">ISBN:</label><br>
-                <input type="text" id="isbn" name="isbn" value="{{$book->isbn}}"><br>
+                <input type="text" id="isbn" name="isbn"><br>
                 
                 <label for="author">Author:</label><br>
                 <select id="author" name="author">
@@ -45,7 +44,7 @@
                 </select><br>
                 
                 <label for="copies">Number of Copies:</label><br>
-                <input type="number" id="copies" name="copies" value="{{$book->copies}}"><br>
+                <input type="number" id="copies" name="copies"><br>
                 
                 <label for="category">Category:</label><br>
                 <input type="text" id="category" name="category" value="All"><br>

@@ -20,7 +20,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('creaautoreadmin');
     }
 
     /**
@@ -28,7 +28,19 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->validate([
+            'name'=>'required|max:255',
+            'lastname'=>'required|max:255',
+            'pseudonym'=>'required|max:255',
+            'birthday'=>'required|date',
+            'city' => 'required|string',
+            'bio' => 'required|string',
+            'avatar'=>'required',
+        ]);
+
+        Author::create($data);
+        return redirect()->route('author.show', ['author' => Author::latest()->first()->load('books')]);
+
     }
 
     /**
@@ -36,7 +48,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return view('dettaglioautoreadmin', ['author' => $author]);
     }
 
     /**
@@ -44,7 +56,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('formeditautore', ['author' => $author]);
     }
 
     /**
@@ -52,7 +64,17 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        //
+        $data=$request->validate([
+            'name'=>'required|max:255',
+            'lastname'=>'required|max:255',
+            'pseudonym'=>'required|max:255',
+            'birthday'=>'required|date',
+            'city' => 'required|string',
+            'bio' => 'required|string',
+            'avatar'=>'required',
+        ]);
+        $author->update($data);
+        return redirect()->route('author.show', ['author' => $author]);
     }
 
     /**
@@ -60,6 +82,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->route('dashboard');
     }
 }

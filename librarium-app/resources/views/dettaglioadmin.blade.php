@@ -13,10 +13,13 @@
                 </div>
                 <p>{{$book}}</p>
               
-                <a href="{{route('book.edit',['book'=>$book->id])}}"><button type="button" class="btn btn-outline-info">Modifica</button></a>
+                <a href="{{route('book.edit',['book'=>$book])}}"><button type="button" class="btn btn-outline-info">Modifica</button></a>
 
-                <button type="button" class="btn btn-outline-danger">Cancella</button>
-              
+                <form action="{{route('book.destroy',['book'=>$book])}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-outline-danger">Cancella</button>
+                </form>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
@@ -11,7 +12,7 @@ Route::post('/booking', [BookingController::class, 'store'])->name('booking.stor
 Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
 Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
 
-
+Route::resource('/author', AuthorController::class);
 
 // Route::get('/progetti/{id}', [ProgettoController::class, 'show'])->name('dettaglioprogetto');
 // Route::post('/nuovoprogetto',[ProgettoController::class, 'store'])->name('salvaprogetto');

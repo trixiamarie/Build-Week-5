@@ -23,7 +23,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $authors = Author::all();
+        $genres = Genre::all();
+        return view('creabookadmin', ['authors' => $authors, 'genres' => $genres]);    
     }
 
     /**
@@ -41,7 +43,7 @@ class BookController extends Controller
     {
         $userrole = Auth::user()->role_id;
        
-
+        
         if($userrole == 1){
             return view('dettaglioadmin',['book'=>$book]);
         } else if ($userrole == 2){
@@ -64,32 +66,34 @@ class BookController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Book $book)
-    {
-        $validatedData = $request->validate([
-            'cover' => 'required|string',
-            'title' => 'required|string',
-            'released' => 'required|date',
-            'publisher' => 'required|string',
-            'plot' => 'required|string',
-            'isbn' => 'required|string|unique:books,isbn',
-            'author' => 'required|exists:authors,id',
-            'genre' => 'required|exists:genres,id',
-            'copies' => 'required|integer',
-            'category' => 'required|string',
-        ]);
-    
-        $bookUPDATE = Book::update($validatedData);
+{
+    $validatedData = $request->validate([
+        'cover' => 'required|string',
+        'title' => 'required|string',
+        'released' => 'required|date',
+        'publisher' => 'required|string',
+        'plot' => 'required|string',
+        'isbn' => 'required|string|unique:books,isbn,' . $book->id,
+        'author' => 'required|exists:authors,id',
+        'genre' => 'required|exists:genres,id',
+        'copies' => 'required|integer',
+        'category' => 'required|string',
+    ]);
 
-        $books = Book::with('authors','genres')->get();
-    
-        return view('dashboardadmin', ['books' => $books]);
-    }
+    $book->update($validatedData);
+
+    $books = Book::with('authors', 'genres')->get();
+
+    return redirect()->route('book.show', ['book' => $book->id, 'books' => $books]);
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect()->route('dashboard');
     }
 }
