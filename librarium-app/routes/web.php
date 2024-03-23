@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $books = Book::all();
+    return view('welcome')->with('books', $books);
 });
 
 Route::middleware('auth')->group(function () {
