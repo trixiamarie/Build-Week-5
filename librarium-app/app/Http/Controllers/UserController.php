@@ -15,8 +15,14 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+
+        if (request()->expectsJson()) {
+            return response()->json($users);
+        }
+
         return view('userlist', ['users' => $users]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +45,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('userdettaglio',['user'=>$user]);
+        return view('userdettaglio', ['user' => $user]);
     }
 
     /**
@@ -47,39 +53,39 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles=Role::all();
+        $roles = Role::all();
 
-        return view('edituseradmin',['user' => $user, 'roles' => $roles]);
+        return view('edituseradmin', ['user' => $user, 'roles' => $roles]);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $user)
-{
-    
-    $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'lastname' => ['required', 'string', 'max:255'],
-        'city' => ['required', 'string', 'max:255'],
-        'dateofbirth' => ['required', 'date'],
-        'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-        'role' => ['required', 'exists:roles,id'], // Assicurati che il ruolo esista nel database
-    ]);
+    {
 
-    
-    $user->update([
-        'name' => $request->name,
-        'lastname' => $request->lastname,
-        'city' => $request->city,
-        'dateofbirth' => $request->dateofbirth,
-        'email' => $request->email,
-        'role_id' => $request->role,
-    ]);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'dateofbirth' => ['required', 'date'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'role' => ['required', 'exists:roles,id'], // Assicurati che il ruolo esista nel database
+        ]);
 
-    
-    return redirect()->route('user.show', $user->id)->with('success', 'Profilo aggiornato con successo.');
-}
+
+        $user->update([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'city' => $request->city,
+            'dateofbirth' => $request->dateofbirth,
+            'email' => $request->email,
+            'role_id' => $request->role,
+        ]);
+
+
+        return redirect()->route('user.show', $user->id)->with('success', 'Profilo aggiornato con successo.');
+    }
 
 
     /**
@@ -87,8 +93,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-     $user->destroy($user->id);
-    
-     return redirect()->route('user.index');
+        $user->destroy($user->id);
+
+        return redirect()->route('user.index');
     }
 }

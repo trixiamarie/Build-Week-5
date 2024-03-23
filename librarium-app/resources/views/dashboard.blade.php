@@ -158,7 +158,7 @@ div > img {
                     <div class="row">
                         <div class="col-md-6 carouseldata">
                             <h5 class="pb-2">{{ $book->title }}</h5>
-                            <h6 class="pb-2">{{ $book->authors->name }} {{ $book->authors->lastname }}</h6>
+                            <h6 class="pb-2">{{ $book->authors->pseudonym}}</h6>
                             <p>{{ $book->plot }}</p>
                         </div>
                         <div class="col-md-6 carouselimagediv">

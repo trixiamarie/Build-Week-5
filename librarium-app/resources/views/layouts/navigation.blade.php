@@ -80,13 +80,29 @@ a {
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">{{ __('Home') }}</a>
         </li>
+        @if(Auth::user() && Auth::user()->id === 2)
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
         </li>
+        @elseif (Auth::user() && Auth::user()->id === 1)
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Utenti') }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Libri') }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Autori') }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Generi') }}</a>
+        </li>
+        @endif
       </ul>
 
       <!-- Settings Dropdown -->
       <ul class="navbar-nav">
+        @if(Auth::user())
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ Auth::user()->name }}
@@ -105,6 +121,14 @@ a {
             </li>
           </ul>
         </li>
+        @else
+        <a class="nav-link " href="/login"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{  __('LogIn') }}
+          </a>
+          <a class="nav-link " href="/register"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{  __('Register') }}
+          </a>
+        @endif
       </ul>
     </div>
   </div>
