@@ -12,7 +12,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genre::all();
+        return view('listgenresadmin', ['genres' => $genres]);
     }
 
     /**
@@ -36,7 +37,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        //
+        return view('dettagliogenreadmin',['genre' => $genre]);
     }
 
     /**
@@ -60,6 +61,7 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return redirect(route('genre.index'));
     }
 }

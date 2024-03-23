@@ -45,19 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::resource('/author', AuthorController::class);
-
-    Route::resource('/booking', BookController::class);
-
-    Route::get('/book/create', [BookController::class, 'create'])->name('book.create');
-    Route::post('/book', [BookController::class, 'store'])->name('book.store');
-    Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show');
-    Route::get('/book/{book}/edit', [BookController::class, 'edit'])->name('book.edit');
-    Route::patch('/book/{book}', [BookController::class, 'update'])->name('book.update');
-    Route::delete('/book/{book}', [BookController::class, 'destroy'])->name('book.destroy');
-});
-
 
 // Route::get('/booking/create/{book}', [BookingController::class, 'create'])->name('booking.create');
 // Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');

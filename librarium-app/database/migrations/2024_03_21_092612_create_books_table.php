@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('plot');
             $table->bigInteger('isbn');
             $table->foreignId('author')->constrained('authors')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('genre')->constrained('genres')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('genre')->nullable()->constrained('genres')->onUpdate('cascade')->onDelete('set null');
             $table->bigInteger('copies')->default(5);
             $table->string('category')->default('All');
             $table->timestamps();

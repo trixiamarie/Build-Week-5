@@ -80,22 +80,22 @@ a {
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">{{ __('Home') }}</a>
         </li>
-        @if(Auth::user() && Auth::user()->id === 2)
+        @if(Auth::user() && Auth::user()->role_id === 2)
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
         </li>
-        @elseif (Auth::user() && Auth::user()->id === 1)
+        @elseif (Auth::user() && Auth::user()->role_id === 1)
         <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Utenti') }}</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('user.index') }}">{{ __('Utenti') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Libri') }}</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('book.index') }}">{{ __('Libri') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Autori') }}</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('author.index') }}">{{ __('Autori') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Generi') }}</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('genre.index') }}">{{ __('Generi') }}</a>
         </li>
         @endif
       </ul>

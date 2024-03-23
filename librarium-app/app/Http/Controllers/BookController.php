@@ -15,7 +15,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+
+    $books = Book::all();
+     return view('listabooksadmin',['books' => $books]);
     }
 
     /**
