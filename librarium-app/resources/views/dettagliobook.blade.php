@@ -1,24 +1,106 @@
+<style>
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Silka', sans-serif !important;
+}
 
+.btn-custom {
+    background-color: #44b4b0 !important;
+    color: white !important;
+    transition: background-color 0.5s ease !important;
+}
+
+.btn-custom:hover {
+    background-color: #216b5a !important;
+}
+
+body::after {
+            content: "";
+            background: url("{{$book->cover}}");
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            filter: blur(20px);
+        }
+</style>
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-                <p>{{$book}}</p>
+<div class="card mb-3 mx-auto" style="max-width: 800px; margin-top: 50px; background-color: #f8f9fa">
+    <div class="row g-0">
+        <div class="col-md-4">
+        <img src="{{$book->cover}}" class="img-fluid rounded-start" alt="{{$book->title}}">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+                <h5 class="card-title fs-1">{{$book->title}}</h5>
+                <p class="card-text mt-2"><small class="text-muted">Pubblicato da {{$book->publisher}} il {{$book->released}}</small></p>
+                <p class="card-text mt-4">{{$book->plot}}</p>
+                <p class="card-text mt-4"><strong>Autore:</strong> {{$book->authors->name}} {{$book->authors->lastname}}</p>
+                <p class="card-text mt-4"><strong>Genere:</strong> {{$book->genres->name}}</p>
                 @if($book->copies > 0)
-                <a href="{{route('booking.create',['book'=>$book->id])}}"><button type="button" class="btn btn-outline-info">Prenotazione</button></a>
+                    <a href="{{route('booking.create',['book'=>$book->id])}}" class="btn btn-custom mt-4">Prenota</a>
                 @else
-                <button type="button" class="btn btn-secondary disabled">Prenotazione non disponibile</button>
+                    <button type="button" class="btn btn-secondary disabled mt-4">Prenotazione non disponibile</button>
                 @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3>Recensioni</h3>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome User</h5>
+                        <p class="card-text">Commento</p>
+                        <div>
+
+
+                                <i class="bi bi-star-fill text-warning"></i>
+
+                                <i class="bi bi-star text-secondary"></i>
+
+
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3>Altri libri dello stesso autore</h3>
+            <div class="carousel">
+                @foreach($sameAuthorBooks as $book)
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{$book->cover}}" class="card-img-top" alt="{{$book->title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$book->title}}</h5>
+                            <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-primary">Vedi dettagli</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3>Altri libri dello stesso genere</h3>
+            <div class="carousel">
+                @foreach($sameGenreBooks as $book)
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{$book->cover}}" class="card-img-top" alt="{{$book->title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$book->title}}</h5>
+                            <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-primary">Vedi dettagli</a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
