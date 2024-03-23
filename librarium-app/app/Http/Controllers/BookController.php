@@ -53,16 +53,18 @@ class BookController extends Controller
      * Display the specified resource.
      */
     public function show(Book $book)
-    {
-        $userrole = Auth::user()->role_id;
-    
-        if($userrole == 1){
-            return view('dettaglioadmin',['book'=>$book->load('authors', 'genres')]);
-        } else if ($userrole == 2){
-            return view('dettagliobook',['book'=>$book->load('authors', 'genres')]);
-        }
-    }
+{
+    $userrole = Auth::user()->role_id;
+    $book = $book->load('authors', 'genres');
+    $sameAuthorBooks = Book::where('author', $book->authors->id)->get();
+    $sameGenreBooks = Book::where('genre', $book->genres->id)->get();
 
+    if($userrole == 1){
+        return view('dettaglioadmin', compact('book', 'sameAuthorBooks', 'sameGenreBooks'));
+    } else if ($userrole == 2){
+        return view('dettagliobook', compact('book', 'sameAuthorBooks', 'sameGenreBooks'));
+    }
+}
     /**
      * Show the form for editing the specified resource.
      */
