@@ -1,64 +1,68 @@
 <style>
 
 @font-face {
-    font-family: 'Silka';
-    src: url('{{ asset('fonts/silka.ttf') }}');
-    font-weight: normal;
-    font-style: normal;
-}
+        font-family: "Silka";
+        src: url("{{ asset('fonts/Silka.ttf') }}");
+        font-weight: normal;
+        font-style: normal;
+    }
 
-.navbar {
-  height: 10vh !important;
-  transition: box-shadow 0.5s ease;
-  background: rgb(68,180,176);
-background: linear-gradient(90deg, rgba(68,180,176,1) 35%, rgba(69,149,146,1) 100%);
-}
+    .navbar {
+        height: 10vh !important;
+        transition: box-shadow 0.5s ease;
+        background: rgb(68, 180, 176);
+        background: linear-gradient(
+            90deg,
+            rgba(68, 180, 176, 1) 35%,
+            rgba(69, 149, 146, 1) 100%
+        );
+    }
 
-.navbar .navbar-nav .nav-link {
-  color: #e0ebf6 !important;
-  font-family: 'Silka', sans-serif;
-}
+    .navbar .navbar-nav .nav-link {
+        color: #e0ebf6 !important;
+        font-family: "Silka", sans-serif;
+    }
 
-.navbar .navbar-nav .nav-link.active {
-  color: #ffffff !important;
-}
+    .navbar .navbar-nav .nav-link.active {
+        color: #ffffff !important;
+    }
 
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link:focus,
-.navbar .navbar-nav .nav-link.active {
-  color: #ffffff !important;
-}
+    .navbar .navbar-nav .nav-link:hover,
+    .navbar .navbar-nav .nav-link:focus,
+    .navbar .navbar-nav .nav-link.active {
+        color: #ffffff !important;
+    }
 
-.navbar-nav .dropdown-menu {
-  background-color: #ffffff !important;
-}
+    .navbar-nav .dropdown-menu {
+        background-color: #ffffff !important;
+    }
 
-.navbar-nav .dropdown-menu .dropdown-item {
-    color: #3d4145 !important;
-}
+    .navbar-nav .dropdown-menu .dropdown-item {
+        color: #3d4145 !important;
+    }
 
-.navbar-nav .dropdown-menu .dropdown-item:hover {
-  background-color: #ffffff !important;
-  color: #44b4b0 !important;
-}
+    .navbar-nav .dropdown-menu .dropdown-item:hover {
+        background-color: #ffffff !important;
+        color: #44b4b0 !important;
+    }
 
-.navbar .navbar-nav .dropdown-toggle {
-  color: #e0ebf6 !important;
-}
+    .navbar .navbar-nav .dropdown-toggle {
+        color: #e0ebf6 !important;
+    }
 
-.navbar .navbar-nav .dropdown-toggle:hover,
-.navbar .navbar-nav .dropdown-toggle:focus {
-  color: #ffffff !important;
-}
+    .navbar .navbar-nav .dropdown-toggle:hover,
+    .navbar .navbar-nav .dropdown-toggle:focus {
+        color: #ffffff !important;
+    }
 
-a {
-  font-size: 2dvh !important;
-  visibility: visible;
-}
+    a {
+        font-size: 2dvh !important;
+        visibility: visible;
+    }
 
-.navbar-brand img {
-  width: 16dvh !important;
-}
+    .navbar-brand img {
+        width: 16dvh !important;
+    }
 
 </style>
 
@@ -70,12 +74,12 @@ a {
     </a>
 
     <!-- Hamburger -->
-<!--     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button> -->
+    </button>
 
     <!-- Navigation Links -->
-<!--     <div class="collapse navbar-collapse" id="navbarNavDropdown"> -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">{{ __('Home') }}</a>

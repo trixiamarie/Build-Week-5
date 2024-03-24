@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/welcome', function () {
+    $books = Book::all();
+    return view('welcome')->with('books', $books);
+});
+
 Route::get('/', function () {
     $books = Book::all();
     return view('welcome')->with('books', $books);

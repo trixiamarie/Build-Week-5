@@ -32,16 +32,20 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="d-flex justify-content-between align-items-center">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                <a href="{{ route('password.request') }}" style="font-size: 1.5dvh; margin-top: 2dvh !important;">
+                    {{ __('Password dimenticata?') }}
                 </a>
             @endif
 
-            <button class=" px-3 text-white rounded ms-3" style="background-color:#45A4A0;">
-                {{ __('Log in') }}
-            </button>
+            @php
+    $buttonText = 'Accedi';
+@endphp
+
+<button class="btn btn-custom w-50">
+    {{ __($buttonText) }}
+</button>
         </div>
     </form>
 </x-guest-layout>
