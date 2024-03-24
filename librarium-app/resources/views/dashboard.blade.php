@@ -26,8 +26,12 @@ h1 {
 }
 
 .hero > h1 {
-    padding-left: 110dvh;
-    margin-bottom: -7dvh;
+    z-index: 3;
+    position: absolute; 
+    left: 0;
+    right: 0; 
+    text-align: center;
+    transform: translateY(80%);
 }
 
 .carouseldata {
@@ -68,13 +72,13 @@ h1 {
 }
 
 #bookCarousel {
-    height: 91vh !important;
+    height: 90vh !important;
     display: flex !important;
     justify-content: center !important;
     background-color: rgba(33, 107, 90, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(33, 107, 90, 0.3);
-    z-index: 1000;
+    z-index: 2;
 }
 
 .hero > img,
@@ -162,14 +166,17 @@ div > img {
     transition: background-image 2s ease-in-out;
 }
 
+.text-sm {
+    display: none;
+}
 
 </style>
 
 <x-app-layout>
 
 <div class="hero pb-6">
-    <h1>Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
-    <div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
+    <h1>Bentornatǝ {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+    <div id="bookCarousel" class="carousel slide pt-6" data-bs-ride="carousel">
         <div class="carousel-inner d-flex align-items-center">
             @foreach ($books as $index => $book) 
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" data-cover="{{ $book->cover }}">
@@ -198,17 +205,15 @@ div > img {
     <div id="backgroundImage"></div>
 </div>
 
-
-
 <div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
   <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
   <input type="text" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
 </div>
 
-<div class="py-12">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                @foreach($books->shuffle() as $book)
+            <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen">
+            @foreach($books->shuffle() as $book)
                 <div class="col">
                     <div class="card h-100">
                         <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
@@ -222,9 +227,13 @@ div > img {
                 </div>
                 @endforeach
             </div>
-        </div>
+            <div class="d-flex justify-content-center py-6">
         {{ $books->links() }}
     </div>
+
+</div>
+
+<div class="circles"></div>
 
 </x-app-layout>
 
@@ -255,4 +264,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 </script>
