@@ -82,7 +82,10 @@ a {
         </li>
         @if(Auth::user() && Auth::user()->role_id === 2)
         <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Le mie prenotazioni') }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Le mie recensioni') }}</a>
         </li>
         @elseif (Auth::user() && Auth::user()->role_id === 1)
         <li class="nav-item">
@@ -96,6 +99,9 @@ a {
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('genre.index') }}">{{ __('Generi') }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Recensioni') }}</a>
         </li>
         @endif
       </ul>

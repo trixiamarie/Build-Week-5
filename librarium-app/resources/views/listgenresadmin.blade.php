@@ -2,8 +2,9 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Genres') }}
+            {{ __('Generi') }}
         </h2>
+        <a href="{{route('genre.create')}}"><button type="button" class="btn btn-outline-info">Crea Genere</button"></a>
     </x-slot>
 
     <div class="py-12">

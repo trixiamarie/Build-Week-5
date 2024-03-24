@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -12,7 +13,16 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $userrole = Auth::user()->role_id;
+
+        if ($userrole === 1) {
+            $reviews = Review::with('user', 'book')->orderBy('created_at', 'desc')->get();
+            return view('listarecensioniadmin', ['reviews' => $reviews]);
+        } else {
+            $userId = Auth::user()->id;
+            $reviews = Review::with('user', 'book.authors')->where('user_id', $userId)->get();
+            return view('listarecensioni', ['reviews' => $reviews]);
+        }
     }
 
     /**
@@ -20,7 +30,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        // return view('reviews.create');
     }
 
     /**
@@ -28,7 +38,25 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'review' => 'required|string',
+            'rating' => 'required|integer|min:1|max:5',
+            'book_id' => 'required|exists:books,id',
+        ]);
+
+        $review = new Review();
+        $review->user_id = auth()->id(); 
+        $review->book_id = $validatedData['book_id'];
+        $review->title = $validatedData['title'];
+        $review->review = $validatedData['review'];
+        $review->rating = $validatedData['rating'];
+
+        
+        $review->save();
+
+        
+        // return redirect()->route('reviews.index')->with('success', 'Recensione creata con successo!');
     }
 
     /**
@@ -44,7 +72,7 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        //
+        return view('reviews.edit', compact('review'));
     }
 
     /**
@@ -52,7 +80,21 @@ class ReviewController extends Controller
      */
     public function update(Request $request, Review $review)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'review' => 'required|string',
+            'rating' => 'required|integer|min:1|max:5',
+            'book_id' => 'required|exists:books,id',
+        ]);
+
+        $review->title = $validatedData['title'];
+        $review->review = $validatedData['review'];
+        $review->rating = $validatedData['rating'];
+        $review->book_id = $validatedData['book_id'];
+
+        $review->save();
+
+        // return redirect()->route('reviews.index')->with('success', 'Recensione aggiornata con successo!');
     }
 
     /**
@@ -60,6 +102,8 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        $review->delete();
+
+        // return redirect()->route('reviews.index')->with('success', 'Recensione eliminata con successo!');
     }
 }

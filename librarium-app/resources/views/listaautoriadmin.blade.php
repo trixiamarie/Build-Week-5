@@ -2,8 +2,9 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Authors') }}
+            {{ __('Autori') }}
         </h2>
+        <a href="{{route('author.create')}}"><button type="button" class="btn btn-outline-info">Crea Autore</button"></a>
     </x-slot>
 
     <div class="py-12">

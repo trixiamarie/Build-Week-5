@@ -58,7 +58,7 @@ class BookController extends Controller
     public function show(Book $book)
 {
     $userrole = Auth::user()->role_id;
-    $book = $book->load('authors', 'genres');
+    $book = $book->load('authors', 'genres', 'reviews.user');
     $sameAuthorBooks = Book::where('author', $book->authors->id)->get();
     $sameGenreBooks = Book::where('genre', $book->genres->id)->get();
 

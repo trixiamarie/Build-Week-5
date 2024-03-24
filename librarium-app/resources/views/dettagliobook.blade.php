@@ -81,22 +81,21 @@
         <div class="row mt-5 bg-white">
             <div class="col-12">
                 <h3>Recensioni</h3>
-
+                @foreach($book->reviews as $review)
                 <div class="card mb-3 bg-white">
                     <div class="card-body">
-                        <h5 class="card-title">Nome User</h5>
-                        <p class="card-text">Commento</p>
+                        <h5 class="card-title">{{$review->title}}</h5>
+                        <p class="card-text">{{$review->review}}</p>
                         <div>
-
-
-                            <i class="bi bi-star-fill text-warning"></i>
-
-                            <i class="bi bi-star text-secondary"></i>
-
-
+                            <p>{{$review->rating}}/5</p>
+                            @for ($i = 0; $i < $review->rating; $i++)
+                                <i class="bi bi-star-fill text-warning"></i>
+                            @endfor
                         </div>
+                        <p>scritto da: {{$review->user->name}} {{$review->user->lastname}}</p>
                     </div>
                 </div>
+                @endforeach
 
             </div>
         </div>

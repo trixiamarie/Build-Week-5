@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/user', UserController::class);
 
     Route::resource('/genre', GenreController::class);
+
+    Route::resource('/review', ReviewController::class);
 });
 
 

@@ -21,7 +21,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+      return view('creagenereadmin');
     }
 
     /**
@@ -29,7 +29,16 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|unique:genres',
+        ]);
+
+        $genre = new Genre();
+        $genre->name = $validatedData['name'];
+
+        $genre->save();
+
+        return redirect()->route('genre.index')->with('success', 'Genere creato con successo!');
     }
 
     /**
@@ -45,7 +54,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        return view('editgenereadmin', ['genre' => $genre]);
     }
 
     /**
@@ -53,7 +62,15 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|unique:genres,name,' . $genre->id,
+        ]);
+    
+        $genre->name = $validatedData['name'];
+        
+        $genre->save();
+    
+        return redirect()->route('genre.index')->with('success', 'Genere aggiornato con successo!');
     }
 
     /**
