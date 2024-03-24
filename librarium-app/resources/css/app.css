@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 #action-message {
-    transition: opacity 2s ease-in-out !important;
-    opacity: 0 !important;
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
 }
 
 #action-message.show {
-    opacity: 1 !important;
+    opacity: 1;
 }

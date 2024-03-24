@@ -106,14 +106,13 @@
     <body>
     <div class="container">
     <div class="glass-effect">
-        <h2>Librarium</h2>
-        <p>BOOKS FOR ALL AGES</p>
+        <img src="{{ asset('img/logowhite.png') }}" alt="logo" style="width: 50dvh">
         <div class="row text-center">
             <div class="col">
-                <a href="/register"><button type="button" class="btn btn-custom w-75">Registrati</button></a>
+                <a href="/register"><button type="button" class="btn btn-custom w-50" style="height: 4dvh">Registrati</button></a>
             </div>
             <div class="col">
-                <a href="/login"><button type="button" class="btn btn-custom w-75">Accedi</button></a>
+                <a href="/login"><button type="button" class="btn btn-custom w-50" style="height: 4dvh">Accedi</button></a>
             </div>
         </div>
     </div>

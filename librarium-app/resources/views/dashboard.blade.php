@@ -12,7 +12,7 @@ p {
 }
 
 .hero {
-    height: 90vh;
+    height: 50vh;
     background: rgb(68,180,176);
     background: linear-gradient(90deg, rgba(68,180,176,1) 35%, rgba(69,149,146,1) 100%);
 }
@@ -23,6 +23,11 @@ h1 {
     font-size: 5dvh !important;
     font-family: 'Silka', sans-serif;
     position: relative;
+}
+
+.hero > h1 {
+    padding-left: 110dvh;
+    margin-bottom: -7dvh;
 }
 
 .carouseldata {
@@ -51,12 +56,7 @@ h1 {
 }
 
 .carouselimage {
-    width: 40dvh !important;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    display: none !important;
+    box-shadow: 0px 0px 10px #00000070;
 }
 
 .carouselimagediv {
@@ -68,19 +68,24 @@ h1 {
 }
 
 #bookCarousel {
-    background-color: #224E4C !important;
-    height: 74vh !important;
+    height: 91vh !important;
     display: flex !important;
     justify-content: center !important;
-}
-
-#bookCarousel {
-    position: relative;
+    background-color: rgba(33, 107, 90, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(33, 107, 90, 0.3);
+    z-index: 1000;
 }
 
 .hero > img,
 div > img {
-    width: 100%;
+    max-width: 32vh !important; 
+    max-height: 50vh !important;
+
+}
+
+.svg {
+
 }
 
 .hero > img {
@@ -144,25 +149,38 @@ div > img {
         visibility: visible;
     }
 
+    #backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(30%);
+    transition: background-image 2s ease-in-out;
+}
+
+
 </style>
 
 <x-app-layout>
 
 <div class="hero pb-6">
-    <h1 class="py-6">Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
-    <img src="{{ asset('img/wave.svg') }}" alt="Descrizione dell'immagine SVG" style="margin-top: -20dvh;">
+    <h1>Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
     <div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            @foreach ($books as $index => $book)
-                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+        <div class="carousel-inner d-flex align-items-center">
+            @foreach ($books as $index => $book) 
+                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" data-cover="{{ $book->cover }}">
                     <div class="row">
-                        <div class="col-md-6 carouseldata">
+                        <div class="col-md-6 carouseldata" data-color="{{ $book->color }}">
                             <h5 class="pb-2">{{ $book->title }}</h5>
                             <h6 class="pb-2">{{ $book->authors->pseudonym}}</h6>
                             <p>{{ $book->plot }}</p>
                         </div>
                         <div class="col-md-6 carouselimagediv">
-                            <img src="{{ $book->cover }}" class="d-block carouselimage" alt="{{ $book->title }}">
+                            <img src="{{ $book->cover }}" class="d-block carouselimage rounded" alt="{{ $book->title }}">
                         </div>
                     </div>
                 </div>
@@ -177,12 +195,12 @@ div > img {
             <span class="visually-hidden">Successivo</span>
         </button>
     </div>
-    <div style="transform: rotate(180deg); margin-top: -1dvh;">
-        <img src="{{ asset('img/wave.svg') }}" alt="Descrizione dell'immagine SVG">
-    </div>
+    <div id="backgroundImage"></div>
 </div>
 
-<div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 27dvh !important;">
+
+
+<div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
   <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
   <input type="text" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
 </div>
@@ -209,3 +227,32 @@ div > img {
     </div>
 
 </x-app-layout>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    let carousel = document.querySelector('#bookCarousel');
+    let backgroundImage = document.querySelector('#backgroundImage');
+    let isTransitioning = false;
+    let initialItem = document.querySelector('.carousel-item.active');
+
+    if (initialItem) {
+        let initialCover = initialItem.dataset.cover;
+        backgroundImage.style.backgroundImage = 'url(' + initialCover + ')';
+    }
+
+    carousel.addEventListener('slid.bs.carousel', function () {
+        if (!isTransitioning) {
+            let activeItem = document.querySelector('.carousel-item.active');
+            if (activeItem) { 
+                let cover = activeItem.dataset.cover;
+                isTransitioning = true;
+                backgroundImage.style.backgroundImage = 'url(' + cover + ')';
+                setTimeout(function() {
+                    isTransitioning = false;
+                }, 1000);
+            }
+        }
+    });
+});
+</script>
