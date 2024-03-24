@@ -16,6 +16,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="{{ asset('js/app.js') }}"></script>
+
+        <!-- Styles -->
+        <style>
+            .glass-effect {
+    background-color: rgba(33, 107, 90, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(33, 107, 90, 0.3);
+    padding: 5dvh !important;
+    z-index: 1000;
+}
+            </style>
     </head>
     <body class="font-sans antialiased">
         <div class="bg-gray-100">
