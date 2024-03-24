@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Recensioni') }}
+            {{ __('Prenotazioni') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -12,11 +12,12 @@
                     
                     @foreach ($reviews as $review)
                     <p class="p-6 bg-white border-b border-gray-200">{{$review}}</p>
-                    <form action="{{route('review.destroy',['review'=>$review])}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger">Cancella</button>
-                    </form>
+                    <form method="POST" action="{{ route('review.destroy', $review->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="source" value="formadmin">
+                            <button class="btn btn-outline-danger" type="submit">Elimina</button>
+                        </form>
                     @endforeach
                 </div>
             </div>

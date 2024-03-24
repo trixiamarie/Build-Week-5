@@ -13,15 +13,20 @@ class Booking extends Model
         'user',
         'book',
         'collectiondate',
+        'state',
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user');
     }
 
-    public function book(){
-        return $this->hasOne(Book::class);
-    }
+
+
+    // public function book()
+    // {
+    //     return $this->hasOne(Book::class);
+    // }
 
     public function books()
     {

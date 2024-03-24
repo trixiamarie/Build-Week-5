@@ -23,7 +23,11 @@
                                 <p><strong>Voto:</strong> {{ $review->rating }} /5</p>
                                 <div class="flex justify-end mt-4">
                                     <button class="btn btn-outline-info">Modifica</button>
-                                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cancella</button>
+                                    <form method="POST" action="{{ route('review.destroy', $review->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-outline-danger" type="submit">Elimina</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

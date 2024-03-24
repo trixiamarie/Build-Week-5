@@ -27,7 +27,7 @@ class User extends Authenticatable
     ];
 
     protected $attributes = [
-        'role_id' => 2, 
+        'role_id' => 2,
     ];
 
     /**
@@ -60,5 +60,8 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
-    
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'user');
+    }
 }

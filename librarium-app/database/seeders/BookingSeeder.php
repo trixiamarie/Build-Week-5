@@ -23,7 +23,15 @@ class BookingSeeder extends Seeder
             'user' => 2,
             'book' => 2,
             'collectiondate'=>'2024-03-21',
-            'return'=>'2024-04-20'
+            'return'=>'2024-04-20',
+            'state' =>'accettato'
+        ]);
+        Booking::create([
+            'user' => 2,
+            'book' => 3,
+            'collectiondate'=>'2024-03-21',
+            'return'=>'2024-04-20',
+            'state' =>'negato'
         ]);
     }
 }

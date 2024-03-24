@@ -23,6 +23,7 @@
                     <p>Nome: {{$user -> name}}</p>
                     <p>Email: {{ $user->email }}</p>
                     <a href="{{route('user.show',['user' => $user])}}"><button type="button" class="btn btn-outline-info">Info</button></a>
+                    <a href="{{route('user.edit',['user' => $user])}}"><button type="button" class="btn btn-outline-info">Modifica</button></a>
                 </li>
                 @endforeach
             </ul>

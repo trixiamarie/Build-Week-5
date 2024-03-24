@@ -107,6 +107,9 @@
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Recensioni') }}</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
+        </li>
         @endif
       </ul>
 

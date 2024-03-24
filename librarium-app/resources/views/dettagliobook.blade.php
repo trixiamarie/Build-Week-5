@@ -90,14 +90,30 @@
                             <p>{{$review->rating}}/5</p>
                             @for ($i = 0; $i < $review->rating; $i++)
                                 <i class="bi bi-star-fill text-warning"></i>
-                            @endfor
+                                @endfor
                         </div>
+
                         <p>scritto da: {{$review->user->name}} {{$review->user->lastname}}</p>
+                        @if($review->user_id == Auth::user()->id)
+                        <button>Modifica</button>
+                        <form method="POST" action="{{ route('review.destroy', $review->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="source" value="form1">
+                            <input type="hidden" name="bookid" value="{{$book->id}}">
+                            <button class="btn btn-outline-danger" type="submit">Elimina</button>
+                        </form>
+
+                        @endif
                     </div>
                 </div>
                 @endforeach
 
             </div>
+            @if($book->reviews->where('user_id', Auth::user()->id)->isEmpty())
+            @include('partials.nuovarecensione')
+            @endif
+
         </div>
         <div class="row mt-5 bg-white">
             <div class="col-12">

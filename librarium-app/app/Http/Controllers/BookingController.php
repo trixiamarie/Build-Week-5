@@ -17,15 +17,15 @@ class BookingController extends Controller
      */
     public function index()
     {
-       
-    $userId = Auth::id();
+        if (Auth::user()->role_id === 2) {
+            $userId = Auth::id();
+            $myBookings = Booking::where('user', $userId)->with('books.authors')->get();
+            return view('imieibooking', ['bookings' => $myBookings]);
+        } else if (Auth::user()->role_id === 1) {
+            $bookings = Booking::with('users', 'books.authors')->get();
 
-    
-    // $myBookings = Booking::where('user', $userId)->get();
-    $myBookings = Booking::where('user', $userId)->with('books.authors')->get();
-
-    
-    return view('imieibooking', ['bookings' => $myBookings]);
+            return view('listaprenotazioniadmin', ['bookings' => $bookings]);
+        }
     }
 
     /**
@@ -34,8 +34,9 @@ class BookingController extends Controller
     public function create($book)
     {
         $user = Auth::id();
-        $mybook = Book::find($book);
-      return view('creaprenotazione', ['book' => $mybook, 'user' => $user]);
+        $mybook = Book::with('authors')->find($book);
+
+        return view('creaprenotazione', ['book' => $mybook, 'user' => $user]);
     }
 
     /**
@@ -62,7 +63,7 @@ class BookingController extends Controller
         Book::where('id', $request->book)->update([
             'copies' => DB::raw('copies - 1')
         ]);
-        
+
 
         return redirect()->action([BookingController::class, 'index'])->with('message', 'Prenotazione effettuata con successo!');
     }
@@ -87,9 +88,24 @@ class BookingController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Booking $booking)
-    {
-        //
+{
+    $validatedData = $request->validate([
+        'state' => 'required|in:accettato,negato',
+    ]);
+
+    $booking->state = $validatedData['state'];
+    $booking->save();
+
+    if ($validatedData['state'] === 'accettato') {
+        $book = $booking->books;
+
+        if ($book->copies > 0) {
+            $book->decrement('copies');
+        } 
     }
+
+    return back()->with('success', 'Stato del booking aggiornato con successo.');
+}
 
     /**
      * Remove the specified resource from storage.

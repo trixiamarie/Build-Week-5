@@ -18,12 +18,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
     Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+    Route::patch('/booking/{booking}', [BookingController::class, 'update'])->name('booking.update');
 
     Route::resource('/user', UserController::class);
 
     Route::resource('/genre', GenreController::class);
 
     Route::resource('/review', ReviewController::class);
+    Route::post('books/{book}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
 });
 
 

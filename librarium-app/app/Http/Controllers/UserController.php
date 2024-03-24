@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('creautenteadmin');
     }
 
     /**
@@ -37,7 +37,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users|max:255',
+            'password' => 'required|string|min:8|max:255',
+            'dateofbirth' => 'required|date',
+        ]);
+
+        $user = new User([
+            'name' => $validatedData['name'],
+            'lastname' => $validatedData['lastname'],
+            'city' => $validatedData['city'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']), 
+            'dateofbirth' => $validatedData['dateofbirth'],
+        ]);
+
+        $user->save();
+        return redirect(route('user.index'));
     }
 
     /**
@@ -53,7 +72,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::all(); 
+        $roles = Role::all();
 
         return view('edituseradmin', ['user' => $user, 'roles' => $roles]);
     }
@@ -70,7 +89,7 @@ class UserController extends Controller
             'city' => ['required', 'string', 'max:255'],
             'dateofbirth' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'role' => ['required', 'exists:roles,id'], // Assicurati che il ruolo esista nel database
+            'role' => ['required', 'exists:roles,id'], 
         ]);
 
 

@@ -6,6 +6,8 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function Laravel\Prompts\confirm;
+
 class ReviewController extends Controller
 {
     /**
@@ -36,28 +38,28 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'review' => 'required|string',
-            'rating' => 'required|integer|min:1|max:5',
-            'book_id' => 'required|exists:books,id',
-        ]);
+    public function store(Request $request, $book)
+{
+    $validatedData = $request->validate([
+        'title' => 'required|string|max:255',
+        'review' => 'required|string',
+        'rating' => 'required|integer|min:1|max:5',
+    ]);
 
-        $review = new Review();
-        $review->user_id = auth()->id(); 
-        $review->book_id = $validatedData['book_id'];
-        $review->title = $validatedData['title'];
-        $review->review = $validatedData['review'];
-        $review->rating = $validatedData['rating'];
+    $review = new Review();
+    $review->user_id = auth()->id(); 
+    $review->book_id = $book; 
+    $review->title = $validatedData['title'];
+    $review->review = $validatedData['review'];
+    $review->rating = $validatedData['rating'];
 
-        
-        $review->save();
+    
+    $review->save();
 
-        
-        // return redirect()->route('reviews.index')->with('success', 'Recensione creata con successo!');
-    }
+    
+    return redirect()->route('book.show', ['book' => $book])->with('success', 'Recensione creata con successo!');
+}
+
 
     /**
      * Display the specified resource.
@@ -100,10 +102,17 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function destroy(Request $request, Review $review)
     {
+    if ($request->source === 'form1') {
+        $bookId = $request->bookid;
         $review->delete();
-
-        // return redirect()->route('reviews.index')->with('success', 'Recensione eliminata con successo!');
+        return redirect()->route('book.show', ['book' => $bookId])->with('success', 'Recensione eliminata con successo!');
+    }else if($request->source === 'formadmin'){
+        $review->delete();
+        return redirect()->route('review.index')->with('success', 'Recensione eliminata con successo!');
+    }
+    $review->delete();
+    return redirect()->route('review.index');
     }
 }

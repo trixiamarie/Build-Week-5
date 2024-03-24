@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('book')->constrained('books')->onDelete('cascade');
             $table->date('collectiondate');
             $table->date('return');
+            $table->string('state')->default('pending');
             $table->timestamps();
         });
     }
