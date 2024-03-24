@@ -110,10 +110,10 @@
         <p>BOOKS FOR ALL AGES</p>
         <div class="row text-center">
             <div class="col">
-                <button type="button" class="btn btn-custom w-75">Registrati</button>
+                <a href="/register"><button type="button" class="btn btn-custom w-75">Registrati</button></a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-custom w-75">Accedi</button>
+                <a href="/login"><button type="button" class="btn btn-custom w-75">Accedi</button></a>
             </div>
         </div>
     </div>

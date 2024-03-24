@@ -29,11 +29,11 @@ Route::middleware('auth')->group(function () {
         $user = Auth::user();
         if ($user->role_id == 1) {
             // Load admin dashboard
-            $books = Book::with('authors', 'genres')->get();
+            $books = Book::with('authors', 'genres')->paginate(10);
             return view('dashboardadmin', ['books' => $books]);
         } else if ($user->role_id == 2) {
             // Load user dashboard
-            $books = Book::with('authors', 'genres')->get();
+            $books = Book::with('authors', 'genres')->paginate(10);
             return view('dashboard', ['books' => $books]);
         }
         abort(403, 'Unauthorized action.');

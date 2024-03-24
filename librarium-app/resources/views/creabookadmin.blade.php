@@ -12,9 +12,12 @@
                 @csrf
                 <label for="cover">Cover Image URL:</label><br>
                 <input type="text" id="cover" name="cover" ><br>
+
+                <label for="color">Color:</label><br>
+                <input type="text" id="color" name="color"><br>
                 
                 <label for="title">Title:</label><br>
-                <input type="text" id="title" name="title" "><br>
+                <input type="text" id="title" name="title"><br>
                 
                 <label for="released">Released Date:</label><br>
                 <input type="date" id="released" name="released"><br>

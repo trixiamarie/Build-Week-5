@@ -205,6 +205,7 @@ div > img {
                 @endforeach
             </div>
         </div>
+        {{ $books->links() }}
     </div>
 
 </x-app-layout>

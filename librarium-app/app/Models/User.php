@@ -55,5 +55,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     
 }

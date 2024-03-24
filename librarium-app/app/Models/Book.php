@@ -12,6 +12,7 @@ class Book extends Model
     protected $fillable = [
         'title',
         'cover',
+        'color',
         'released',
         'publisher',
         'plot',
@@ -22,14 +23,20 @@ class Book extends Model
         'category',
     ];
 
-    public function authors(){
+    public function authors()
+    {
         return $this->belongsTo(Author::class, 'author');
     }
-    public function genres(){
+    public function genres()
+    {
         return $this->belongsTo(Genre::class, 'genre');
     }
     public function bookings()
     {
         return $this->hasMany(Booking::class, 'book');
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

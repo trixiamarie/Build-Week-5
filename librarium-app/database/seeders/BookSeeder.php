@@ -14,9 +14,9 @@ class BookSeeder extends Seeder
     public function run(): void
     {
         $libri = [
-            // George Orwell
             [
                 'cover' => 'https://cdn.kobo.com/book-images/c9472126-7f96-402d-ba57-5ba4c0f4b238/353/569/90/False/nineteen-eighty-four-1984-george.jpg',
+                'color' =>'#D21116',
                 'title' => '1984',
                 'released' => '1949-06-08',
                 'publisher' => 'Secker & Warburg',
@@ -27,6 +27,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/71rfLwvICQL._SL1500_.jpg',
+                'color' => '#5AC5F3',
                 'title' => 'Animal Farm',
                 'released' => '1945-08-17',
                 'publisher' => 'Secker & Warburg',
@@ -36,8 +37,8 @@ class BookSeeder extends Seeder
                 'genre' => 1,
             ],
             [
-                'cover' => 'https://m.media-amazon.com/images/I/71EoYkXesEL._SL1500_.jpg
-                ',
+                'cover' => 'https://m.media-amazon.com/images/I/71EoYkXesEL._SL1500_.jpg',
+                'color' => '#6D6842',
                 'title' => 'Orgoglio e Pregiudizio',
                 'released' => '1813-01-28',
                 'publisher' => 'T. Egerton, Whitehall',
@@ -49,6 +50,7 @@ class BookSeeder extends Seeder
             [
                 'cover' => 'https://m.media-amazon.com/images/I/81s2Njtv2oL._SL1500_.jpg
                 ',
+                'color' => '#364130',
                 'title' => 'Emma',
                 'released' => '1815-12-23',
                 'publisher' => 'John Murray',
@@ -60,6 +62,7 @@ class BookSeeder extends Seeder
             [
                 'cover' => 'https://m.media-amazon.com/images/I/81uod0Mf4KL._SL1500_.jpg
                 ',
+                'color' => '#F70200',
                 'title' => 'Harry Potter e la Pietra Filosofale',
                 'released' => '1997-06-26',
                 'publisher' => 'Bloomsbury',
@@ -70,6 +73,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/716aYxhlUiL._SL1500_.jpg',
+                'color' => '#C39B55',
                 'title' => 'Harry Potter e la Camera dei Segreti',
                 'released' => '1998-07-02',
                 'publisher' => 'Bloomsbury',
@@ -80,6 +84,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/81sqPftaizL._SL1500_.jpg',
+                'color' => '#929292',
                 'title' => 'Addio alle armi',
                 'released' => '1929-10-05',
                 'publisher' => 'Charles Scribner\'s Sons',
@@ -90,6 +95,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/81Q5sYM4mQL._SL1500_.jpg',
+                'color' => '#5483B9',
                 'title' => 'Il vecchio e il mare',
                 'released' => '1952-09-01',
                 'publisher' => 'Charles Scribner\'s Sons',
@@ -100,6 +106,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/71oWFPril4L._AC_UF1000,1000_QL80_.jpg',
+                'color' => '#A41B23',
                 'title' => 'It',
                 'released' => '1986-09-15',
                 'publisher' => 'Viking Press',
@@ -110,6 +117,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/61JZ-er-i5L._AC_UF1000,1000_QL80_.jpg',
+                'color' => '#533D25',
                 'title' => 'Il miglio verde',
                 'released' => '1996-08-28',
                 'publisher' => 'Scribner',
@@ -120,6 +128,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://m.media-amazon.com/images/I/517LFQ4m0DL.jpg',
+                'color' => '#1D2248',
                 'title' => 'Assassinio sull\'Orient Express',
                 'released' => '1934-01-01',
                 'publisher' => 'Collins Crime Club',
@@ -130,6 +139,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://www.ibs.it/images/8054317086907_0_536_0_75.jpg',
+                'color' => '#C93430',
                 'title' => 'E poi non ne rimase nessuno',
                 'released' => '1939-11-06',
                 'publisher' => 'Collins Crime Club',
@@ -140,6 +150,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://cs.ilgiardinodeilibri.it/data/prod/orig/c/cinquanta-sfumature-grigio-2014.jpg?_=1594027950',
+                'color' => '#4E667F',
                 'title' => 'Cinquanta sfumature di grigio',
                 'released' => '2011-06-20',
                 'publisher' => 'Arrow Books',
@@ -150,6 +161,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'cover' => 'https://www.oscarmondadori.it/content/uploads/2020/04/978880472929HIG-310x480.jpg?x89969',
+                'color' => '#041C31',
                 'title' => 'Cinquanta sfumature di nero',
                 'released' => '2012-04-17',
                 'publisher' => 'Arrow Books',

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GenreSeeder::class);  
         $this->call(BookSeeder::class);  
         $this->call(BookingSeeder::class);  
+        $this->call(ReviewSeeder::class);  
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

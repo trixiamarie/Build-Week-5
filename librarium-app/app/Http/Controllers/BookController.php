@@ -37,6 +37,7 @@ class BookController extends Controller
     {
         $data = $request->validate([
             'cover' => 'required|string',
+            'color' => 'required|string',
             'title' => 'required|string',
             'released' => 'required|date',
             'publisher' => 'required|string',
@@ -84,6 +85,7 @@ class BookController extends Controller
 {
     $validatedData = $request->validate([
         'cover' => 'required|string',
+        'color' => 'required|string',
         'title' => 'required|string',
         'released' => 'required|date',
         'publisher' => 'required|string',

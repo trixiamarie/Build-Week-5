@@ -14,6 +14,9 @@
                 <input type="hidden" name="id" value="{{$book->id}}">
                 <label for="cover">Cover Image URL:</label><br>
                 <input type="text" id="cover" name="cover" value="{{$book->cover}}"><br>
+
+                <label for="color">Color:</label><br>
+                <input type="text" id="color" name="color" value="{{$book->color}}"><br>
                 
                 <label for="title">Title:</label><br>
                 <input type="text" id="title" name="title" value="{{$book->title}}"><br>
