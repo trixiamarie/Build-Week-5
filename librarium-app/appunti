@@ -5,3 +5,9 @@ Le funzioni all'interno dei modelli, vanno chiamati con il nome della tabella a 
 
 Quando devo collegare i risultati di una tabella relazionale, devo accederci con il . e ritorna un array
  $myBookings = Booking::where('user', $userId)->with('books.authors')->get();
+
+
+ Unable to locate file in Vite manifest: resources/js/searchscript.js.
+ @push('scripts')
+ @vite(['resources/js/searchscript.js'])
+ @endpush
