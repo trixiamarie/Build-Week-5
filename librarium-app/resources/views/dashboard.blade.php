@@ -203,24 +203,38 @@
 
     <div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
         <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
-        <input type="text" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
+        <input type="text" id="search" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
+    </div>
+
+    <div class="container text-center">
+        <label for="filterSelect">Filtra per genere </label>
+        <select id="filterSelect" class="filterSelect">
+            <option value="all">tutti</option>
+            @foreach (App\Models\Genre::all() as $genre)
+                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen">
+            <div class='searchResultsArea d-none  paginazionen'>
+                <h2 class="h2 cap "></h2>
+                <div class=" displayBooksArea row row-cols-1 row-cols-md-4 g-4"></div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen shownbooks">
                 @foreach($books->shuffle() as $book)
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
-                        <div class="card-body">
-                            <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
-                            <p class="card-text text-white py-3 fw-bold">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
-                            <p class="card-text text-white pb-3">{{ $book->plot }}</p>
-                            <a href="{{ route('book.show', $book->id) }}" class="btn btn-outline-info">Maggiori Informazioni</a>
+                    <div class="col ">
+                        <div class="card h-100">
+                            <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
+                            <div class="card-body">
+                                <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
+                                <p class="card-text text-white py-3 fw-bold">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
+                                <p class="card-text text-white pb-3">{{ $book->plot }}</p>
+                                <a href="{{ route('book.show', $book->id) }}" class="btn btn-outline-info">Maggiori Informazioni</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <div class="d-flex justify-content-center py-6">
@@ -232,7 +246,6 @@
 
 
         <div class="circles"></div>
-       
 </x-app-layout>
 
 <script>
