@@ -19,6 +19,7 @@
         background-color: #216b5a !important;
     }
 
+
     body::after {
         content: "";
         background: url("{{$book->cover}}");
@@ -32,6 +33,10 @@
         z-index: -1;
         filter: blur(15px);
 
+    }
+
+    .custom-text-color {
+    color: #44b4b0 !important;
     }
 </style>
 
@@ -72,15 +77,40 @@
             </div>
         </div>
     </div>
-    <div class="bg-white">
+    <div class="container col-10 bg-white">
         <div>
-            <p class="card-text mt-2"><small class="text-muted">Pubblicato da {{$book->publisher}} il {{$book->released}}</small></p>
-            <p class="card-text mt-4">{{$book->plot}}</p>
-            <p class="card-text mt-4"><strong>Genere:</strong> {{$book->genres->name}}</p>
+            <p class="pt-5"><small class="text-muted pt-5">Pubblicato da {{$book->publisher}} il {{$book->released}}</small></p>
+            <p class="mt-2">{{$book->plot}}</p>
+            <p class="mt-2"><strong>Genere:</strong> {{$book->genres->name}}</p>
+            
         </div>
-        <div class="row mt-5 bg-white">
+
+    <div class="container mt-5" style="background-color:{{$book->color;}}; border-radius: 50px; color: white;">
+
+    <div class="row p-3 justify-content-center align-items-center">
+      <div class="col-md-4">
+        <!-- fotina autore -->
+        <img src="{{$book->authors->avatar}}" class="rounded-circle img-fluid">
+      </div>
+      <div class="col-md-6">
+        <!-- bio autore -->
+        <div class="author-container ">
+        <p class="fs-2 mb-2">{{$book->authors->name}} {{$book->authors->lastname}}</p>
+          <p class="mb-2"><strong>Pseudonimo:</strong> {{$book->authors->pseudonym}}</p>
+          <p class="mb-2"><strong>Data di nascita:</strong> {{$book->authors->birthday}}</p>
+          <p class="mb-2"><strong>Provenienza:</strong> {{$book->authors->city}}</p>
+          <p class="mb-2"><strong>Biografia:</strong> {{$book->authors->bio}}</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+
+        <div class="row mt-4 bg-white">
             <div class="col-12">
-                <h3>Recensioni</h3>
+                <h3><strong>Recensioni:</strong></h3>
                 @if($book->reviews->count() > 0)
                 @foreach($book->reviews as $review)
                 <div class="card mb-3 bg-white">
@@ -123,14 +153,14 @@
         </div>
         <div class="row mt-5 bg-white">
             <div class="col-12">
-                <h3>Altri libri dello stesso autore</h3>
-                <div class="carousel">
+                <p class="fs-3 fst-italic text-center mb-5 custom-text-color">Altri libri dello stesso autore</p>
+                <div class="d-flex justify-content-evenly">
                     @foreach($sameAuthorBooks as $book)
                     <div class="card" style="width: 18rem;">
                         <img src="{{$book->cover}}" class="card-img-top" alt="{{$book->title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$book->title}}</h5>
-                            <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-primary">Vedi dettagli</a>
+                            <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-custom">Vedi dettagli</a>
                         </div>
                     </div>
                     @endforeach
@@ -139,14 +169,14 @@
         </div>
         <div class="row mt-5 bg-white">
             <div class="col-12">
-                <h3>Altri libri dello stesso genere</h3>
-                <div class="carousel">
+                <p class="fs-3 fst-italic text-center mb-5 custom-text-color">Altri libri dello stesso genere</p>
+                <div class="d-flex justify-content-evenly">
                     @foreach($sameGenreBooks as $book)
                     <div class="card" style="width: 18rem;">
                         <img src="{{$book->cover}}" class="card-img-top" alt="{{$book->title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$book->title}}</h5>
-                            <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-primary">Vedi dettagli</a>
+                            <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-custom">Vedi dettagli</a>
                         </div>
                     </div>
                     @endforeach
