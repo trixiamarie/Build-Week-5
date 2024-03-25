@@ -31,7 +31,7 @@
                     <form action="{{ route('author.destroy', ['author' => $author->id] ) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger">Elimina autore</button>
+                        <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare?')" class="btn btn-outline-danger">Elimina autore</button>
                     </form></div>
                     </div>
 

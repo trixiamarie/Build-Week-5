@@ -65,13 +65,13 @@
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="state" value="accettato">
-                                        <button type="submit" class="btn btn-outline-info">Accetta</button>
+                                        <button type="submit" onclick="return confirm('Sei sicuro di ACCETTARE la prenotazione?')" class="btn btn-outline-info">Accetta</button>
                                     </form>
                                     <form method="POST" action="{{ route('booking.update', ['booking' => $booking->id]) }}">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="state" value="negato">
-                                        <button type="submit" class="btn btn-outline-danger">Cancella</button>
+                                        <button type="submit" onclick="return confirm('Sei sicuro di NON ACCETTARE la prenotazione?')" class="btn btn-outline-danger">Cancella</button>
                                     </form>
                                     @else
                                     <button class="btn btn-outline-info disabled">

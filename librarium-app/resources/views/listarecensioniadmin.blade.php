@@ -74,7 +74,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="source" value="formadmin">
-                                <button class="btn btn-customG" type="submit">Elimina</button>
+                                <button class="btn btn-customG" onclick="return confirm('Sei sicuro di voler eliminare?')" type="submit">Elimina</button>
                             </form>
                         </div>
                     </div>

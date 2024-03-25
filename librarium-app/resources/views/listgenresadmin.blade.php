@@ -55,7 +55,7 @@
                   <form action="{{route('genre.destroy',['genre'=>$genre])}}" method="POST" >
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-customG mt-3 me-3">Cancella</button>
+                      <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare?')" class="btn btn-customG mt-3 me-3">Cancella</button>
                   </form>
                   </div>
                   </div>

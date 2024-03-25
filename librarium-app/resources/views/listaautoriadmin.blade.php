@@ -37,7 +37,7 @@
                             <form action="{{route('author.destroy',['author'=>$author])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger m-1">Cancella</button>
+                                <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare?')" class="btn btn-outline-danger m-1">Cancella</button>
                             </form>
                         </div>
                     </div>
