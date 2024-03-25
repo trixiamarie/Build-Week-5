@@ -21,7 +21,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1903-06-25',
                 'city' => 'Motihari, India',
                 'bio' => 'George Orwell è stato uno scrittore, giornalista e saggista britannico, noto per i suoi lavori di critica sociale e letteraria.',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/George_Orwell_press_photo.jpg/440px-George_Orwell_press_photo.jpg',
+                'avatar' => 'https://www.fanucci.it/cdn/shop/collections/GeorgeOrwell.jpg?v=1614872242',
             ],
             [
                 'name' => 'Jane',
@@ -30,7 +30,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1775-12-16',
                 'city' => 'Steventon, Regno Unito',
                 'bio' => 'Jane Austen è stata una scrittrice britannica, autrice di alcuni dei più famosi romanzi della letteratura inglese, tra cui "Orgoglio e pregiudizio" e "Emma".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/CassandraAusten-JaneAusten%28c.1810%29_hires.jpg/440px-CassandraAusten-JaneAusten%28c.1810%29_hires.jpg',
+                'avatar' => 'https://www.thearslibrorum.com/wp-content/uploads/2023/02/Jane-Austen-1.webp',
             ],
             [
                 'name' => 'Joanne',
@@ -84,7 +84,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1949-01-12',
                 'city' => 'Kyoto, Giappone',
                 'bio' => 'Haruki Murakami è uno dei più celebri scrittori giapponesi contemporanei, autore di romanzi come "Norwegian Wood" e "1Q84".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Haruki_Murakami_press_conference_2015_%28cropped%29.jpg/220px-Haruki_Murakami_press_conference_2015_%28cropped%29.jpg',
+                'avatar' => 'https://images2.corriereobjects.it/methode_image/2019/01/25/LiberiTutti/Foto%20LiberiTutti%20-%20Trattate/murakami%20-U43480829739107NuH-U30901436519749n8C-1224x916@Corriere-Web-Sezioni-593x443.jpg?v=20190127163222',
             ],
             [
                 'name' => 'Gabriel',
@@ -93,7 +93,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1927-03-06',
                 'city' => 'Aracataca, Colombia',
                 'bio' => 'Gabriel García Márquez è stato uno scrittore colombiano, premio Nobel per la letteratura nel 1982, famoso per romanzi come "Cent\'anni di solitudine" e "L\'amore ai tempi del colera".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Gabriel_Garcia_Marquez%2C_1984_NR.jpg/220px-Gabriel_Garcia_Marquez%2C_1984_NR.jpg',
+                'avatar' => 'https://www.ilcartello.eu/wp-content/uploads/2014/04/Gabriel-Garcia-Marquez.jpg',
             ],
             [
                 'name' => 'Leo',
@@ -102,7 +102,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1828-09-09',
                 'city' => 'Yasnaya Polyana, Russia',
                 'bio' => 'Lev Tolstoj è stato uno dei più grandi scrittori russi, celebre per opere come "Guerra e pace" e "Anna Karenina".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leo_Tolstoy_1897%2C_black_and_white%2C_345_%C3%97_502_pixels.jpg/220px-Leo_Tolstoy_1897%2C_black_and_white%2C_345_%C3%97_502_pixels.jpg',
+                'avatar' => 'https://www.repstatic.it/content/nazionale/img/2018/11/17/213003654-0c78a6ac-87c9-4325-b759-7f96ccce2510.jpg',
             ],
             [
                 'name' => 'Virginia',
@@ -111,7 +111,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1882-01-25',
                 'city' => 'Londra, Regno Unito',
                 'bio' => 'Virginia Woolf è stata una scrittrice britannica, considerata una delle più importanti del XX secolo, nota per opere come "La signora Dalloway" e "Al faro".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Virginia_Woolf_1939_George_Charles_Beresteyn_retouched.jpg/220px-Virginia_Woolf_1939_George_Charles_Beresteyn_retouched.jpg',
+                'avatar' => 'https://compass-media.vogue.it/photos/65b198709687033fdef68517/2:3/w_2560%2Cc_limit/Virginia%2520Woolf%2520(1).jpg',
             ],
             [
                 'name' => 'Franz',
@@ -120,7 +120,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1883-07-03',
                 'city' => 'Praga, Impero austro-ungarico',
                 'bio' => 'Franz Kafka è stato uno scrittore austro-boemo di lingua tedesca, noto per opere come "La metamorfosi" e "Il processo".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kafka1910.jpg/220px-Kafka1910.jpg',
+                'avatar' => 'https://www.anarcopedia.org/images/thumb/5/5e/Kafka2.gif/300px-Kafka2.gif',
             ],
             [
                 'name' => 'Fyodor',
@@ -129,7 +129,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1821-11-11',
                 'city' => 'Mosca, Russia',
                 'bio' => 'Fëdor Dostoevskij è stato uno scrittore russo tra i più grandi della letteratura mondiale, noto per opere come "Delitto e castigo" e "I fratelli Karamazov".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Dostoevsky_1872.jpg/220px-Dostoevsky_1872.jpg',
+                'avatar' => 'https://www.illibraio.it/wp-content/uploads/2018/02/1Adostoev.jpg',
             ],
             [
                 'name' => 'Miguel',
@@ -138,7 +138,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1547-09-29',
                 'city' => 'Alcalá de Henares, Spagna',
                 'bio' => 'Miguel de Cervantes è stato uno scrittore spagnolo, celebre per il suo romanzo "Don Chisciotte".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Miguel_de_Cervantes_Saavedra.jpg/220px-Miguel_de_Cervantes_Saavedra.jpg',
+                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_J%C3%A1uregui.jpg/1200px-Cervantes_J%C3%A1uregui.jpg',
             ],
             [
                 'name' => 'Charles',
@@ -147,7 +147,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1812-02-07',
                 'city' => 'Portsmouth, Regno Unito',
                 'bio' => 'Charles Dickens è stato uno scrittore e giornalista britannico, considerato uno dei più grandi romanzieri del XIX secolo, noto per opere come "Oliver Twist" e "Grandi speranze".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/220px-Dickens_Gurney_head.jpg',
+                'avatar' => 'https://www.pausacaffeblog.it/wp/wp-content/uploads/2012/02/charles-dickens-800-.jpg',
             ],
             [
                 'name' => 'Mark',
@@ -156,7 +156,7 @@ class AuthorSeeder extends Seeder
                 'birthday' => '1835-11-30',
                 'city' => 'Florida, Stati Uniti',
                 'bio' => 'Mark Twain è stato uno scrittore e umorista statunitense, famoso per romanzi come "Le avventure di Tom Sawyer" e "Le avventure di Huckleberry Finn".',
-                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Mark_Twain_by_AF_Bradley.jpg/220px-Mark_Twain_by_AF_Bradley.jpg',
+                'avatar' => 'https://th-thumbnailer.cdn-si-edu.com/Bysr6nOR-Y0eX6S4H2h6OURXTIQ=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/f6/88/f688e680-3907-409f-890e-1f21c8d0c8fe/10498071004_e99fe14563_o.jpg',
             ],
         ];
 

@@ -49,6 +49,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        $author->load('books.genres');
         return view('dettaglioautoreadmin', ['author' => $author]);
     }
 

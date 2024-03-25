@@ -11,7 +11,7 @@
                 <a href="{{route('author.create')}}"><button type="button" class="btn btn-outline-info">Crea Autore</button"></a>
                 <a href="{{route('author.index')}}"><button type="button" class="btn btn-outline-info">Gestisci Autori</button"></a>
             </div> -->
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-evenly">
                 <a href="{{route('book.index')}}">
                     <div class="card m-4" style="width: 20rem; height:10rem;">
                         <div class="card-body">
