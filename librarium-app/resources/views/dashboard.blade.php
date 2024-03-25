@@ -195,7 +195,11 @@ a:focus {
 <x-app-layout>
 
     <div class="hero pb-6">
+    @if (Auth::user()->created_at->toDateString() === Carbon\Carbon::today()->toDateString())
+        <h1>Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+        @else
         <h1>Bentornatǝ {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+        @endif
         <div id="bookCarousel" class="carousel slide pt-6" data-bs-ride="carousel">
             <div class="carousel-inner d-flex align-items-center">
                 @foreach ($books as $index => $book)
