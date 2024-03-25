@@ -1,25 +1,44 @@
 <style>
     .btn-custom {
-    margin-top: 2dvh !important;
-    background-color: #A9B2BB !important;
-    color: white !important;
-    transition: background-color 1s ease !important;
-    tansition: color 1s ease !important;
-    font-family: 'Silka', sans-serif !important;
-}
+        margin-top: 2dvh !important;
+        background-color: #A9B2BB !important;
+        color: white !important;
+        transition: background-color 1s ease !important;
+        tansition: color 1s ease !important;
+        font-family: 'Silka', sans-serif !important;
+    }
 
-.btn-custom:hover {
-    color: white !important;
-    background-color: #3d4145 !important;
-}
+    .btn-custom:hover {
+        color: white !important;
+        background-color: #3d4145 !important;
+    }
 
-img {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    max-height: 300px;
-}
+    img {
+        border-radius: 5px;
+        max-height: 300px;
+    }
 
-    </style>
+    .card {
+        margin: 1em auto;
+        padding: 1em; 
+        text-align: center; 
+    }
+
+    @media (max-width: 576px) { 
+        .card {
+            margin: 1em 0.5em; 
+        }
+
+        .col-md-4 {
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        margin: auto;
+    }
+    }
+</style>
 
 <x-app-layout>
 

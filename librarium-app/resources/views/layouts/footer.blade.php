@@ -12,7 +12,17 @@
 
 @media (max-width: 768px) {
     .divider-vertical-line {
-        display: none;
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin: 15px 0;
+    }
+    h5 {
+        font-weight: bold;
+    }
+    .social-icons {
+        display: flex;
+        justify-content: space-around;
     }
 }
 
