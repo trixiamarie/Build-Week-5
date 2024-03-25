@@ -38,7 +38,7 @@ img {
     </style>
 <x-app-layout>
 
-    <div class="py-12">
+    <div class="py-12" style="min-height: 57%;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="md:flex justify-center">
                         @if($reviews->count() > 0)

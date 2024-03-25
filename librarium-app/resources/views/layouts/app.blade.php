@@ -35,9 +35,76 @@
     border: 1px solid rgba(255, 255, 255, 0.6);
     z-index: 1000;
 }
+
+.glass-effect-footer {
+        background-color: rgba(68, 180, 176, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        border-bottom: 1px solid rgba(68, 180, 176, 0.9) !important;
+        z-index: 1000 !important;
+        transition: background-color 0.5s ease, backdrop-filter 0.5s ease, border-bottom 0.5s ease !important;
+    }
+
+::-webkit-scrollbar {
+  width: 1dvh;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #44b4b0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba (68, 180, 176, 0) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #31817f;
+}
+
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000; 
+}
+
+
+#loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #67C1BE; 
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite; 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.loaded #loader-wrapper {
+    display: none;
+}
+
+
             </style>
     </head>
     <body class="font-sans antialiased">
+
+<div id="loader-wrapper">
+    <div id="loader"></div>
+</div>
+
         <div class="bg-gray-100">
             @include('layouts.navigation')
 
@@ -60,7 +127,17 @@
                 {{ session('message') }}
             </div>
         @endif
+        @include('layouts.footer')
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>// Rimuovi la classe "loaded" dal body quando la pagina inizia a caricare
+document.body.classList.remove('loaded');
+
+// Aggiungi un event listener per il caricamento completo della pagina
+window.addEventListener('load', function() {
+    // Aggiungi la classe "loaded" al body quando la pagina è completamente caricata
+    document.body.classList.add('loaded');
+});
+</script>
         @stack('scripts')
     </body>
 </html>
