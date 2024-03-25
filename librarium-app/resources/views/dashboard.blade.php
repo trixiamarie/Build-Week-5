@@ -98,15 +98,17 @@
     }
 
     .btn-outline-info {
-        color: #ffffff !important;
-        border-color: #ffffff !important;
-        background-color: none !important;
-    }
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    background-color: none !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+}
 
-    .btn-outline-info:hover {
-        color: white !important;
-        background-color: #44A8A4 !important;
-    }
+.btn-outline-info:hover {
+    color: white !important;
+    background-color: rgba(68, 168, 164, 0.5) !important;
+}
 
     .card {
         position: relative;
@@ -160,12 +162,34 @@
         background-position: center;
         background-repeat: no-repeat;
         filter: brightness(30%);
-        transition: background-image 2s ease-in-out;
+        transition: background-image 1s ease-in-out;
     }
 
     .text-sm {
         display: none;
     }
+
+    .relative {
+    background-color: white !important;
+    color: #44b4b0 !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.relative:hover {
+    color: white !important;
+    background-color: #44b4b0 !important;
+}
+
+a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    --tw-ring-offset-width: 0px !important;
+    --tw-ring-shadow: none !important;
+}
+
+
 </style>
 
 <x-app-layout>
@@ -208,10 +232,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen">
+            <div class="row row-cols-1 row-cols-md-4 g-4 mb-6">
                 @foreach($books->shuffle() as $book)
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="card h-100 shadow-md">
                         <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
                         <div class="card-body">
                             <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
@@ -272,7 +296,7 @@
                     backgroundImage.style.backgroundImage = 'url(' + cover + ')';
                     setTimeout(function() {
                         isTransitioning = false;
-                    }, 1000);
+                    });
                 }
             }
         });
