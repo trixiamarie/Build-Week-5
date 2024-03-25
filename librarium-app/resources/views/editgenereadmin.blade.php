@@ -1,15 +1,5 @@
 <style>
-   .glass-effect {
-       background-color: rgba(33, 107, 90, 0.2) !important;
-       backdrop-filter: blur(10px) !important;
-       border-radius: 10px !important;
-       border: 1px solid rgba(33, 107, 90, 0.3) !important;
-       padding: 50px !important;
-       z-index: 1000 !important;
-   }
-
-
-   .btn-custom {
+  .btn-custom {
        margin-top: 20px !important;
        background-color: white !important;
        color: #44b4b0 !important;
@@ -34,7 +24,7 @@
   
 <div class="py-12">
        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-           <div class="glass-effect overflow-hidden shadow-sm sm:rounded-lg">
+           <div class="glass-effect-white overflow-hidden shadow-sm sm:rounded-lg">
                <div class="p-6 text-gray-900 text-center">
                </div>
                <div class="d-flex justify-content-center flex-column align-items-center text-center ">

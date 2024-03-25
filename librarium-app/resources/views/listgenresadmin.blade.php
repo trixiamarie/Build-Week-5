@@ -7,23 +7,25 @@
       font-family: 'Silka', sans-serif !important;
   }
 
-
-
-
-  .btn-custom:hover {
+.btn-custom:hover {
       color: white !important;
       background-color: #44b4b0 !important;
+}
 
+.btn-customG {
+    margin-top: 2dvh !important;
+    background-color: #A9B2BB !important;
+    color: white !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
 
-      .glass-effect {
-   background-color: rgba(33, 107, 90, 0.2);
-   backdrop-filter: blur(10px);
-   border-radius: 1dvh;
-   border: 1px solid rgba(33, 107, 90, 0.3);
-   padding: 5dvh !important;
-   z-index: 1000;
-} 
-  }
+.btn-customG:hover {
+    color: white !important;
+    background-color: #3d4145 !important;
+}
+  
 </style>
 <x-app-layout>
 
@@ -42,7 +44,7 @@
 
   <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div class="glass-effect px-6 overflow-hidden shadow-sm sm:rounded-lg">
+          <div class="glass-effect-white px-6 overflow-hidden shadow-sm sm:rounded-lg">
               <div>
                   @foreach ($genres as $genre)
                   <div class="d-flex justify-content-between border-b border-gray-200 shadow-sm sm:rounded-lg">
@@ -53,7 +55,7 @@
                   <form action="{{route('genre.destroy',['genre'=>$genre])}}" method="POST" >
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-outline-danger mt-3 ">Cancella</button>
+                      <button type="submit" class="btn btn-customG mt-3 me-3">Cancella</button>
                   </form>
                   </div>
                   </div>

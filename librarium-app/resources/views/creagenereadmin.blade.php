@@ -1,13 +1,6 @@
 
 <style>
-   .glass-effect {
-   background-color: rgba(33, 107, 90, 0.2);
-   backdrop-filter: blur(10px);
-   border-radius: 1dvh;
-   border: 1px solid rgba(33, 107, 90, 0.3);
-   padding: 5dvh !important;
-   z-index: 1000;
-}
+   
   .btn-custom {
       margin-top: 20px !important;
       background-color: white !important;
@@ -17,10 +10,7 @@
       font-family: 'Silka', sans-serif !important;
   }
 
-
-
-
-  .btn-custom:hover {
+.btn-custom:hover {
       color: white !important;
       background-color: #44b4b0 !important;
   }
@@ -37,7 +27,7 @@
 
   <div class="py-12">
        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-           <div class="glass-effect overflow-hidden shadow-sm sm:rounded-lg">
+           <div class="glass-effect-white overflow-hidden shadow-sm sm:rounded-lg">
                <div class="p-6 text-gray-900 text-center">
                </div>
                <div class="d-flex justify-content-center flex-column align-items-center text-center">
