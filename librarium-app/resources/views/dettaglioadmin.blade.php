@@ -1,3 +1,44 @@
+<style>
+    .btn-custom {
+    margin-top: -2dvh !important;
+    margin-bottom: -4dvh !important;
+    background-color: #A9B2BB !important;
+    color: white !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-custom:hover {
+    color: white !important;
+    background-color: #3d4145 !important;
+}
+
+.btn-customG {
+    margin-top: -2dvh !important;
+    margin-bottom: -4dvh !important;
+    background-color: white !important;
+    border: 1px solid #44A9A5 !important;
+    color: #44A9A5 !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-customG:hover {
+    color: white !important;
+    background-color: #44A9A5 !important;
+}
+
+.glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
+
+</style>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -7,9 +48,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="glass-effect-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <div class="p-5 d-flex justify-content-center">
+                <div class="p-5 d-flex justify-content-evenly">
                     <img src="{{ $book['cover'] }}" alt="Cover" class="border-radius">
                 </div>
                 <div class="p-5">
@@ -25,12 +66,12 @@
                 </div>
 
                 <div class="p-5 d-flex justify-content-evenly">
-                    <a href="{{route('book.edit',['book'=>$book])}}"><button type="button" class="btn btn-outline-info">Modifica</button></a>
+                    <a href="{{route('book.edit',['book'=>$book])}}"><button type="button" class="btn btn-customG">Modifica</button></a>
 
                     <form action="{{route('book.destroy',['book'=>$book])}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger">Cancella</button>
+                        <button type="submit" class="btn btn-custom">Cancella</button>
                     </form>
                 </div>
 
