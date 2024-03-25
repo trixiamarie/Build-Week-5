@@ -7,31 +7,43 @@
         font-style: normal;
     }
 
-    .navbar {
+    .glass-effect-nav {
         height: 10vh !important;
-        transition: box-shadow 0.5s ease;
-        background: rgb(68, 180, 176);
-        background: linear-gradient(
-            90deg,
-            rgba(68, 180, 176, 1) 35%,
-            rgba(69, 149, 146, 1) 100%
-        );
+        background-color: rgba(68, 180, 176, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        border-bottom: 1px solid rgba(68, 180, 176, 0.9) !important;
+        z-index: 10000 !important;
+        transition: background-color 0.5s ease, backdrop-filter 0.5s ease, border-bottom 0.5s ease !important;
     }
 
-    .navbar .navbar-nav .nav-link {
-        color: #e0ebf6 !important;
-        font-family: "Silka", sans-serif;
+    .barralink {
+      bottom: 3px;
+      position: relative;
+    color: #ffffff !important;
+    text-decoration: none; 
     }
 
-    .navbar .navbar-nav .nav-link.active {
+    .barralink.active {
         color: #ffffff !important;
     }
 
-    .navbar .navbar-nav .nav-link:hover,
-    .navbar .navbar-nav .nav-link:focus,
-    .navbar .navbar-nav .nav-link.active {
-        color: #ffffff !important;
-    }
+    .barralink::after {
+    content: '';
+    position: absolute;
+    left: 5%;
+    bottom: -1.2dvh;
+    width: 90%;
+    height: 2px; 
+    background-color: transparent;
+    transition: background-color 0.3s ease; 
+}
+
+.barralink:hover::after,
+.barralink:focus::after,
+.barralink.active::after {
+  bottom: -1.2dvh;
+    background-color: #ffffff;
+}
 
     .navbar-nav .dropdown-menu {
         background-color: #ffffff !important;
@@ -47,7 +59,7 @@
     }
 
     .navbar .navbar-nav .dropdown-toggle {
-        color: #e0ebf6 !important;
+        color: #ffffff !important;
     }
 
     .navbar .navbar-nav .dropdown-toggle:hover,
@@ -66,7 +78,7 @@
 
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top glass-effect-nav">
   <div class="container-fluid px-5">
     <!-- Logo -->
     <a class="navbar-brand" href="{{ route('dashboard') }}" style="color: #ffffff !important;">
@@ -82,35 +94,35 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">{{ __('Home') }}</a>
+          <a class="barralink nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">{{ __('Home') }}</a>
         </li>
         @if(Auth::user() && Auth::user()->role_id === 2)
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Le mie prenotazioni') }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Le mie recensioni') }}</a>
-        </li>
-        @elseif (Auth::user() && Auth::user()->role_id === 1)
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('user.index') }}">{{ __('Utenti') }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('book.index') }}">{{ __('Libri') }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('author.index') }}">{{ __('Autori') }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('genre.index') }}">{{ __('Generi') }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Recensioni') }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
-        </li>
-        @endif
+          <li class="nav-item">
+            <a class="barralink nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Le mie prenotazioni') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="barralink nav-link {{ Route::currentRouteName() == 'review.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Le mie recensioni') }}</a>
+          </li>
+            @elseif (Auth::user() && Auth::user()->role_id === 1)
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('user.index') }}">{{ __('Utenti') }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('book.index') }}">{{ __('Libri') }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('author.index') }}">{{ __('Autori') }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('genre.index') }}">{{ __('Generi') }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Recensioni') }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
+              </li>
+            @endif
       </ul>
 
       <!-- Settings Dropdown -->
@@ -120,7 +132,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ Auth::user()->name }}
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" style="background-color: white !important;">
             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}"
@@ -146,21 +158,3 @@
     </div>
   </div>
 </nav>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var div = document.querySelector("nav");
-    var hero = document.querySelector(".hero");
-    div.style.boxShadow = "none";
-});
-
-window.onscroll = function() {
-    var div = document.querySelector("nav");
-    var hero = document.querySelector(".hero");
-    if (window.pageYOffset > 0 && window.pageYOffset < hero.offsetHeight) {
-        div.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.5)";
-    } else {
-        div.style.boxShadow = "none";
-    }
-};
-</script>
-

@@ -49,6 +49,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        $author->load('books.genres');
         return view('dettaglioautoreadmin', ['author' => $author->load('books')]);
     }
 
@@ -84,6 +85,6 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect()->route('dashboard')->with('message', 'Autore eliminato correttamente');
+        return redirect()->route('author.index')->with('message', 'Autore eliminato correttamente');
     }
 }

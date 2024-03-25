@@ -117,6 +117,22 @@ input:focus {
 input[type="checkbox"]:checked {
     background-color: #44b4b0 !important;
 }
+
+::-webkit-scrollbar {
+  width: 1dvh;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #44b4b0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba (68, 180, 176, 0) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #31817f;
+}
     </style>
 
 </head>

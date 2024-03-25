@@ -11,7 +11,19 @@
                 <a href="{{route('author.create')}}"><button type="button" class="btn btn-outline-info">Crea Autore</button"></a>
                 <a href="{{route('author.index')}}"><button type="button" class="btn btn-outline-info">Gestisci Autori</button"></a>
             </div> -->
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-evenly">
+                <a href="{{route('user.index')}}">
+                    <div class="card m-4" style="width: 20rem; height:12rem;">
+                        <div class="mt-3 ms-3">
+                            <h5 class="fs-1">Utenti</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Gestione</h6>
+                        </div>
+                        <div class="d-flex m-2 align-items-center justify-content-end">
+                            <p>Vai</p>
+                        <i class="bi bi-arrow-right-circle-fill fs-1 p-1"></i>
+                    </div>
+                    </div>
+                </a> 
                 <a href="{{route('book.index')}}">
                     <div class="card m-4" style="width: 20rem; height:10rem;">
                         <div class="card-body">
@@ -28,14 +40,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{route('user.index')}}">
-                    <div class="card m-4" style="width: 20rem; height:10rem;">
-                        <div class="card-body">
-                            <h5 class="fs-1">Utenti</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Gestione</h6>
-                        </div>
-                    </div>
-                </a>
+               
                 <a href="{{route('genre.index')}}">
                     <div class="card m-4" style="width: 20rem; height:10rem;">
                         <div class="card-body">

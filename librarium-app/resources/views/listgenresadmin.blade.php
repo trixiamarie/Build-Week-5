@@ -1,4 +1,12 @@
 <style>
+.glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
+
   .btn-custom {
       background-color: white !important;
       color: #44b4b0 !important;
@@ -50,12 +58,12 @@
                   <div class="d-flex justify-content-between border-b border-gray-200 shadow-sm sm:rounded-lg">
                   <p class="p-6 fw-bold ">{{$genre->name}}</p>
                   <div class="btn-group align-items-center" role="group">
-                  <a href="{{route('genre.show', ['genre' => $genre])}}"><button class="btn btn-custom me-3">Dettaglio</button></a>
+                  <a href="{{route('genre.show', ['genre' => $genre])}}"><button class="btn btn-custom me-3">Dettagli</button></a>
                   <a href="{{route('genre.edit', ['genre'=>$genre])}}"><button class="btn btn-custom me-3">Modifica</button></a>
                   <form action="{{route('genre.destroy',['genre'=>$genre])}}" method="POST" >
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-customG mt-3 me-3">Cancella</button>
+                      <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare?')" class="btn btn-customG mt-3 me-3">Cancella</button>
                   </form>
                   </div>
                   </div>
