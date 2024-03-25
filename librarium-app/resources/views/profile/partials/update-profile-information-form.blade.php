@@ -1,3 +1,30 @@
+<style>
+
+    .bg-gray-800 {
+        background-color: #44b4b0 !important;
+        color: white !important;
+        transition: background-color 0.5s ease !important;
+    }
+
+    .bg-gray-800:hover {
+        background-color: #216b5a !important;
+    }
+
+    .bg-red-600 {
+        margin-top: 2dvh !important;
+        background-color: #A9B2BB !important;
+        color: white !important;
+        transition: background-color 1s ease !important;
+        transition: color 1s ease !important;
+        font-family: 'Silka', sans-serif !important;
+    }
+
+    .bg-red-600:hover {
+        color: white !important;
+        background-color: #3d4145 !important;
+    }
+</style>
+
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">

@@ -98,15 +98,17 @@
     }
 
     .btn-outline-info {
-        color: #ffffff !important;
-        border-color: #ffffff !important;
-        background-color: none !important;
-    }
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    background-color: none !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+}
 
-    .btn-outline-info:hover {
-        color: white !important;
-        background-color: #44A8A4 !important;
-    }
+.btn-outline-info:hover {
+    color: white !important;
+    background-color: rgba(68, 168, 164, 0.5) !important;
+}
 
     .card {
         position: relative;
@@ -160,18 +162,44 @@
         background-position: center;
         background-repeat: no-repeat;
         filter: brightness(30%);
-        transition: background-image 2s ease-in-out;
+        transition: background-image 1s ease-in-out;
     }
 
     .text-sm {
         display: none;
     }
+
+    .relative {
+    background-color: white !important;
+    color: #44b4b0 !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.relative:hover {
+    color: white !important;
+    background-color: #44b4b0 !important;
+}
+
+a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    --tw-ring-offset-width: 0px !important;
+    --tw-ring-shadow: none !important;
+}
+
+
 </style>
 
 <x-app-layout>
 
     <div class="hero pb-6">
+    @if (Auth::user()->created_at->toDateString() === Carbon\Carbon::today()->toDateString())
+        <h1>Ciao {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+        @else
         <h1>Bentornatǝ {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+        @endif
         <div id="bookCarousel" class="carousel slide pt-6" data-bs-ride="carousel">
             <div class="carousel-inner d-flex align-items-center">
                 @foreach ($books as $index => $book)
@@ -224,17 +252,17 @@
             </div>
             <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen shownbooks">
                 @foreach($books->shuffle() as $book)
-                    <div class="col ">
-                        <div class="card h-100">
-                            <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
-                            <div class="card-body">
-                                <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
-                                <p class="card-text text-white py-3 fw-bold">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
-                                <p class="card-text text-white pb-3">{{ $book->plot }}</p>
-                                <a href="{{ route('book.show', $book->id) }}" class="btn btn-outline-info">Maggiori Informazioni</a>
-                            </div>
+                <div class="col">
+                    <div class="card h-100 shadow-md">
+                        <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
+                            <p class="card-text text-white py-3 fw-bold">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
+                            <p class="card-text text-white pb-3">{{ $book->plot }}</p>
+                            <a href="{{ route('book.show', $book->id) }}" class="btn btn-outline-info">Maggiori Informazioni</a>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
             <div class="d-flex justify-content-center py-6">
@@ -285,7 +313,7 @@
                     backgroundImage.style.backgroundImage = 'url(' + cover + ')';
                     setTimeout(function() {
                         isTransitioning = false;
-                    }, 1000);
+                    });
                 }
             }
         });

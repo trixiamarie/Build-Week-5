@@ -27,6 +27,14 @@
     padding: 5dvh !important;
     z-index: 1000;
 }
+
+.glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
             </style>
     </head>
     <body class="font-sans antialiased">
