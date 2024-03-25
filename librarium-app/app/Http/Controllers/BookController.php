@@ -114,15 +114,10 @@ class BookController extends Controller
         return redirect()->route('dashboard')->with('message', 'Libro eliminato correttamente');
     }
 
-    public function search(Request $request)
+    public function api()
 {
-    $searchTerm = $request->input('search');
-    
-    $results = Book::where('title', 'like', '%'.$searchTerm.'%')
-                   ->orWhere('author', 'like', '%'.$searchTerm.'%')
-                   ->get();
-    
-    return view('_search_results', ['results' => $results])->render();
+    $books = Book::all();
+        return response()->json($books);
 }
 
 

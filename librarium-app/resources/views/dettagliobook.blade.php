@@ -81,6 +81,7 @@
         <div class="row mt-5 bg-white">
             <div class="col-12">
                 <h3>Recensioni</h3>
+                @if($book->reviews->count() > 0)
                 @foreach($book->reviews as $review)
                 <div class="card mb-3 bg-white">
                     <div class="card-body">
@@ -95,7 +96,7 @@
 
                         <p>scritto da: {{$review->user->name}} {{$review->user->lastname}}</p>
                         @if($review->user_id == Auth::user()->id)
-                        <button>Modifica</button>
+                        <!-- <button>Modifica</button> -->
                         <form method="POST" action="{{ route('review.destroy', $review->id) }}">
                             @csrf
                             @method('DELETE')
@@ -108,6 +109,11 @@
                     </div>
                 </div>
                 @endforeach
+                @else
+                <div>
+                    <p>Questo libro non ha ancora recensioni.</p>
+                </div>
+                @endif
 
             </div>
             @if($book->reviews->where('user_id', Auth::user()->id)->isEmpty())

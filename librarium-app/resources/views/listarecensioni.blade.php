@@ -22,7 +22,7 @@
                                 <p><strong>Recensione:</strong> {{ $review->review }}</p>
                                 <p><strong>Voto:</strong> {{ $review->rating }} /5</p>
                                 <div class="flex justify-end mt-4">
-                                    <button class="btn btn-outline-info">Modifica</button>
+                                    <a href="{{ route('review.edit', $review->id) }}"><button class="btn btn-outline-info">Modifica</button></a>
                                     <form method="POST" action="{{ route('review.destroy', $review->id) }}">
                                         @csrf
                                         @method('DELETE')

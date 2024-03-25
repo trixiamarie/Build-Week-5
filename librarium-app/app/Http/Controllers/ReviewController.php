@@ -74,7 +74,7 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        return view('reviews.edit', compact('review'));
+        return view('editrecensione', compact('review'));
     }
 
     /**
@@ -86,17 +86,15 @@ class ReviewController extends Controller
             'title' => 'required|string|max:255',
             'review' => 'required|string',
             'rating' => 'required|integer|min:1|max:5',
-            'book_id' => 'required|exists:books,id',
         ]);
 
         $review->title = $validatedData['title'];
         $review->review = $validatedData['review'];
         $review->rating = $validatedData['rating'];
-        $review->book_id = $validatedData['book_id'];
 
         $review->save();
 
-        // return redirect()->route('reviews.index')->with('success', 'Recensione aggiornata con successo!');
+        return redirect()->route('review.index')->with('success', 'Recensione aggiornata con successo!');
     }
 
     /**

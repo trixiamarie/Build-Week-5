@@ -1,117 +1,114 @@
 <style>
+    @font-face {
+        font-family: 'Silka';
+        src: url('{{ asset(' fonts/silka.ttf') }}');
+        font-weight: normal;
+        font-style: normal;
+    }
 
-@font-face {
-    font-family: 'Silka';
-    src: url('{{ asset('fonts/silka.ttf') }}');
-    font-weight: normal;
-    font-style: normal;
-}
+    p {
+        font-family: 'Silka', sans-serif;
+    }
 
-p {
-    font-family: 'Silka', sans-serif;
-}
+    .hero {
+        height: 50vh;
+        background: rgb(68, 180, 176);
+        background: linear-gradient(90deg, rgba(68, 180, 176, 1) 35%, rgba(69, 149, 146, 1) 100%);
+    }
 
-.hero {
-    height: 50vh;
-    background: rgb(68,180,176);
-    background: linear-gradient(90deg, rgba(68,180,176,1) 35%, rgba(69,149,146,1) 100%);
-}
+    h1 {
+        color: white !important;
+        text-align: center;
+        font-size: 5dvh !important;
+        font-family: 'Silka', sans-serif;
+        position: relative;
+    }
 
-h1 {
-    color: white !important;
-    text-align: center;
-    font-size: 5dvh !important;
-    font-family: 'Silka', sans-serif;
-    position: relative;
-}
+    .hero>h1 {
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        transform: translateY(80%);
+    }
 
-.hero > h1 {
-    z-index: 3;
-    position: absolute; 
-    left: 0;
-    right: 0; 
-    text-align: center;
-    transform: translateY(80%);
-}
+    .carouseldata {
+        color: white !important;
+        padding: 5% !important;
+        padding-left: 20% !important;
+        display: flex !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+    }
 
-.carouseldata {
-    color: white !important;
-    padding: 5% !important;
-    padding-left: 20% !important;
-    display: flex !important;
-    justify-content: center !important;
-    flex-direction: column !important;
-}
+    .carouseldata h5 {
+        font-size: 6dvh !important;
+        font-family: 'Silka', sans-serif;
 
-.carouseldata h5 {
-    font-size: 6dvh !important;
-    font-family: 'Silka', sans-serif;
+    }
 
-}
+    .carouseldata h6 {
+        font-size: 3dvh !important;
+        font-family: 'Silka', sans-serif;
+    }
 
-.carouseldata h6 {
-    font-size: 3dvh !important;
-    font-family: 'Silka', sans-serif;
-}
+    .carouseldata p {
+        font-size: 2dvh !important;
+        font-family: 'Silka', sans-serif;
+    }
 
-.carouseldata p {
-    font-size: 2dvh !important;
-    font-family: 'Silka', sans-serif;
-}
+    .carouselimage {
+        box-shadow: 0px 0px 10px #00000070;
+    }
 
-.carouselimage {
-    box-shadow: 0px 0px 10px #00000070;
-}
+    .carouselimagediv {
+        display: flex !important;
+        padding-right: 20% !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
 
-.carouselimagediv {
-    display: flex !important;
-    padding-right: 20% !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-direction: column !important;
-}
+    #bookCarousel {
+        height: 90vh !important;
+        display: flex !important;
+        justify-content: center !important;
+        background-color: rgba(33, 107, 90, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(33, 107, 90, 0.3);
+        z-index: 2;
+    }
 
-#bookCarousel {
-    height: 90vh !important;
-    display: flex !important;
-    justify-content: center !important;
-    background-color: rgba(33, 107, 90, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(33, 107, 90, 0.3);
-    z-index: 2;
-}
+    .hero>img,
+    div>img {
+        max-width: 32vh !important;
+        max-height: 50vh !important;
 
-.hero > img,
-div > img {
-    max-width: 32vh !important; 
-    max-height: 50vh !important;
+    }
 
-}
+    .svg {}
 
-.svg {
+    .hero>img {
+        bottom: 0;
+    }
 
-}
+    div>img {
+        top: 0;
+    }
 
-.hero > img {
-    bottom: 0;
-}
+    .btn-outline-info {
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+        background-color: none !important;
+    }
 
-div > img {
-    top: 0;
-}
+    .btn-outline-info:hover {
+        color: white !important;
+        background-color: #44A8A4 !important;
+    }
 
-.btn-outline-info {
-    color: #ffffff !important;
-    border-color: #ffffff !important;
-    background-color: none !important;
-}
-
-.btn-outline-info:hover {
-    color: white !important;
-    background-color: #44A8A4 !important;
-}
-
-.card {
+    .card {
         position: relative;
         overflow: hidden;
         background-color: black !important;
@@ -119,10 +116,10 @@ div > img {
     }
 
     .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .card:hover img {
         transform: scale(1.1);
@@ -131,10 +128,10 @@ div > img {
     }
 
     .card:not(:hover) img {
-    transform: scale(1);
-    opacity: 1;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
+        transform: scale(1);
+        opacity: 1;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
 
     .card-body {
         position: absolute;
@@ -154,31 +151,30 @@ div > img {
     }
 
     #backgroundImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100dvh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(30%);
-    transition: background-image 2s ease-in-out;
-}
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100dvh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(30%);
+        transition: background-image 2s ease-in-out;
+    }
 
-.text-sm {
-    display: none;
-}
-
+    .text-sm {
+        display: none;
+    }
 </style>
 
 <x-app-layout>
 
-<div class="hero pb-6">
-    <h1>Bentornatǝ {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
-    <div id="bookCarousel" class="carousel slide pt-6" data-bs-ride="carousel">
-        <div class="carousel-inner d-flex align-items-center">
-            @foreach ($books as $index => $book) 
+    <div class="hero pb-6">
+        <h1>Bentornatǝ {{ Auth::user()->name }}, ecco gli ultimi arrivi</h1>
+        <div id="bookCarousel" class="carousel slide pt-6" data-bs-ride="carousel">
+            <div class="carousel-inner d-flex align-items-center">
+                @foreach ($books as $index => $book)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" data-cover="{{ $book->cover }}">
                     <div class="row">
                         <div class="col-md-6 carouseldata" data-color="{{ $book->color }}">
@@ -191,29 +187,29 @@ div > img {
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Precedente</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Successivo</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Precedente</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Successivo</span>
-        </button>
+        <div id="backgroundImage"></div>
     </div>
-    <div id="backgroundImage"></div>
-</div>
 
-<div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
-  <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
-  <input type="text" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
-</div>
+    <div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
+        <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
+        <input type="text" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
+    </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen">
-            @foreach($books->shuffle() as $book)
+                @foreach($books->shuffle() as $book)
                 <div class="col">
                     <div class="card h-100">
                         <img src="{{ $book->cover }}" class="card-img-top" alt="{{ $book->title }}">
@@ -228,41 +224,57 @@ div > img {
                 @endforeach
             </div>
             <div class="d-flex justify-content-center py-6">
-        {{ $books->links() }}
-    </div>
+                {{ $books->links() }}
+            </div>
+           
+        </div>
 
-</div>
 
-<div class="circles"></div>
 
+        <div class="circles"></div>
+       
 </x-app-layout>
 
 <script>
+    // const csrfToken = document
+    //     .querySelector('meta[name="csrf-token"]')
+    //     .getAttribute("content");
 
-document.addEventListener('DOMContentLoaded', function() {
-    let carousel = document.querySelector('#bookCarousel');
-    let backgroundImage = document.querySelector('#backgroundImage');
-    let isTransitioning = false;
-    let initialItem = document.querySelector('.carousel-item.active');
+    // fetch('http://localhost/api/books', {
+    //     headers:{
+    //         "X-CSRF-TOKEN":csrfToken
+    //     }
+    // })
+    //     .then(response => response.json())
+    //     .then(json => console.log(json))
+    //     .catch(error => {
+    //         console.error('Errore durante la richiesta:', error);
+    //     });
 
-    if (initialItem) {
-        let initialCover = initialItem.dataset.cover;
-        backgroundImage.style.backgroundImage = 'url(' + initialCover + ')';
-    }
 
-    carousel.addEventListener('slid.bs.carousel', function () {
-        if (!isTransitioning) {
-            let activeItem = document.querySelector('.carousel-item.active');
-            if (activeItem) { 
-                let cover = activeItem.dataset.cover;
-                isTransitioning = true;
-                backgroundImage.style.backgroundImage = 'url(' + cover + ')';
-                setTimeout(function() {
-                    isTransitioning = false;
-                }, 1000);
-            }
+    document.addEventListener('DOMContentLoaded', function() {
+        let carousel = document.querySelector('#bookCarousel');
+        let backgroundImage = document.querySelector('#backgroundImage');
+        let isTransitioning = false;
+        let initialItem = document.querySelector('.carousel-item.active');
+
+        if (initialItem) {
+            let initialCover = initialItem.dataset.cover;
+            backgroundImage.style.backgroundImage = 'url(' + initialCover + ')';
         }
-    });
-});
 
+        carousel.addEventListener('slid.bs.carousel', function() {
+            if (!isTransitioning) {
+                let activeItem = document.querySelector('.carousel-item.active');
+                if (activeItem) {
+                    let cover = activeItem.dataset.cover;
+                    isTransitioning = true;
+                    backgroundImage.style.backgroundImage = 'url(' + cover + ')';
+                    setTimeout(function() {
+                        isTransitioning = false;
+                    }, 1000);
+                }
+            }
+        });
+    });
 </script>

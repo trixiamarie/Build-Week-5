@@ -2,7 +2,7 @@
 <div class="md:flex justify-center">
     <div class="w-full md:w-1/2 px-4 py-6">
         <h2 class="text-center font-semibold text-xl mb-5">Nuova Recensione</h2>
-        <form method="POST" action="{{ route('reviews.store', $book->id) }}" class="bg-white shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
+        <form method="POST" action="{{ route('reviews.store', $book->id) }}" class="bg-white  rounded-md px-8 pt-6 pb-8 m-5">
 
             @csrf
             <div class="mb-4">
