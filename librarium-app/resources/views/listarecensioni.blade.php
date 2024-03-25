@@ -40,7 +40,7 @@ img {
 
     <div class="py-12" style="min-height: 57%;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="md:flex justify-center">
+                    <div class="justify-center">
                         @if($reviews->count() > 0)
                         @foreach($reviews as $review)
                         <div class="glass-effect-white shadow-md rounded-md mb-4 p-4 d-flex align-items-stretch">

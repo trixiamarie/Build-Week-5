@@ -142,7 +142,7 @@ input[type="checkbox"]:checked {
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
     <div class="min-h-screen flex sm:justify-center items-center pt-6 sm:pt-0">
-        <div>
+        <div class="d-none d-sm-block">
             <a  href="/welcome" style="color: #ffffff !important;">
                 <img class="mx-5" src="{{ asset('img/logowhite.png') }}" alt="Logo">
             </a>
