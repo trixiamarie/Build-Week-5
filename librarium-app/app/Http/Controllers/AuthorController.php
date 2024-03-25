@@ -12,7 +12,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::all()->loadCount('books');
+        $authors = Author::with('books.genres')->get();
         return view('listaautoriadmin', ['authors' => $authors]);
     }
 
