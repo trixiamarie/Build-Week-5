@@ -1,5 +1,12 @@
 
 <style>
+    .glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
    
   .btn-custom {
       margin-top: 20px !important;

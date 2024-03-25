@@ -7,11 +7,30 @@
        font-family: 'Silka', sans-serif !important;
    }
 
-
+   .glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
    .btn-custom:hover {
        color: white !important;
        background-color: #44b4b0 !important;
    }
+   .btn-customG {
+    margin-top: 2dvh !important;
+    background-color: #A9B2BB !important;
+    color: white !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-customG:hover {
+    color: white !important;
+    background-color: #3d4145 !important;
+}
 </style>
 
 
@@ -34,7 +53,7 @@
                    <form action="{{ route('genre.destroy', ['genre' => $genre->id] ) }}" method="POST">
                        @csrf
                        @method('DELETE')
-                       <button type="submit" class="btn btn-custom" style="width: 200px !important;">Elimina</button>
+                       <button type="submit" class="btn btn-customG" style="width: 200px !important;">Elimina</button>
                    </form>
                </div>
            </div>
