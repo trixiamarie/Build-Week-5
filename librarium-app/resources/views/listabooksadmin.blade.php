@@ -4,11 +4,18 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Libri') }}
         </h2>
-        <a href="{{route('book.create')}}"><button type="button" class="btn btn-outline-info">Crea Libro</button"></a>
-    </x-slot>
+        <div class="d-flex justify-content-end gap-3">
+            <a class="btn btn-outline-info" href="{{route('book.create')}}">Crea Libro</a>
+            <input type="text" class="d-block search form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
+        </div>
+        </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class='searchResultsArea'>
+                <h2 class="h2 cap "></h2>
+                <div class="displayBooksArea bg-white overflow-hidden shadow-sm sm:rounded-lg"></div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg shownBooks">
                 
                     
                     @foreach ($books as $book)

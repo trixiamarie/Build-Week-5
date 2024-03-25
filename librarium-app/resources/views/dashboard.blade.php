@@ -231,7 +231,7 @@ a:focus {
 
     <div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
         <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
-        <input type="text" id="search" class="form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
+        <input type="text" class="search form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
     </div>
 
     <div class="container text-center">
