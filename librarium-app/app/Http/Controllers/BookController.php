@@ -114,11 +114,24 @@ class BookController extends Controller
         return redirect()->route('dashboard')->with('message', 'Libro eliminato correttamente');
     }
 
-    public function api()
-{
-    $books = Book::all();
-        return response()->json($books);
-}
 
+    public function search(Request $request)
+    {   
+        try {
+            $search = $request->input('search');
+           
+            $books = $books = Book::leftJoin('authors', 'books.author', '=', 'authors.id')
+            ->where('title', 'LIKE', "%{$search}%")
+            ->orWhere('authors.pseudonym', 'LIKE', "%{$search}%")
+            ->orWhere('genre', 'LIKE', "%{$search}%")
+            ->get()
+            ->load('authors');
 
+            // Ritorna i libri trovati come risposta JSON
+            return response()->json($books);
+        } catch (\Exception $e) {
+            // Gestione delle eccezioni
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }
