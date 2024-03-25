@@ -87,8 +87,6 @@
 
     }
 
-    .svg {}
-
     .hero>img {
         bottom: 0;
     }
@@ -189,6 +187,51 @@ a:focus {
     --tw-ring-shadow: none !important;
 }
 
+@media screen and (max-width: 768px) {
+    .carouselimagediv {
+        align-items: center !important;
+    }
+
+    .carouselimagediv img {
+        margin-left: 13dvh !important;
+        display: block !important;
+    }
+
+    .carouseldata h5 {
+        font-size: 3dvh !important;
+    }
+
+    .hero>h1 {
+        position: relative !important;
+        transform: none !important;
+        font-size: 3dvh !important;
+        padding: 1dvh !important;
+    }
+
+    #backgroundImage {
+        margin-top: 16dvh !important;
+        max-height: 90dvh !important;
+    }
+
+    .card.h-100 {
+        width: auto; /* Aggiungi questa linea */
+        max-width: 240px; /* Regola come necessario */
+        margin: auto;
+    }
+
+    .card img {
+        margin: auto;
+        width: 100%;
+        height: auto; 
+        object-fit: cover;
+    }
+
+    .testino {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+}
 
 </style>
 
@@ -226,7 +269,7 @@ a:focus {
                 <span class="visually-hidden">Successivo</span>
             </button>
         </div>
-        <div id="backgroundImage"></div>
+        <div id="backgroundImage" ></div>
     </div>
 
     <div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
@@ -258,7 +301,7 @@ a:focus {
                         <div class="card-body">
                             <h5 class="card-title text-white fw-bold" style="font-size: 3dvh;">{{ $book->title }}</h5>
                             <p class="card-text text-white py-3 fw-bold">{{ $book->authors->name }} {{ $book->authors->lastname }}</p>
-                            <p class="card-text text-white pb-3">{{ $book->plot }}</p>
+                            <p class="card-text text-white pb-3 testino">{{ $book->plot }}</p>
                             <a href="{{ route('book.show', $book->id) }}" class="btn btn-outline-info">Maggiori Informazioni</a>
                         </div>
                     </div>
