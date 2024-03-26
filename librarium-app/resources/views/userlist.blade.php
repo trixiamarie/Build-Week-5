@@ -65,7 +65,7 @@
                         <div class="col-span-1">{{$user->lastname}}</div>
                         <div class="col-span-2">{{$user->email}}</div>
                         <div class="col-span-1">{{$user->city}} </div>
-                        <div class="col-span-2">{{$user->dateofbirth}}</div>
+                        <div class="col-span-2">{{date_create($user->dateofbirth)->format('jS M Y')}}</div>
                         <div class="col-span-1">@if ($user->role_id == 1)
                     Admin
                 @elseif ($user->role_id == 2)

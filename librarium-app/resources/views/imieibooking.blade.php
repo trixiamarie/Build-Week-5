@@ -56,9 +56,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $booking->books->title}}</h5>
                                     <p class="card-text">Autore: {{ $booking->books->authors->pseudonym}}</p>
-                                    <p class="mb-0">Data di ritiro: {{ $booking->collectiondate }}</p>
+                                    <p class="mb-0">Data di ritiro: {{ date_create($booking->collectiondate)->format('jS M Y') }}</p>
                                 @if($booking->state === 'accettato')
-                                <p class="mb-0">Data di ritorno: {{ $booking->return }}</p>
+                                <p class="mb-0">Data di ritorno: {{ date_create($booking->return)->format('jS M Y') }}</p>
                                 @elseif($booking->state === 'negato')
                                 <p class="mb-0 text-danger">La tua prenotazione non è stata accettata</p>
                                 @else

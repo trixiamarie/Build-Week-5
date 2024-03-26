@@ -64,7 +64,7 @@
 
                     <div class="p-6 bg-white col-sm-4 ">
                         <p><strong>Titolo:</strong>: {{ $book['title'] }}</p>
-                        <p><strong>Data di pubblicazione:</strong> {{ $book['released'] }}</p>
+                        <p><strong>Data di pubblicazione:</strong> {{ date_create($book['released'])->format('jS M Y') }}</p>
                         <p><strong>Editore:</strong> {{ $book['publisher'] }}</p>
                         <p><strong>ISBN:</strong> {{ $book['isbn'] }}</p>
                         <p><strong>Numero di copie disponibili:</strong> {{ $book['copies'] }}</p>

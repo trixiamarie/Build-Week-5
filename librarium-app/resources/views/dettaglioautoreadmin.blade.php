@@ -50,7 +50,7 @@
                         <p class=""><strong>Nome:</strong>{{$author->name}}</p>
                         <p class=""><strong>Cognome:</strong> {{$author->lastname}}</p>
                         <p class=""><strong>Pseudonimo:</strong> {{$author->pseudonym}}</p>
-                        <p class=""><strong>Data di nascita:</strong> {{$author->birthday}}</p>
+                        <p class=""><strong>Data di nascita:</strong> {{date_create($author->birthday)->format('jS M Y')}}</p>
                         <p class=""><strong>Città:</strong> {{$author->city}}</p>
                         <p class=""><strong>Bio:</strong> {{$author->bio}}</p>
                         <p class=""><strong>N. libri nel database:</strong> {{$author->books->count()}}</p>

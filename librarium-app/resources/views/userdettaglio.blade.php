@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-span-4">
                             <p><strong>Città:</strong> {{$user->city}}</p>
-                            <p><strong>Data di nascita:</strong> {{$user->dateofbirth}}</p>
+                            <p><strong>Data di nascita:</strong> {{date_create($user->dateofbirth)->format('jS M Y')}}</p>
                         </div>
                         <div class="col-span-4">
                             <p><strong>Email:</strong> {{$user->email}}</p>

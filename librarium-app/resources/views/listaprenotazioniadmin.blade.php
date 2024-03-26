@@ -69,7 +69,7 @@
                                         <div class="p-1">
                                             <p><strong>Titolo:</strong> {{ $booking->books->title }}</p>
                                             <p><strong>Autore:</strong> {{ $booking->books->authors->name }} {{ $booking->books->authors->lastname }}</p>
-                                            <p><strong>Data di pubblicazione:</strong> {{ $booking->books->released }}</p>
+                                            <p><strong>Data di pubblicazione:</strong> {{ date_create($booking->books->released)->format('jS M Y') }}</p>
                                             <p><strong>Casa editrice:</strong> {{ $booking->books->publisher }}</p>
                                             <p><strong>ISBN:</strong> {{ $booking->books->isbn }}</p>
                                             <p><strong>Numero di copie disponibili:</strong> {{ $booking->books->copies }}</p>
@@ -82,14 +82,14 @@
                                         <p><strong>Utente:</strong> {{ $booking->users->name }} {{ $booking->users->lastname }}</p>
                                         <p><strong>Email:</strong> {{ $booking->users->email }}</p>
                                         <p><strong>Città:</strong> {{ $booking->users->city }}</p>
-                                        <p><strong>Data di nascita:</strong> {{ $booking->users->dateofbirth }}</p>
+                                        <p><strong>Data di nascita:</strong> {{ date_create($booking->users->dateofbirth)->format('jS M Y') }}</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="booking-details">
                                         <div class="booking-dates">
-                                            <p><strong>Data di ritiro:</strong> {{ $booking->collectiondate }}</p>
-                                            <p><strong>Data di ritorno:</strong> {{ $booking->return }}</p>
+                                            <p><strong>Data di ritiro:</strong> {{date_create($booking->collectiondate)->format('jS M Y')}}</p>
+                                            <p><strong>Data di ritorno:</strong> {{ date_create($booking->return)->format('jS M Y') }}</p>
                                         </div>
                                     </div>
                                 </td>

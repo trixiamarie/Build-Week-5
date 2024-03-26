@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (value.length > 2 || typeof value === "number") {
             searchResultsArea.classList.remove("d-none");
             shownbooks.classList.add("d-none");
-            pagineBtn.classList.add("d-none");
+            pagineBtn && pagineBtn.classList.add("d-none");
             displayBooksArea.innerHTML = "";
             document.querySelector(".cap").innerText="";
             window.location.pathname == '/author' ? fetchAuthors(value) : fetchBooks(value);
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             searchResultsArea.classList.add("d-none");
             shownbooks.classList.remove("d-none");
-            pagineBtn.classList.remove("d-none");
+            pagineBtn && pagineBtn.classList.remove("d-none");
         }
     }
 

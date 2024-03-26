@@ -54,7 +54,7 @@
     </div>
     <div class="bg-white">
         <div>
-            <p class="card-text mt-2"><small class="text-muted">Pubblicato da {{$book->publisher}} il {{$book->released}}</small></p>
+            <p class="card-text mt-2"><small class="text-muted">Pubblicato da {{$book->publisher}} il {{date_create($book->released)->format('jS M Y')}}}</small></p>
             <p class="card-text mt-4">{{$book->plot}}</p>
             <p class="card-text mt-4"><strong>Genere:</strong> {{$book->genres->name}}</p>
         </div>

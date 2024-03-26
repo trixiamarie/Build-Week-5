@@ -84,7 +84,7 @@
         <div class="d-flex">
             <div class="p-3" style="overflow: scroll; height: 25rem;width:50%;">
                 <p class=""><strong>Editore: </strong></br>{{$book->publisher}}</p>
-                <p class=""><strong>Data di pubblicazione: </strong></br>{{$book->released}}</p>
+                <p class=""><strong>Data di pubblicazione: </strong></br>{{date_create($book->released)->format('js M Y')}}}</p>
                 <p class="mt-2"><strong>Trama:</strong></br>{{$book->plot}}</p>
                 <p class="mt-2"><strong>Genere:</strong> {{$book->genres->name}}</p>
 
@@ -100,7 +100,7 @@
                     <div class="author-container ">
                         <p class="fs-2 mb-2">{{$book->authors->pseudonym}}</p>
                         <p class="mb-2"><strong>Nome e Cognome:</strong> {{$book->authors->name}} {{$book->authors->lastname}}</p>
-                        <p class="mb-2"><strong>Data di nascita:</strong> {{$book->authors->birthday}}</p>
+                        <p class="mb-2"><strong>Data di nascita:</strong> {{date_create($book->authors->birthday)->format('js M Y')}}</p>
                         <p class="mb-2"><strong>Provenienza:</strong> {{$book->authors->city}}</p>
                         <p class="mb-2"><strong>Biografia:</strong> {{$book->authors->bio}}</p>
                     </div>

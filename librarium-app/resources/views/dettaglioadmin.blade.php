@@ -57,7 +57,7 @@
                     <p class="mb-1"><strong>ID:</strong> {{ $book['id'] }}</p>
                     <p class="mb-1"><strong>Titolo:</strong> {{ $book['title'] }}</p>
                     <p class="mb-1"><strong>Autore:</strong> {{ $book['authors']['name'] }} {{ $book['authors']['lastname'] }}</p>
-                    <p class="mb-1"><strong>Data di pubblicazione:</strong> {{ $book['released'] }}</p>
+                    <p class="mb-1"><strong>Data di pubblicazione:</strong> {{ date_create($book['released'])->format('jS M Y') }}</p>
                     <p class="mb-1"><strong>Editore:</strong> {{ $book['publisher'] }}</p>
                     <p class="mb-1"><strong>Casa editrice:</strong> {{ $book['publisher'] }}</p>
                     <p class="mb-1"><strong>ISBN:</strong> {{ $book['isbn'] }}</p>
