@@ -423,7 +423,7 @@ class BookSeeder extends Seeder
             ],
 
             [
-                'cover' => 'hhttps://m.media-amazon.com/images/I/615r41Z1PEL._SL1500_.jpg',
+                'cover' => 'https://m.media-amazon.com/images/I/615r41Z1PEL._SL1500_.jpg',
                 'color' => '#70695f',
                 'title' => 'Delitto e Castigo',
                 'released' => '1866-10-01',
