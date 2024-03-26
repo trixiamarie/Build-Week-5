@@ -51,6 +51,7 @@
 
     .navbar-nav .dropdown-menu .dropdown-item {
         color: #3d4145 !important;
+        background-color: #ffffff !important;
     }
 
     .navbar-nav .dropdown-menu .dropdown-item:hover {
@@ -60,6 +61,7 @@
 
     .navbar .navbar-nav .dropdown-toggle {
         color: #ffffff !important;
+        
     }
 
     .navbar .navbar-nav .dropdown-toggle:hover,
@@ -105,22 +107,22 @@
           </li>
             @elseif (Auth::user() && Auth::user()->role_id === 1)
               <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('user.index') }}">{{ __('Utenti') }}</a>
+                <a class="barralink nav-link {{ Route::currentRouteName() == 'user.index' ? 'active' : '' }}" href="{{ route('user.index') }}">{{ __('Utenti') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('book.index') }}">{{ __('Libri') }}</a>
+                <a class="barralink nav-link {{ Route::currentRouteName() == 'book.index' ? 'active' : '' }}" href="{{ route('book.index') }}">{{ __('Libri') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('author.index') }}">{{ __('Autori') }}</a>
+                <a class="barralink nav-link {{ Route::currentRouteName() == 'author.index' ? 'active' : '' }}" href="{{ route('author.index') }}">{{ __('Autori') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('genre.index') }}">{{ __('Generi') }}</a>
+                <a class="barralink nav-link {{ Route::currentRouteName() == 'genre.index' ? 'active' : '' }}" href="{{ route('genre.index') }}">{{ __('Generi') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Recensioni') }}</a>
+                <a class="barralink nav-link {{ Route::currentRouteName() == 'review.index' ? 'active' : '' }}" href="{{ route('review.index') }}">{{ __('Recensioni') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
+                <a class="barralink nav-link {{ Route::currentRouteName() == 'booking.index' ? 'active' : '' }}" href="{{ route('booking.index') }}">{{ __('Prenotazioni') }}</a>
               </li>
             @endif
       </ul>

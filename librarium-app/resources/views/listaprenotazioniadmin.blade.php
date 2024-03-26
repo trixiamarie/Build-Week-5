@@ -1,3 +1,40 @@
+<style>
+.glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
+
+  .btn-custom {
+      background-color: white !important;
+      color: #44b4b0 !important;
+      transition: background-color 1s ease !important;
+      transition: color 1s ease !important;
+      font-family: 'Silka', sans-serif !important;
+  }
+
+.btn-custom:hover {
+      color: white !important;
+      background-color: #44b4b0 !important;
+}
+
+.btn-customG {
+    margin-top: 2dvh !important;
+    background-color: #A9B2BB !important;
+    color: white !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-customG:hover {
+    color: white !important;
+    background-color: #3d4145 !important;
+}
+  
+</style>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -59,25 +96,27 @@
                                 <td>
                                     <p>{{ $booking->state }}</p>
                                 </td>
-                                <td class="d-flex">
+                                <td>
+                                    <div class="d-flex">
                                     @if($booking->state === 'pending')
-                                    <form method="POST" action="{{ route('booking.update', ['booking' => $booking->id]) }}">
+                                    <form method="POST" action="{{ route('booking.update', ['booking' => $booking->id]) }}" class="m-0" style="height:38px;">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="state" value="accettato">
-                                        <button type="submit" onclick="return confirm('Sei sicuro di ACCETTARE la prenotazione?')" class="btn btn-outline-info">Accetta</button>
+                                        <button type="submit" onclick="return confirm('Sei sicuro di ACCETTARE la prenotazione?')" class="btn btn-custom">Accetta</button>
                                     </form>
                                     <form method="POST" action="{{ route('booking.update', ['booking' => $booking->id]) }}">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="state" value="negato">
-                                        <button type="submit" onclick="return confirm('Sei sicuro di NON ACCETTARE la prenotazione?')" class="btn btn-outline-danger">Cancella</button>
+                                        <button type="submit" onclick="return confirm('Sei sicuro di NON ACCETTARE la prenotazione?')" class="btn btn-customG mt-0">Cancella</button>
                                     </form>
+                                    </div>
                                     @else
-                                    <button class="btn btn-outline-info disabled">
+                                    <button class="btn btn-custom disabled">
                                         Accetta
                                     </button>
-                                    <button class="btn btn-outline-danger disabled">
+                                    <button class="btn btn-customG disabled mt-0">
                                         Cancella
                                     </button>
                                     @endif
@@ -88,6 +127,8 @@
                             @else
                             <p>Nessuna prenotazione disponibile al momento.</p>
                             @endif
+                        </tbody>
+                    </table>
 
 
 

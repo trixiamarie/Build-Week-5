@@ -105,7 +105,7 @@
     <div id="loader"></div>
 </div>
 
-        <div class="bg-gray-100">
+        <div class="">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -118,7 +118,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main style="margin-bottom: 3rem;">
                 {{ $slot }}
             </main>
         </div>

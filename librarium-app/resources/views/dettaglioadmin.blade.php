@@ -54,6 +54,7 @@
                     <img src="{{ $book['cover'] }}" alt="Cover" class="border-radius">
                 </div>
                 <div class="p-5">
+                    <p class="mb-1"><strong>ID:</strong> {{ $book['id'] }}</p>
                     <p class="mb-1"><strong>Titolo:</strong> {{ $book['title'] }}</p>
                     <p class="mb-1"><strong>Autore:</strong> {{ $book['authors']['name'] }} {{ $book['authors']['lastname'] }}</p>
                     <p class="mb-1"><strong>Data di pubblicazione:</strong> {{ $book['released'] }}</p>

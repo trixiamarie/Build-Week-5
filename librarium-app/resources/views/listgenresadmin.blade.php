@@ -41,10 +41,11 @@
 
 
   <x-slot name="header">
+    <div class="d-flex justify-content-between align-items-center">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight  inline-block">
           {{ __('Generi') }}
       </h2>
-      <a href="{{route('genre.create')}}"><button type="button" class="btn btn-custom  float-end">Crea Genere</button"></a>
+      <a href="{{route('genre.create')}}"><button type="button" class="btn btn-custom mt-0">Crea Genere</button"></a></div>
   </x-slot>
 
 

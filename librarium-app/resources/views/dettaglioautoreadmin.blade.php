@@ -38,7 +38,7 @@
 
                 </div>
                 <div>
-                    <a href="{{ route('book.create', ['author' => $author]) }}" class="bg-amber-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"><button class="btn btn-outline-info">Aggiungi libro</button></a>
+                    <a href="{{ route('book.create', ['author' => $author]) }}" class=""><button class="btn btn-outline-info">Aggiungi libro</button></a>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200 d-flex flex-wrap">
                     @if(isset($author->books))

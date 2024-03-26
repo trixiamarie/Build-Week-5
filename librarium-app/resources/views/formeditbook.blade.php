@@ -1,3 +1,39 @@
+<style>
+   .btn-custom {
+       margin-top: 20px !important;
+       background-color: white !important;
+       color: #44b4b0 !important;
+       transition: background-color 1s ease, color 1s ease !important;
+       font-family: 'Silka', sans-serif !important;
+   }
+
+   .glass-effect-white {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1dvh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+}
+   .btn-custom:hover {
+       color: white !important;
+       background-color: #44b4b0 !important;
+   }
+   .btn-customG {
+    margin-top: 2dvh !important;
+    background-color: #A9B2BB !important;
+    color: white !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-customG:hover {
+    color: white !important;
+    background-color: #3d4145 !important;
+}
+</style>
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -44,9 +80,10 @@
                             <label for="author" class="block text-sm font-medium text-gray-700">Autore:</label>
                             <select id="author" name="author" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 @foreach($authors as $author)
-                                <option value="{{ $author->id }}">{{ $author->pseudonym }}, {{ $author->name }} {{ $author->lastname }}</option>
+                                <option value="{{ $author->id }}" @if($book->authors->id == $author->id) selected @endif>{{ $author->pseudonym }}, {{ $author->name }} {{ $author->lastname }}</option>
                                 @endforeach
                             </select>
+
                         </div>
                         <div>
                             <label for="genre" class="block text-sm font-medium text-gray-700">Genere:</label>
@@ -66,7 +103,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <button type="submit" class="btn btn-outline-info">
+                        <button type="submit" class="btn btn-custom">
                             Salva Modifiche
                         </button>
                     </div>

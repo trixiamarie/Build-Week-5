@@ -18,8 +18,8 @@
 
 <section>
 <div class="md:flex justify-center">
-    <div class="w-full md:w-1/2 px-4 py-6">
-        <p class="fs-3 fst-italic text-center custom-text-color">Nuova Recensione</p>
+    <div class="w-full">
+        <p class="fs-3  text-center custom-text-color">Nuova Recensione</p>
         <form method="POST" action="{{ route('reviews.store', $book->id) }}" class="bg-white  rounded-md px-8 pt-6 pb-8 m-5">
 
             @csrf

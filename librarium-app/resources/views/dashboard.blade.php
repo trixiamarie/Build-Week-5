@@ -279,7 +279,7 @@ a:focus {
 
     <div class="container text-center">
         <label for="filterSelect">Filtra per genere </label>
-        <select id="filterSelect" class="filterSelect">
+        <select id="filterSelect" class="filterSelect" style="border-radius: 0.5rem;">
             <option value="all">tutti</option>
             @foreach (App\Models\Genre::all() as $genre)
                 <option value="{{ $genre->id }}">{{ $genre->name }}</option>

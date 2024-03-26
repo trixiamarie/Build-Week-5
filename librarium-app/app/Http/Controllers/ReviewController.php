@@ -22,7 +22,7 @@ class ReviewController extends Controller
             return view('listarecensioniadmin', ['reviews' => $reviews]);
         } else {
             $userId = Auth::user()->id;
-            $reviews = Review::with('user', 'book.authors')->where('user_id', $userId)->get();
+            $reviews = Review::with('user', 'book.authors')->where('user_id', $userId)->orderBy('created_at', 'desc')->get();
             return view('listarecensioni', ['reviews' => $reviews]);
         }
     }

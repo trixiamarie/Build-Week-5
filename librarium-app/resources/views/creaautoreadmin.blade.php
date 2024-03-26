@@ -50,7 +50,7 @@
                     <div>
                         <label for="avatar" class="block text-sm font-medium text-gray-700">Avatar URL</label>
                         <input type="text" name="avatar" id="avatar" placeholder="Avatar URL"
-                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="https://www.4pareteita.it/wp-content/uploads/2024/02/Recensione-Avatar-la-leggenda-di-Aang-Netflix.jpg">
                     </div>
                 </div>
                 <div class="mt-6">
