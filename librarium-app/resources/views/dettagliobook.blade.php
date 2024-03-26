@@ -21,6 +21,7 @@
         color: white !important;
         background-color: #44b4b0 !important;
     }
+    
 
 
     body::after {
@@ -80,16 +81,16 @@
             </div>
         </div>
     </div>
-    <div class="container col-10 bg-white">
-        <div class="d-flex">
-            <div class="p-3" style="overflow: scroll; height: 25rem;width:50%;">
+    <div class="container col-10 bg-white pt-4" style="border-radius:20px">
+        <div class="d-flex" style="border-radius:25px">
+            <div class="p-3 d-flex flex-column justify-content-center align-items-start" style="height: 20rem; width:50%; backdrop-filter: brightness(150%);">
                 <p class=""><strong>Editore: </strong></br>{{$book->publisher}}</p>
-                <p class=""><strong>Data di pubblicazione: </strong></br>{{date_create($book->released)->format('js M Y')}}}</p>
-                <p class="mt-2"><strong>Trama:</strong></br>{{$book->plot}}</p>
+                <p class=""><strong>Data di pubblicazione: </strong></br>{{$book->released}}</p>
+                <p class="mt-2" style="overflow: auto; height: 5rem"><strong>Trama:</strong></br>{{$book->plot}}</p>
                 <p class="mt-2"><strong>Genere:</strong> {{$book->genres->name}}</p>
 
             </div>
-            <div class="d-flex mt-2 justify-content-evenly align-items-center" style="background-color:{{$book->color;}};color: white;height: 25rem; overflow:scroll; width:50%;">
+            <div class="d-flex mt-2 justify-content-evenly align-items-center" style="background-color:{{$book->color;}};color: white;height: 20rem; width:50%; border-radius:20px">
                 <div style="width: 12rem;" class="ps-4">
                     <div style="width: 10rem; height: 10rem; border-radius: 50%; overflow: hidden; border: 0.5rem solid #9DBDB6;" class="text-center">
                         <img src="{{$book->authors->avatar}}" alt="Descrizione dell'immagine" style="width: 100%; height: 100%;">
@@ -97,51 +98,55 @@
                 </div>
                 <div class="m-4">
                     <!-- bio autore -->
-                    <div class="author-container ">
+                    <div class="author-container">
                         <p class="fs-2 mb-2">{{$book->authors->pseudonym}}</p>
                         <p class="mb-2"><strong>Nome e Cognome:</strong> {{$book->authors->name}} {{$book->authors->lastname}}</p>
-                        <p class="mb-2"><strong>Data di nascita:</strong> {{date_create($book->authors->birthday)->format('js M Y')}}</p>
+                        <p class="mb-2"><strong>Data di nascita:</strong> {{$book->authors->birthday}}</p>
                         <p class="mb-2"><strong>Provenienza:</strong> {{$book->authors->city}}</p>
-                        <p class="mb-2"><strong>Biografia:</strong> {{$book->authors->bio}}</p>
+                        <div style="overflow:auto; height:7rem">
+                        <p class="mb-2" style="overflow: auto;"><strong>Biografia:</strong> {{$book->authors->bio}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container mt-5" style="background-color:{{$book->color;}}; border-radius: 50px; color: white;">
-
-
-
         </div>
 
-
-
         <div class="d-flex mt-4 bg-white">
-            <div style="width:50%;overflow:scroll; height:542px;">
-            <p class="fs-3  text-center custom-text-color">Recensioni</p>
+            <div style="width:50%; height:542px; d-flex flex-wrap">
+            <p class="fs-3 mb-4 text-center custom-text-color">Recensioni</p>
+                <div style="overflow:auto; height:100%">
                 @if($book->reviews->count() > 0)
                 @foreach($book->reviews as $review)
-                <div class="card mb-3 bg-white">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$review->title}}</h5>
-                        <p class="card-text">{{$review->review}}</p>
-                        <div>
-                            <p>{{$review->rating}}/5</p>
-                            @for ($i = 0; $i < $review->rating; $i++)
-                                <i class="bi bi-star-fill text-warning"></i>
-                                @endfor
+                <?php
+                    $colori = ['#edf8f8', '#daf1f0', '#a3dcda'];
+                    $colore = $colori[$review->id % 3];
+                ?>
+                <div class="card me-3 mb-2 bg-white">
+                    <div class="card-body" style="background-color: {{ $colore }}">
+                        <div class="d-flex align-items-center">
+                            <h5 class="card-title fw-bold me-2 mb-0">{{$review->title}}</h5>
+                            <p style="text-shadow: 1px 1px #9A9A9A; width:10rem">
+                                @for ($i = 0; $i < $review->rating; $i++)
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    @endfor
+                            </p>
                         </div>
+                        
+                        <p class="text-body-tertiary" style="font-size:0.9rem">scritto da: {{$review->user->name}} {{$review->user->lastname}}</p>
+                        <p class="card-text my-3">{{$review->review}}</p>
 
-                        <p>scritto da: {{$review->user->name}} {{$review->user->lastname}}</p>
                         @if($review->user_id == Auth::user()->id)
                         <!-- <button>Modifica</button> -->
-                        <form method="POST" action="{{ route('review.destroy', $review->id) }}">
+                        <form class="mb-0 text-center" method="POST" action="{{ route('review.destroy', $review->id) }}">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="source" value="form1">
                             <input type="hidden" name="bookid" value="{{$book->id}}">
                             <button class="btn btn-outline-danger" type="submit">Elimina</button>
                         </form>
-
+                        
                         @endif
                     </div>
                 </div>
@@ -151,7 +156,7 @@
                     <p>Questo libro non ha ancora recensioni.</p>
                 </div>
                 @endif
-
+                </div>
             </div>
             <div style="width:50%;">
             @if($book->reviews->where('user_id', Auth::user()->id)->isEmpty())
@@ -176,7 +181,7 @@
                                         <div class="col">
                                             <div class="card h-100">
                                                 <img src="{{$book->cover}}" class="card-img-top" alt="{{$book->title}}">
-                                                <div class="card-body">
+                                                <div class="card-body text-center">
                                                     <h5 class="card-title">{{$book->title}}</h5>
                                                     <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-custom">Vedi dettagli</a>
                                                 </div>
@@ -212,7 +217,7 @@
                                         <div class="col">
                                             <div class="card h-100">
                                                 <img src="{{$book->cover}}" class="card-img-top" alt="{{$book->title}}">
-                                                <div class="card-body">
+                                                <div class="card-body text-center">
                                                     <h5 class="card-title">{{$book->title}}</h5>
                                                     <a href="{{route('book.show', ['book' => $book->id])}}" class="btn btn-custom">Vedi dettagli</a>
                                                 </div>
