@@ -170,6 +170,66 @@ class BookSeeder extends Seeder
                 'author' => 7, 
                 'genre' => 3, 
             ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/71FZDMfeF6L._SY466_.jpg',
+                'color' => '#a22720',
+                'title' => 'Sulla strada',
+                'released' => '1957-09-05',
+                'publisher' => 'Viking Press',
+                'plot' => 'Sal Paradise, un giovane scrittore, incontra Dean Moriarty, un carismatico e impulsivo ex detenuto, a New York. I due si legano immediatamente e decidono di intraprendere un viaggio attraverso il paese in cerca di avventure, libertà e significato.',
+                'isbn' => 9780140042597,
+                'author' => 17, 
+                'genre' => 5, 
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/61YrFZdddRL._SY466_.jpg',
+                'color' => '#594679',
+                'title' => 'I vagabondi del Dharma',
+                'released' => '1958-07-21',
+                'publisher' => 'Penguin',
+                'plot' => 'Il romanzo racconta le esperienze di Kerouac sulla West Coast americana e in particolare del suo avvicinamento al Buddhismo, alla filosofia Zen e al Trascendentalismo.',
+                'isbn' => 9780241348062,
+                'author' => 17, 
+                'genre' => 5, 
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/718AI4cEYsL._SL1500_.jpg',
+                'color' => '#e98f3a',
+                'title' => 'La città e la metropoli',
+                'released' => '1950-02-01',
+                'publisher' => 'Harcourt Brace',
+                'plot' => 'Due brevi racconti che mettono a confronto la vita nei quartieri cittadini, catturando frenesia ed energia delle strade e degli incontri casuali.',
+                'isbn' => 9788804661283,
+                'author' => 17, 
+                'genre' => 5, 
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/81hxQ+DlE3L._SL1500_.jpg',
+                'color' => '#5789ba',
+                'title' => 'Big Sur',
+                'released' => '1962-01-01',
+                'publisher' => 'Chronicle Books',
+                'plot' => 'Il romanzo segue il personaggio di Jack Duluoz (alter ego di Kerouac) mentre cerca fuga e isolamento nella bellezza naturale di Big Sur, solo per essere affrontato dai propri demoni interiori e ansia.',
+                'isbn' => 9780140168129,
+                'author' => 17, 
+                'genre' => 5, 
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/81FFaSQRPTL._SL1500_.jpg',
+                'color' => '#94786d',
+                'title' => 'I sotterranei',
+                'released' => '1958-01-01',
+                'publisher' => 'Grove Press',
+                'plot' => 'Il protagonista Leo Percepied, basato su Kerouac stesso, si innamora di Mardou Fox, una donna afroamericana. Il romanzo esplora temi di amore, identità e le sfide delle relazioni interrazziali negli USA degli anni 50.',
+                'isbn' => 9780345271303,
+                'author' => 17, 
+                'genre' => 5, 
+            ],
         ];
 
 
