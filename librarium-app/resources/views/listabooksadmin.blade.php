@@ -49,7 +49,7 @@
         </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class='searchResultsArea'>
+            <div class='searchResultsArea d-none'>
                 <h2 class="h2 cap "></h2>
                 <div class="displayBooksArea bg-white overflow-hidden shadow-sm sm:rounded-lg"></div>
             </div>

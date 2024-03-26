@@ -87,4 +87,22 @@ class AuthorController extends Controller
         $author->delete();
         return redirect()->route('author.index')->with('message', 'Autore eliminato correttamente');
     }
+
+    public function search(Request $request)
+    {   
+        try {
+            $search = $request->input('search');
+           
+            $authors = Author::where('pseudonym', 'LIKE', "%{$search}%")
+            ->orWhereHas('books', function($q) use ($search){
+                $q->where('title', 'LIKE', "%{$search}%");
+            })
+            ->get()
+            ->loadCount('books');
+            return response()->json($authors);
+        } catch (\Exception $e) {
+            
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }

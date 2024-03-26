@@ -37,16 +37,25 @@
 
     <x-slot name="header">
         <div class="d-flex justify-content-between align-items-center">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Autori') }}
-        </h2>
-        <a href="{{route('author.create')}}"><button type="button" class="btn btn-custom mt-0">Crea Autore</button"></a></div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Autori') }}
+            </h2>
+            <div class="d-flex justify-content-end gap-3 align-items-center"> 
+                <a class="btn btn-custom mt-0" href="{{route('author.create')}}">Crea Autore</a>
+                <input type="text" class="d-block search form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20rem; height: 2rem;">
+            </div>
+            
+        </div>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-5 bg-white border-b border-gray-200 d-flex flex-wrap justify-content-evenly">
+                <div class='searchResultsArea d-none'>
+                    <h2 class="h2 cap"></h2>
+                    <div class="displayBooksArea bg-white border-b border-gray-200 d-flex flex-wrap justify-content-evenly"></div>
+                </div>
+                <div class="p-5 bg-white border-b border-gray-200 d-flex flex-wrap justify-content-evenly shownBooks">
                     @foreach ($authors as $author)
                     <div class="card p-2 mb-2 d-flex flex-column justify-content-evenly align-items-center" style="width: 20rem; height:30rem;">
                     <div>

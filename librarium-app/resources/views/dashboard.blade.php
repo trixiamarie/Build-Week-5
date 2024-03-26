@@ -280,7 +280,7 @@ a:focus {
     <div class="container text-center">
         <label for="filterSelect">Filtra per genere </label>
         <select id="filterSelect" class="filterSelect" style="border-radius: 0.5rem;">
-            <option value="all">tutti</option>
+            <option value="">tutti</option>
             @foreach (App\Models\Genre::all() as $genre)
                 <option value="{{ $genre->id }}">{{ $genre->name }}</option>
             @endforeach
@@ -289,9 +289,9 @@ a:focus {
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class='searchResultsArea d-none  paginazionen'>
+            <div class='searchResultsArea d-none  '>
                 <h2 class="h2 cap "></h2>
-                <div class=" displayBooksArea row row-cols-1 row-cols-md-4 g-4"></div>
+                <div class=" displayBooksArea row row-cols-1 paginazionen row-cols-md-4 g-4"></div>
             </div>
             <div class="row row-cols-1 row-cols-md-4 g-4 paginazionen shownbooks">
                 @foreach($books->shuffle() as $book)
@@ -308,7 +308,7 @@ a:focus {
                 </div>
                 @endforeach
             </div>
-            <div class="d-flex justify-content-center py-6">
+            <div class="d-flex justify-content-center py-6 pagineBtn">
                 {{ $books->links() }}
             </div>
            
