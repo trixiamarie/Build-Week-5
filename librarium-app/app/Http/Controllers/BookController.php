@@ -134,7 +134,7 @@ class BookController extends Controller
         $userrole = Auth::user()->role_id;
         if ($userrole == 1) {
             $book->delete();
-            return redirect()->route('dashboard')->with('message', 'Libro eliminato correttamente');
+            return redirect()->route('book.index')->with('message', 'Libro eliminato correttamente');
         } else { {
                 Auth::logout(); // Effettua il logout
                 return redirect()->route('login'); // Reindirizza alla pagina di login
@@ -147,14 +147,14 @@ class BookController extends Controller
     {
         try {
             $search = $request->input('search');
-
-            $books = $books = Book::leftJoin('authors', 'books.author', '=', 'authors.id')
-                ->where('title', 'LIKE', "%{$search}%")
-                ->orWhere('authors.pseudonym', 'LIKE', "%{$search}%")
-                ->orWhere('genre', 'LIKE', "%{$search}%")
-                ->get()
-                ->load('authors');
-
+           
+            $books = Book::where('title', 'LIKE', "%{$search}%")
+            ->orWhereHas('authors', function($q) use ($search){
+                $q->where('pseudonym', 'LIKE', "%{$search}%");
+            })
+            ->orWhere('genre', 'LIKE', "%{$search}%")
+            ->get()
+            ->load('authors');
             // Ritorna i libri trovati come risposta JSON
             return response()->json($books);
         } catch (\Exception $e) {

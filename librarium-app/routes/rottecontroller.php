@@ -14,6 +14,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/book', BookController::class);
 
+
+
     Route::get('/booking/create/{book}', [BookingController::class, 'create'])->name('booking.create');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');

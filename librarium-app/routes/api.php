@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/books', [BookController::class, 'search'])->name('book.search');
+Route::get('/books', [BookController::class, 'search']);
+Route::get('/authors', [AuthorController::class, 'search']);
