@@ -499,6 +499,55 @@ class BookSeeder extends Seeder
                 'author' => 10,
                 'genre' => 16,
             ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/41C+6sFyhTL._SY445_SX342_.jpg',
+                'color' => '#c0443a',
+                'title' => 'La signora Dalloway',
+                'released' => '1925-05-04',
+                'publisher' => 'Feltrinelli',
+                'plot' => 'Il romanzo segue la giornata della signora Clarissa Dalloway mentre si prepara per una festa serale nella Londra degli anni \'20. Attraverso un flusso di coscienza, il libro esplora le sue riflessioni interiori, così come quelle degli altri personaggi che incontra durante il giorno.',
+                'isbn' =>  9788807900594,
+                'author' => 11,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/61rGBNiqnrL._SL1500_.jpg',
+                'color' => '#d8b784',
+                'title' => 'Una stanza tutta per sé',
+                'released' => '1924-10-24',
+                'publisher' => 'Feltrinelli',
+                'plot' => 'Un saggio che esplora le sfide che le donne affrontano nell\'ambiente letterario e sociale dell\'Inghilterra del XX secolo. Woolf sostiene la necessità per le donne di avere indipendenza economica e uno spazio personale per poter coltivare la propria creatività.',
+                'isbn' =>  9788807900600,
+                'author' => 11,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/71bO0+L2GsL._SL1500_.jpg',
+                'color' => '#ea606d',
+                'title' => 'Gli Anni',
+                'released' => '1937-01-01',
+                'publisher' => 'Feltrinelli',
+                'plot' => 'Questo romanzo segue la famiglia Pargiter attraverso diverse generazioni, esplorando i cambiamenti sociali, politici e culturali che si verificano nel corso del tempo. La narrazione si concentra sui momenti significativi nella vita dei personaggi e sulle trasformazioni della società.',
+                'isbn' =>  9788807901683,
+                'author' => 11,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/619JF+bfGQL._SL1500_.jpg',
+                'color' => '#bfc432',
+                'title' => 'Gita al faro',
+                'released' => '1927-01-01',
+                'publisher' => 'Feltrinelli',
+                'plot' => 'Questo romanzo segue la famiglia Ramsay durante due estati, esplorando le dinamiche familiari, le aspirazioni artistiche e i cambiamenti nel corso del tempo. La narrativa si concentra sulle percezioni dei personaggi e sulle loro riflessioni interiori.',
+                'isbn' =>  9788811360889,
+                'author' => 11,
+                'genre' => 5,
+            ],
+
  ];
 
 
