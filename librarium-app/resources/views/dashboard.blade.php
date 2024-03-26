@@ -273,11 +273,11 @@ a:focus {
     </div>
 
     <div class="d-flex align-items-center justify-content-center py-6" style="padding-top: 50dvh !important;">
-        <h1 style="color: #44A8A4 !important;">La tua prossima lettura:</h1>
-        <input type="text" class="search form-control rounded" placeholder="Ricerca un autore o un libro" style="margin-left: 20px; width: 20%;">
-    </div>
+    <h1 style="color: #44A8A4 !important; font-size: 4dvh !important;">La tua prossima lettura:</h1>
+</div>
 
-    <div class="container text-center">
+<div class="container text-center d-flex justify-content-center">
+    <div style="margin-right: 20px;">
         <label for="filterSelect">Filtra per genere </label>
         <select id="filterSelect" class="filterSelect" style="border-radius: 0.5rem;">
             <option value="all">tutti</option>
@@ -286,6 +286,13 @@ a:focus {
             @endforeach
         </select>
     </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+        <label for="search" class="me-2">Ricerca </label>
+        <input type="text" id="search" class="search form-control rounded" placeholder="Ricerca un autore o un libro">
+    </div>
+</div>
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
