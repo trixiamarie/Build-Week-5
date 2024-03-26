@@ -177,7 +177,7 @@ class AuthorSeeder extends Seeder
                 'city' => 'Beaconsfield, Inghilterra',
                 'bio' => 'Sir Terry Pratchett è stato uno scrittore britannico noto per la sua scrittura fantasy-umoristica, è principalmente noto per la sua lunga serie di romanzi ambientati nel Mondo Disco (Discworld).',
                 'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/7/7a/10.12.12TerryPratchettByLuigiNovi1.jpg',
-            ],
+            ], 
         ];
 
 
