@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,9 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
+
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -52,12 +56,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Route::get('/booking/create/{book}', [BookingController::class, 'create'])->name('booking.create');
-// Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-// Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
-// Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
 
-// Route::resource('/author', AuthorController::class);
 
 
 require __DIR__.'/auth.php';

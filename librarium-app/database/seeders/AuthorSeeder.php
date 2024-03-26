@@ -178,6 +178,15 @@ class AuthorSeeder extends Seeder
                 'bio' => 'Sir Terry Pratchett è stato uno scrittore britannico noto per la sua scrittura fantasy-umoristica, è principalmente noto per la sua lunga serie di romanzi ambientati nel Mondo Disco (Discworld).',
                 'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/7/7a/10.12.12TerryPratchettByLuigiNovi1.jpg',
             ], 
+            [
+                'name' => 'Chuck',
+                'lastname' => 'Palahniuk',
+                'pseudonym' => 'Chuck Palahniuk',
+                'birthday' => '1962-02-21',
+                'city' => 'Pasco, Washington, Stati Uniti',
+                'bio' => 'Scrittore provocatorio noto per opere come "Fight Club" e "Lullaby". Stile unico e controverso.',
+                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Chuck_Palahniuk_%2821962%29.jpg/440px-Chuck_Palahniuk_%2821962%29.jpg',
+            ],
 
             [
                 'name' => 'Johann Wolfgang',

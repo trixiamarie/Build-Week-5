@@ -19,10 +19,10 @@ class BookingController extends Controller
     {
         if (Auth::user()->role_id === 2) {
             $userId = Auth::id();
-            $myBookings = Booking::where('user', $userId)->with('books.authors')->get();
+            $myBookings = Booking::where('user', $userId)->with('books.authors')->orderBy('created_at', 'desc')->get();
             return view('imieibooking', ['bookings' => $myBookings]);
         } else if (Auth::user()->role_id === 1) {
-            $bookings = Booking::with('users', 'books.authors')->get();
+            $bookings = Booking::with('users', 'books.authors')->orderBy('created_at', 'desc')->get();
 
             return view('listaprenotazioniadmin', ['bookings' => $bookings]);
         }
@@ -60,9 +60,7 @@ class BookingController extends Controller
 
         $booking->save();
 
-        Book::where('id', $request->book)->update([
-            'copies' => DB::raw('copies - 1')
-        ]);
+        $booking->books()->decrement('copies');
 
 
         return redirect()->action([BookingController::class, 'index'])->with('message', 'Prenotazione effettuata con successo!');
@@ -96,12 +94,10 @@ class BookingController extends Controller
     $booking->state = $validatedData['state'];
     $booking->save();
 
-    if ($validatedData['state'] === 'accettato') {
+    if ($validatedData['state'] === 'negato') {
         $book = $booking->books;
-
-        if ($book->copies > 0) {
-            $book->decrement('copies');
-        } 
+            $book->increment('copies');
+    
     }
 
     return back()->with('success', 'Stato del booking aggiornato con successo.');

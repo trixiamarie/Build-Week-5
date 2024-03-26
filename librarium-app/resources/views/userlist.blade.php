@@ -51,7 +51,7 @@
                         <div class="col-span-1 font-bold">Nome</div>
                         <div class="col-span-1 font-bold">Cognome</div>
                         <div class="col-span-2 font-bold">E-mail</div>
-                        <div class="col-span-1 font-bold">città</div>
+                        <div class="col-span-1 font-bold">Città</div>
                         <div class="col-span-2 font-bold">Data di Nascita</div>
                         <div class="col-span-1 font-bold">Ruolo</div>
                         <div class="col-span-1"></div>

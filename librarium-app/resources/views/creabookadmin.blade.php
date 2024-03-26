@@ -75,7 +75,7 @@
                         </div>
                         <div>
                             <label for="isbn" class="block text-sm font-medium text-gray-700">ISBN:</label>
-                            <input type="text" id="isbn" name="isbn" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="number" id="isbn" name="isbn" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div>
                             <label for="author" class="block text-sm font-medium text-gray-700">Autore:</label>
@@ -84,6 +84,7 @@
                                 <option value="{{ $author->id }}">{{ $author->pseudonym }}, {{ $author->name }} {{ $author->lastname }}</option>
                                 @endforeach
                             </select>
+                            <small>Controlla se l'autore del nuovo libro è già presente nel database. Se non c'è, <a href="{{route('author.create')}}"><small class="text-decoration-underline">crea prima l'autore</small></a>.</small>
                         </div>
                         <div>
                             <label for="genre" class="block text-sm font-medium text-gray-700">Genere:</label>
