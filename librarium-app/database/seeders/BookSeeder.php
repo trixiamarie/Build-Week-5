@@ -548,6 +548,43 @@ class BookSeeder extends Seeder
                 'genre' => 5,
             ],
 
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/51ykNaEDBBL._SY445_SX342_.jpg',
+                'color' => '#35392e',
+                'title' => 'Ragione e sentimento',
+                'released' => '1881-01-01',
+                'publisher' => 'Feltrinelli',
+                'plot' => 'Le due sorelle Dashwood, Elinor e Marianne, si trovano ad affrontare sfide finanziarie e sentimentali dopo la morte del padre. Il romanzo esplora il contrasto tra razionalità e sensibilità attraverso le prospettive delle due sorelle mentre navigano tra amori complicati e aspirazioni sociali.',
+                'isbn' =>   9788807900112,
+                'author' => 2,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/717-E0jJ36L._SL1480_.jpg',
+                'color' => '#a6cfc9',
+                'title' => 'Northanger Abbey',
+                'released' => '1817-12-01',
+                'publisher' => 'Feltrinelli',
+                'plot' => '"Northanger Abbey" è un romanzo che mette in scena Catherine Morland, una giovane donna ingenua e amante dei romanzi gotici, che visita la residenza di Northanger Abbey. Qui, Catherine si trova coinvolta in un intreccio di inganni e malintesi mentre cerca di adattare la sua visione romantica del mondo alla realtà.',
+                'isbn' =>   9788845297021,
+                'author' => 2,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/61Iw-AiW+RL._SL1500_.jpg',
+                'color' => '#000000',
+                'title' => 'Faust',
+                'released' => '1829-01-19',
+                'publisher' => 'Mondadori',
+                'plot' => '"Faust" di Johann Wolfgang von Goethe è una tragedia in cui il dottor Faust, disilluso e assetato di conoscenza, fa un patto con il diavolo Mefistofele per ottenere saggezza e piacere terreni. ',
+                'isbn' =>   9788804670827,
+                'author' => 19,
+                'genre' => 5,
+            ],
+
+
  ];
 
 

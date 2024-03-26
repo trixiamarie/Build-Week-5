@@ -178,6 +178,16 @@ class AuthorSeeder extends Seeder
                 'bio' => 'Sir Terry Pratchett è stato uno scrittore britannico noto per la sua scrittura fantasy-umoristica, è principalmente noto per la sua lunga serie di romanzi ambientati nel Mondo Disco (Discworld).',
                 'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/7/7a/10.12.12TerryPratchettByLuigiNovi1.jpg',
             ], 
+
+            [
+                'name' => 'Johann Wolfgang',
+                'lastname' => 'Goethe',
+                'pseudonym' => 'Johann Wolfgang Goethe',
+                'birthday' => '1749-08-28',
+                'city' => 'Francoforte, Germania',
+                'bio' => 'La sua attività fu rivolta alla poesia, al dramma, alla letteratura, alla teologia, alla filosofia, all\'umanesimo e alle scienze, ma fu prolifico anche nella pittura, nella musica e nelle altre arti. Il suo magnum opus è il Faust, un\'opera monumentale alla quale lavorò per oltre sessant\'anni.',
+                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Goethe_%28Stieler_1828%29.jpg/800px-Goethe_%28Stieler_1828%29.jpg',
+            ], 
         ];
 
 
