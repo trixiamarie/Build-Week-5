@@ -705,6 +705,62 @@ class BookSeeder extends Seeder
                 'author' => 20,
                 'genre' => 5,
             ],
+            [
+                "cover" => "https://m.media-amazon.com/images/I/61IljYs0TzL._SL1187_.jpg",
+                "color" => "#834B71",
+                "title" => "La metamorfosi",
+                "released" => "1915-10-15",
+                "publisher" => "Kurt Wolff Verlag",
+                "plot" => "Gregor Samsa si sveglia trasformato in un insetto e deve affrontare l'emarginazione familiare.",
+                "isbn" => 9788806210616,
+                "author" => 12,
+                "genre" => 5
+            ],
+            [
+                "cover" => "https://m.media-amazon.com/images/I/61xUwVMgfqL._SL1500_.jpg",
+                "color" => "#B3602E",
+                "title" => "Il processo",
+                "released" => "1925-04-26",
+                "publisher" => "S. Fischer Verlag",
+                "plot" => "Josef K. viene arrestato e intraprende una disperata ricerca di giustizia in un mondo incomprensibile.",
+                "isbn" => 9788806214522,
+                "author" => 12,
+                "genre" => 5
+            ],
+            [
+                "cover" => "https://m.media-amazon.com/images/I/8157zXUmcvL._SL1500_.jpg",
+                "color" => "#255959",
+                "title" => "Il castello",
+                "released" => "1926-06-25",
+                "publisher" => "S. Fischer Verlag",
+                "plot" => "K. si scontra con l'apparato burocratico del castello mentre cerca di ottenere risposte alle sue domande.",
+                "isbn" => 9788806249340,
+                "author" => 12,
+                "genre" => 5
+            ],
+            [
+                "cover" => "https://m.media-amazon.com/images/I/810pEFFkQRL._SL1192_.jpg",
+                "color" => "#CC071E",
+                "title" => "America",
+                "released" => "1927-06-22",
+                "publisher" => "S. Fischer Verlag",
+                "plot" => "Karl Rossman, esiliato in America, cerca fortuna mentre naviga attraverso un mondo di opportunità e corruzione.",
+                "isbn" => 9788806203175,
+                "author" => 12,
+                "genre" => 5
+            ],
+            [
+                "cover" => "https://m.media-amazon.com/images/I/61VBlnfWH+L._SL1254_.jpg",
+                "color" => "#85BC8C",
+                "title" => "La colonia penale",
+                "released" => "1919-10-31",
+                "publisher" => "Die Schmiede",
+                "plot" => "Un ufficiale si imbatte in una colonia penale brutalmente punitiva, interrogando la moralità e la giustizia.",
+                "isbn" => 9788806210609,
+                "author" => 12,
+                "genre" => 5
+            ],
+        
 
 
  ];
