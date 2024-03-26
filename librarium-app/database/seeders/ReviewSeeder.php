@@ -20,5 +20,7 @@ class ReviewSeeder extends Seeder
             'title'=>'Ottima lettura',
             'review'=>'Ho apprezzato molto questo libro. La trama è avvincente e i personaggi sono ben sviluppati. È stata un\'esperienza di lettura emozionante e non vedo l\'ora di leggere altri libri dello stesso autore.',
         ]);
+
+        Review::factory()->count(500)->create();
     }
 }

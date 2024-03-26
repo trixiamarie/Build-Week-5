@@ -33,5 +33,7 @@ class BookingSeeder extends Seeder
             'return'=>'2024-04-20',
             'state' =>'negato'
         ]);
+
+        Booking::factory()->count(200)->create();
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -16,10 +17,11 @@ return new class extends Migration
             $table->foreignId('user')->constrained('users')->onDelete('cascade');
             $table->foreignId('book')->constrained('books')->onDelete('cascade');
             $table->date('collectiondate');
-            $table->date('return');
+            $table->date('return')->default(DB::raw('DATE_ADD(collectiondate, INTERVAL 30 DAY)'));
             $table->string('state')->default('pending');
             $table->timestamps();
         });
+        
     }
 
     /**
