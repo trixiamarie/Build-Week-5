@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -93,8 +94,11 @@ class ReviewController extends Controller
         $review->rating = $validatedData['rating'];
 
         $review->save();
-
+        if ($request->input('source') === 'main') {
         return redirect()->route('review.index')->with('success', 'Recensione aggiornata con successo!');
+        } else {
+            return redirect()->route('book.show',['book'=>$request->formbook]);
+        }
     }
 
     /**

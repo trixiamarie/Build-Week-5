@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -14,13 +15,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $user = Auth::user();
+        if ($user->role_id === 1) {
+            
+            $users = User::all();
 
-        if (request()->expectsJson()) {
-            return response()->json($users);
+            if (request()->expectsJson()) {
+                return response()->json($users);
+            }
+            return view('userlist', ['users' => $users]);
+        } else {
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
         }
-
-        return view('userlist', ['users' => $users]);
     }
 
 
@@ -29,7 +36,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('creautenteadmin');
+        $user = Auth::user();
+        if ($user->role_id === 1) {
+        return view('creautenteadmin');}
+        else{
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
+        }
     }
 
     /**
@@ -51,7 +64,7 @@ class UserController extends Controller
             'lastname' => $validatedData['lastname'],
             'city' => $validatedData['city'],
             'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']), 
+            'password' => bcrypt($validatedData['password']),
             'dateofbirth' => $validatedData['dateofbirth'],
         ]);
 
@@ -64,7 +77,14 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
+
         return view('userdettaglio', ['user' => $user]);
+        } else {
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
+        }
     }
 
     /**
@@ -72,9 +92,17 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
         $roles = Role::all();
 
-        return view('edituseradmin', ['user' => $user, 'roles' => $roles]);
+        return view('edituseradmin', ['user' => $user, 'roles' => $roles]);}
+        else{
+            {
+                Auth::logout(); // Effettua il logout
+                return redirect()->route('login'); // Reindirizza alla pagina di login
+            }
+        }
     }
 
     /**
@@ -89,7 +117,7 @@ class UserController extends Controller
             'city' => ['required', 'string', 'max:255'],
             'dateofbirth' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'role' => ['required', 'exists:roles,id'], 
+            'role' => ['required', 'exists:roles,id'],
         ]);
 
 
@@ -112,8 +140,18 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
+        $roles = Role::all();
+
         $user->destroy($user->id);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index');}
+        else{
+            {
+                Auth::logout(); // Effettua il logout
+                return redirect()->route('login'); // Reindirizza alla pagina di login
+            }
+        }
     }
 }
