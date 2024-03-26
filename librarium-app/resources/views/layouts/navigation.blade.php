@@ -58,7 +58,10 @@
 
     .navbar .navbar-nav .dropdown-toggle {
         color: #ffffff !important;
-        
+    }
+
+    .navbar .navbar-nav .dropdown-toggle.active, .navbar .navbar-nav .dropdown-toggle:hover {
+        color: #ffffff !important;   
     }
 
     .navbar .navbar-nav .dropdown-toggle:hover,
@@ -74,6 +77,26 @@
     .navbar-brand img {
         width: 16dvh !important;
     }
+
+    @media (max-width: 768px) {
+      
+      .nav-link {
+        background-color: #69C3C0 !important;
+        padding-left: 15px !important;
+      }
+
+      .nav-link.active, .nav-link:hover {
+        background-color: white !important;
+        color: #69C3C0 !important;
+        padding-left: 15px !important;
+      }
+
+      .navbar .navbar-nav .dropdown-toggle.active, .navbar .navbar-nav .dropdown-toggle:hover {
+        color: #69C3C0 !important;   
+    }
+    }
+
+
 
 </style>
 
