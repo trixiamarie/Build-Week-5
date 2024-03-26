@@ -265,7 +265,7 @@ class BookSeeder extends Seeder
                 'genre' => 3,
             ],
             [
-                'cover' => 'https://m.media-amazon.com/images/I/71sE28ugJxL._SL1200_.jpg',
+                'cover' => 'https://m.media-amazon.com/images/I/8135QxIueIL._SL1500_.jpg',
                 'color' => '#FEB879',
                 'title' => 'Small Gods',
                 'released' => '1992-06-11',
