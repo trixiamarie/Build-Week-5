@@ -157,7 +157,7 @@ class BookSeeder extends Seeder
                 'plot' => 'Cinquanta sfumature di grigio è il primo romanzo della trilogia di E.L. James. La storia segue la relazione tra Anastasia Steele, una giovane studentessa universitaria, e Christian Grey, un affascinante e misterioso imprenditore.',
                 'isbn' => 9788865085059,
                 'author' => 7, 
-                'genre' => 3, 
+                'genre' => 5, 
             ],
             [
                 'cover' => 'https://www.oscarmondadori.it/content/uploads/2020/04/978880472929HIG-310x480.jpg?x89969',
@@ -168,7 +168,7 @@ class BookSeeder extends Seeder
                 'plot' => 'Cinquanta sfumature di nero è il secondo romanzo della trilogia di E.L. James. Il libro continua a seguire la relazione tra Anastasia Steele e Christian Grey mentre affrontano nuove sfide e segreti del loro passato.',
                 'isbn' => 9788865088234,
                 'author' => 7, 
-                'genre' => 3, 
+                'genre' => 5, 
             ],
 
             [
@@ -410,8 +410,6 @@ class BookSeeder extends Seeder
                 'author' => 13,
                 'genre' => 5,
             ],
-
-            
             [
                 'cover' => 'https://m.media-amazon.com/images/I/61g5fbi7rRL._SL1500_.jpg',
                 'color' => '#85764f',
@@ -435,8 +433,73 @@ class BookSeeder extends Seeder
                 'author' => 13,
                 'genre' => 5,
             ],
-
-        ];
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/81xd+qOvR3L._SL1500_.jpg',
+                'color' => '#376779',
+                'title' => 'Cent\'anni di solitudine',
+                'released' => '1967-05-30',
+                'publisher' => 'Editorial Sudamericana',
+                'plot' => 'La saga della famiglia Buendía a Macondo, una città immaginaria, attraversa generazioni di amore, tragedia e mistero.',
+                'isbn' => 9788804488302,
+                'author' => 9,
+                'genre' => 5,
+            ],
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/81izfzodwkL._SL1500_.jpg',
+                'color' => '#5B2981',
+                'title' => 'L\'amore ai tempi del colera',
+                'released' => '1985-11-06',
+                'publisher' => 'Editorial Sudamericana',
+                'plot' => 'La storia d\'amore tra Fermina Daza e Florentino Ariza, che attende per più di cinquant\'anni la sua occasione per essere realizzata.',
+                'isbn' => 9788804677164,
+                'author' => 9,
+                'genre' => 5,
+            ],
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/91G3fHgUwoL._SL1500_.jpg',
+                'color' => '#DD8123',
+                'title' => 'Cronaca di una morte annunciata',
+                'released' => '1981-08-30',
+                'publisher' => 'Editorial La Oveja Negra',
+                'plot' => 'Il racconto della morte annunciata di Santiago Nasar, narrato attraverso le testimonianze dei personaggi del villaggio.',
+                'isbn' => 9788807818690,
+                'author' => 9,
+                'genre' => 5,
+            ],
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/813Tphs7WXL._SL1500_.jpg',
+                'color' => '#697F6D',
+                'title' => 'Guerra e pace',
+                'released' => '1869-01-01',
+                'publisher' => 'The Russian Messenger',
+                'plot' => 'Una storia epica che segue le vite di diversi personaggi aristocratici durante l\'invasione di Napoleone in Russia e le conseguenti guerre napoleoniche.',
+                'isbn' => 9788804464801,
+                'author' => 10,
+                'genre' => 1,
+            ],
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/71DL12R0soL._SL1500_.jpg',
+                'color' => '#846C2F',
+                'title' => 'Anna Karenina',
+                'released' => '1877-03-03',
+                'publisher' => 'The Russian Messenger',
+                'plot' => 'La storia di Anna Karenina e del suo tragico amore con il Conte Vronsky, ambientata nella società aristocratica della Russia imperiale.',
+                'isbn' => 9788804668889,
+                'author' => 10,
+                'genre' => 5,
+            ],
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/61o-Cf3s4ML._SL1500_.jpg',
+                'color' => '#494947',
+                'title' => 'Resurrezione',
+                'released' => '1899-01-01',
+                'publisher' => 'Russian Messenger',
+                'plot' => 'La storia di un uomo aristocratico che cerca il significato della vita e della redenzione attraverso il suo coinvolgimento con una donna contadina.',
+                'isbn' => 9788804667783,
+                'author' => 10,
+                'genre' => 16,
+            ],
+ ];
 
 
         foreach ($libri as $libro) {
