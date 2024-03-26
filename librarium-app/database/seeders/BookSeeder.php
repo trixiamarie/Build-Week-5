@@ -702,7 +702,7 @@ class BookSeeder extends Seeder
                 'publisher' => 'Mondadori',
                 'plot' => '"Faust" di Johann Wolfgang von Goethe è una tragedia in cui il dottor Faust, disilluso e assetato di conoscenza, fa un patto con il diavolo Mefistofele per ottenere saggezza e piacere terreni. ',
                 'isbn' =>   9788804670827,
-                'author' => 19,
+                'author' => 20,
                 'genre' => 5,
             ],
 
