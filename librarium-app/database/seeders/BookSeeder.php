@@ -375,6 +375,67 @@ class BookSeeder extends Seeder
                 'genre' => 5,
             ],
 
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/61RH4yUye+L._SL1500_.jpg',
+                'color' => '#64a2eb',
+                'title' => 'Le Notti Bianche',
+                'released' => '1848-10-31',
+                'publisher' => 'Penguin Books',
+                'plot' => '"Notti bianche" è un\'opera magistrale di Fyodor Dostoevsky che cattura l\'essenza della solitudine e dell\'amore non corrisposto. Ambientato nella pittoresca San Pietroburgo, il racconto segue il protagonista, il Sognatore, un giovane idealista che vive nella sua immaginazione più che nel mondo reale.',
+                'isbn' => 9780241619780,
+                'author' => 13,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/81Pt2iJfagL._SL1500_.jpg',
+                'color' => '#ce565f',
+                'title' => 'Memorie dal sottosuolo',
+                'released' => '1864-04-01',
+                'publisher' => 'W W Norton & Co Inc',
+                'plot' => 'Questo romanzo breve, pubblicato nel 1864, è una narrazione in prima persona delle riflessioni di un uomo alienato e cinico, conosciuto solo come "l\'Uomo del Sottosuolo". Il libro esplora le contraddizioni della natura umana e critica le idee razionaliste dell\'epoca.',
+                'isbn' =>  9780393976120,
+                'author' => 13,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/51evneDPTiL._SY445_SX342_.jpg',
+                'color' => '#004a5d',
+                'title' => 'L\'idiota',
+                'released' => '1869-01-01',
+                'publisher' => 'Rizzoli',
+                'plot' => 'Pubblicato nel 1869, "L\'idiota" segue il principe Myshkin, un uomo gentile e altruista ma ingenuo, che torna in Russia dopo un periodo di cura in Svizzera. Il romanzo esplora il contrasto tra la bontà del principe Myshkin e la corruzione e la follia della società russa dell\'epoca.',
+                'isbn' =>  9788817067959,
+                'author' => 13,
+                'genre' => 5,
+            ],
+
+            
+            [
+                'cover' => 'https://m.media-amazon.com/images/I/61g5fbi7rRL._SL1500_.jpg',
+                'color' => '#85764f',
+                'title' => 'Demoni',
+                'released' => '1869-01-01',
+                'publisher' => 'Feltrinelli',
+                'plot' => '"Demoni" di Dostoevskij è un romanzo che esplora il nichilismo e la rivoluzione nella Russia provinciale degli anni \'60 del XIX secolo. Segue le vicende di un gruppo rivoluzionario guidato da Pyotr Stepanovich Verkhovensky e il ritorno misterioso e tormentato di Nikolai Stavrogin. ',
+                'isbn' =>  9788807902475,
+                'author' => 13,
+                'genre' => 5,
+            ],
+
+            [
+                'cover' => 'hhttps://m.media-amazon.com/images/I/615r41Z1PEL._SL1500_.jpg',
+                'color' => '#70695f',
+                'title' => 'Delitto e Castigo',
+                'released' => '1866-10-01',
+                'publisher' => 'Feltrinelli',
+                'plot' => '"Delitto e Castigo" di Dostoevskij è un romanzo che segue la storia di Rodion Raskolnikov, uno studente povero e alienato che commette un omicidio per giustificare la propria superiorità intellettuale.',
+                'isbn' =>  9788807900617,
+                'author' => 13,
+                'genre' => 5,
+            ],
+
         ];
 
 
