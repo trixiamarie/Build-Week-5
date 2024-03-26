@@ -45,13 +45,10 @@
     background-color: #ffffff;
 }
 
-    .navbar-nav .dropdown-menu {
-        background-color: #ffffff !important;
-    }
-
     .navbar-nav .dropdown-menu .dropdown-item {
-        color: #3d4145 !important;
-        background-color: #ffffff !important;
+        color: white !important;
+        background-color: #69C3C0 !important;
+        transition: background-color 0.5s ease, color 0.5s ease;
     }
 
     .navbar-nav .dropdown-menu .dropdown-item:hover {
@@ -61,7 +58,10 @@
 
     .navbar .navbar-nav .dropdown-toggle {
         color: #ffffff !important;
-        
+    }
+
+    .navbar .navbar-nav .dropdown-toggle.active, .navbar .navbar-nav .dropdown-toggle:hover {
+        color: #ffffff !important;   
     }
 
     .navbar .navbar-nav .dropdown-toggle:hover,
@@ -77,6 +77,26 @@
     .navbar-brand img {
         width: 16dvh !important;
     }
+
+    @media (max-width: 768px) {
+      
+      .nav-link {
+        background-color: #69C3C0 !important;
+        padding-left: 15px !important;
+      }
+
+      .nav-link.active, .nav-link:hover {
+        background-color: white !important;
+        color: #69C3C0 !important;
+        padding-left: 15px !important;
+      }
+
+      .navbar .navbar-nav .dropdown-toggle.active, .navbar .navbar-nav .dropdown-toggle:hover {
+        color: #69C3C0 !important;   
+    }
+    }
+
+
 
 </style>
 
@@ -134,7 +154,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ Auth::user()->name }}
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" style="background-color: white !important;">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}"

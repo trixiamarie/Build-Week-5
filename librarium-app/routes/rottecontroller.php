@@ -32,4 +32,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
 Route::get('/search', [BookController::class, 'search'])->name('search');
+

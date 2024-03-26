@@ -74,7 +74,7 @@
                         </div>
                         <div>
                             <label for="isbn" class="block text-sm font-medium text-gray-700">ISBN:</label>
-                            <input type="text" id="isbn" name="isbn" value="{{ $book->isbn }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="number" id="isbn" name="isbn" value="{{ $book->isbn }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div>
                             <label for="author" class="block text-sm font-medium text-gray-700">Autore:</label>

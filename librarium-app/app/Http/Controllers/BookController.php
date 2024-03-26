@@ -15,9 +15,16 @@ class BookController extends Controller
      */
     public function index()
     {
+        $userrole = Auth::user()->role_id;
+        if ($userrole == 1) {
 
-    $books = Book::with('authors', 'genres')->get();
-     return view('listabooksadmin',['books' => $books]);
+            $books = Book::with('authors', 'genres')->get();
+            return view('listabooksadmin', ['books' => $books]);
+        } else { {
+                Auth::logout(); // Effettua il logout
+                return redirect()->route('login'); // Reindirizza alla pagina di login
+            }
+        }
     }
 
     /**
@@ -25,9 +32,16 @@ class BookController extends Controller
      */
     public function create()
     {
-        $authors = Author::all();
-        $genres = Genre::all();
-        return view('creabookadmin', ['authors' => $authors, 'genres' => $genres]);    
+        $userrole = Auth::user()->role_id;
+        if ($userrole == 1) {
+            $authors = Author::all();
+            $genres = Genre::all();
+            return view('creabookadmin', ['authors' => $authors, 'genres' => $genres]);
+        } else { {
+                Auth::logout(); // Effettua il logout
+                return redirect()->route('login'); // Reindirizza alla pagina di login
+            }
+        }
     }
 
     /**
@@ -56,53 +70,60 @@ class BookController extends Controller
      * Display the specified resource.
      */
     public function show(Book $book)
-{
-    $userrole = Auth::user()->role_id;
-    $book = $book->load('authors', 'genres', 'reviews.user');
-    $sameAuthorBooks = Book::where('author', $book->authors->id)->get();
-    $sameGenreBooks = Book::where('genre', $book->genres->id)->get();
+    {
+        $userrole = Auth::user()->role_id;
+        $book = $book->load('authors', 'genres', 'reviews.user');
+        $sameAuthorBooks = Book::where('author', $book->authors->id)->get();
+        $sameGenreBooks = Book::where('genre', $book->genres->id)->get();
 
-    if($userrole == 1){
-        return view('dettaglioadmin', compact('book', 'sameAuthorBooks', 'sameGenreBooks'));
-    } else if ($userrole == 2){
-        return view('dettagliobook', compact('book', 'sameAuthorBooks', 'sameGenreBooks'));
+        if ($userrole == 1) {
+            return view('dettaglioadmin', compact('book', 'sameAuthorBooks', 'sameGenreBooks'));
+        } else if ($userrole == 2) {
+            return view('dettagliobook', compact('book', 'sameAuthorBooks', 'sameGenreBooks'));
+        }
     }
-}
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Book $book)
     {
-        $authors = Author::all();
-        $genres = Genre::all();
-       return view('formeditbook',['book'=> $book, 'authors' => $authors, 'genres' => $genres]);
+        $userrole = Auth::user()->role_id;
+        if ($userrole == 1) {
+            $authors = Author::all();
+            $genres = Genre::all();
+            return view('formeditbook', ['book' => $book, 'authors' => $authors, 'genres' => $genres]);
+        } else { {
+                Auth::logout(); // Effettua il logout
+                return redirect()->route('login'); // Reindirizza alla pagina di login
+            }
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Book $book)
-{
-    $validatedData = $request->validate([
-        'cover' => 'required|string',
-        'color' => 'required|string',
-        'title' => 'required|string',
-        'released' => 'required|date',
-        'publisher' => 'required|string',
-        'plot' => 'required|string',
-        'isbn' => 'required|string|unique:books,isbn,' . $book->id,
-        'author' => 'required|exists:authors,id',
-        'genre' => 'required|exists:genres,id',
-        'copies' => 'required|integer',
-        'category' => 'required|string',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'cover' => 'required|string',
+            'color' => 'required|string',
+            'title' => 'required|string',
+            'released' => 'required|date',
+            'publisher' => 'required|string',
+            'plot' => 'required|string',
+            'isbn' => 'required|string|unique:books,isbn,' . $book->id,
+            'author' => 'required|exists:authors,id',
+            'genre' => 'required|exists:genres,id',
+            'copies' => 'required|integer',
+            'category' => 'required|string',
+        ]);
 
-    $book->update($validatedData);
+        $book->update($validatedData);
 
-    $books = Book::with('authors', 'genres')->get();
+        $books = Book::with('authors', 'genres')->get();
 
-    return redirect()->route('book.show', ['book' => $book->id, 'books' => $books])->with('message', 'Libro aggiornato correttamente');
-}
+        return redirect()->route('book.show', ['book' => $book->id, 'books' => $books])->with('message', 'Libro aggiornato correttamente');
+    }
 
 
     /**
@@ -110,13 +131,20 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        $book->delete();
-        return redirect()->route('book.index')->with('message', 'Libro eliminato correttamente');
+        $userrole = Auth::user()->role_id;
+        if ($userrole == 1) {
+            $book->delete();
+            return redirect()->route('book.index')->with('message', 'Libro eliminato correttamente');
+        } else { {
+                Auth::logout(); // Effettua il logout
+                return redirect()->route('login'); // Reindirizza alla pagina di login
+            }
+        }
     }
 
 
     public function search(Request $request)
-    {   
+    {
         try {
             $search = $request->input('search');
            

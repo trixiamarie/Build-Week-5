@@ -158,6 +158,45 @@ class AuthorSeeder extends Seeder
                 'bio' => 'Mark Twain è stato uno scrittore e umorista statunitense, famoso per romanzi come "Le avventure di Tom Sawyer" e "Le avventure di Huckleberry Finn".',
                 'avatar' => 'https://th-thumbnailer.cdn-si-edu.com/Bysr6nOR-Y0eX6S4H2h6OURXTIQ=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/f6/88/f688e680-3907-409f-890e-1f21c8d0c8fe/10498071004_e99fe14563_o.jpg',
             ],
+
+            [
+                'name' => 'Jack',
+                'lastname' => 'Kerouac',
+                'pseudonym' => 'Jack Kerouac',
+                'birthday' => '1922-03-12',
+                'city' => 'Massachusetts, Stati Uniti',
+                'bio' => 'È considerato uno dei maggiori e più importanti scrittori statunitensi del XX secolo, nonché padre del Movimento Beat, perché nei suoi scritti esplicitò le idee di liberazione, di approfondimento della propria coscienza e di realizzazione alternativa della propria personalità.',
+                'avatar' => 'https://www.visitmass.it/wp-content/uploads/2021/01/Jack-Kerouac-OK2.jpeg',
+            ],
+
+            [
+                'name' => 'Terry',
+                'lastname' => 'Pratchett',
+                'pseudonym' => 'Terry Pratchett',
+                'birthday' => '1948-04-28',
+                'city' => 'Beaconsfield, Inghilterra',
+                'bio' => 'Sir Terry Pratchett è stato uno scrittore britannico noto per la sua scrittura fantasy-umoristica, è principalmente noto per la sua lunga serie di romanzi ambientati nel Mondo Disco (Discworld).',
+                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/7/7a/10.12.12TerryPratchettByLuigiNovi1.jpg',
+            ], 
+            [
+                'name' => 'Chuck',
+                'lastname' => 'Palahniuk',
+                'pseudonym' => 'Chuck Palahniuk',
+                'birthday' => '1962-02-21',
+                'city' => 'Pasco, Washington, Stati Uniti',
+                'bio' => 'Scrittore provocatorio noto per opere come "Fight Club" e "Lullaby". Stile unico e controverso.',
+                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Chuck_Palahniuk_%2821962%29.jpg/440px-Chuck_Palahniuk_%2821962%29.jpg',
+            ],
+
+            [
+                'name' => 'Johann Wolfgang',
+                'lastname' => 'Goethe',
+                'pseudonym' => 'Johann Wolfgang Goethe',
+                'birthday' => '1749-08-28',
+                'city' => 'Francoforte, Germania',
+                'bio' => 'La sua attività fu rivolta alla poesia, al dramma, alla letteratura, alla teologia, alla filosofia, all\'umanesimo e alle scienze, ma fu prolifico anche nella pittura, nella musica e nelle altre arti. Il suo magnum opus è il Faust, un\'opera monumentale alla quale lavorò per oltre sessant\'anni.',
+                'avatar' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Goethe_%28Stieler_1828%29.jpg/800px-Goethe_%28Stieler_1828%29.jpg',
+            ], 
         ];
 
 

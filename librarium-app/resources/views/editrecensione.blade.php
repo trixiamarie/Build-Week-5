@@ -12,6 +12,7 @@
                     <form method="POST" action="{{ route('review.update', ['review' => $review->id]) }}" class="bg-white rounded-md px-8 pt-6 pb-8 m-4">
                         @csrf
                         @method('PUT')
+                        <input type="hidden" name="source" value="main">
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
                                 Titolo

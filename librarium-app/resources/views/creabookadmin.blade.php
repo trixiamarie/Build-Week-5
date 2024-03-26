@@ -84,6 +84,7 @@
                                 <option value="{{ $author->id }}">{{ $author->pseudonym }}, {{ $author->name }} {{ $author->lastname }}</option>
                                 @endforeach
                             </select>
+                            <small>Controlla se l'autore del nuovo libro è già presente nel database. Se non c'è, <a href="{{route('author.create')}}"><small class="text-decoration-underline">crea prima l'autore</small></a>.</small>
                         </div>
                         <div>
                             <label for="genre" class="block text-sm font-medium text-gray-700">Genere:</label>

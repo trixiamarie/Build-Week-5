@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthorController extends Controller
 {
@@ -12,8 +13,17 @@ class AuthorController extends Controller
      */
     public function index()
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
         $authors = Author::with('books.genres')->get();
         return view('listaautoriadmin', ['authors' => $authors]);
+    }
+    else{
+        {
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
+        }
+    }
     }
 
     /**
@@ -21,7 +31,16 @@ class AuthorController extends Controller
      */
     public function create()
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
         return view('creaautoreadmin');
+    }
+    else{
+        {
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
+        }
+    }
     }
 
     /**
@@ -49,8 +68,17 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
         $author->load('books.genres');
         return view('dettaglioautoreadmin', ['author' => $author->load('books')]);
+    }
+    else{
+        {
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
+        }
+    }
     }
 
     /**
@@ -58,7 +86,16 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
+        $userauth = Auth::user();
+        if ($userauth->role_id === 1) {
         return view('formeditautore', ['author' => $author]);
+    }
+    else{
+        {
+            Auth::logout(); // Effettua il logout
+            return redirect()->route('login'); // Reindirizza alla pagina di login
+        }
+    }
     }
 
     /**
@@ -66,6 +103,7 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
+        
         $data=$request->validate([
             'name'=>'required|max:255',
             'lastname'=>'required|max:255',
