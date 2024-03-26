@@ -1,4 +1,32 @@
 <style>
+    .btn-custom {
+
+    background-color: #A9B2BB !important;
+    color: white !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-custom:hover {
+    color: white !important;
+    background-color: #3d4145 !important;
+}
+
+.btn-customG {
+    
+    background-color: white !important;
+    border: 1px solid #44A9A5 !important;
+    color: #44A9A5 !important;
+    transition: background-color 1s ease !important;
+    tansition: color 1s ease !important;
+    font-family: 'Silka', sans-serif !important;
+}
+
+.btn-customG:hover {
+    color: white !important;
+    background-color: #44A9A5 !important;
+}
     .book-card {
         width: 15rem;
         border: 0.3rem solid #9DBDB6;
@@ -36,6 +64,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <a href="{{ route('author.index') }}" class="me-2"><button class="btn btn-customG">Tutti gli autori</button></a>
                 <div class="p-6 bg-white border-b border-gray-200 d-flex">
                     <div class="me-5">
                         <div>
@@ -55,11 +84,11 @@
                         <p class=""><strong>Bio:</strong> {{$author->bio}}</p>
                         <p class=""><strong>N. libri nel database:</strong> {{$author->books->count()}}</p>
                         <div class="d-flex mt-4">
-                            <a href="{{ route('author.edit', ['author' => $author]) }}" class=""><button class="btn btn-outline-info me-2">Modifica autore</button></a>
+                            <a href="{{ route('author.edit', ['author' => $author]) }}" class=""><button class="btn btn-customG me-2">Modifica autore</button></a>
                             <form action="{{ route('author.destroy', ['author' => $author->id] ) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare?')" class="btn btn-outline-danger">Elimina autore</button>
+                                <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare?')" class="btn btn-custom">Elimina autore</button>
                             </form>
                         </div>
                     </div>
@@ -67,7 +96,7 @@
 
                 </div>
                 <div>
-                    <a href="{{ route('book.create', ['author' => $author]) }}" class=""><button class="btn btn-outline-info">Aggiungi libro</button></a>
+                    <a href="{{ route('book.create', ['author' => $author]) }}" class=""><button class="btn btn-customG">Aggiungi libro</button></a>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200 d-flex flex-wrap">
                     @if(isset($author->books))

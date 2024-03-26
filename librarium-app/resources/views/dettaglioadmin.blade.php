@@ -49,10 +49,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="glass-effect-white overflow-hidden shadow-sm sm:rounded-lg">
-
+                
                 <div class="p-5 d-flex justify-content-evenly">
                     <img src="{{ $book['cover'] }}" alt="Cover" class="border-radius">
                 </div>
+                <a href="{{ route('book.index') }}" class="me-2"><button type="button" class="btn btn-customG">Tutti i libri</button></a>
                 <div class="p-5">
                     <p class="mb-1"><strong>ID:</strong> {{ $book['id'] }}</p>
                     <p class="mb-1"><strong>Titolo:</strong> {{ $book['title'] }}</p>

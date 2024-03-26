@@ -55,7 +55,7 @@
                 </div>
                 <div class="mt-6">
                     <button type="submit"
-                        class="btn btn-outline-info">
+                        class="btn btn-outline-success">
                         Crea
                     </button>
                 </div>
