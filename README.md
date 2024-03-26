@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.postimg.cc/d31Nsx7k/chrome-WUn5b-Z9-TGr.jpg" alt="Landing page"/>
+  <img src="https://i.postimg.cc/3xpSxpwB/chrome-WUn5b-Z9-TGr.jpg" alt="Landing page"/>
 </p>
 
 # Gestionale Web per una Biblioteca Online
