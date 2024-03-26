@@ -45,13 +45,10 @@
     background-color: #ffffff;
 }
 
-    .navbar-nav .dropdown-menu {
-        background-color: #ffffff !important;
-    }
-
     .navbar-nav .dropdown-menu .dropdown-item {
-        color: #3d4145 !important;
-        background-color: #ffffff !important;
+        color: white !important;
+        background-color: #69C3C0 !important;
+        transition: background-color 0.5s ease, color 0.5s ease;
     }
 
     .navbar-nav .dropdown-menu .dropdown-item:hover {
@@ -134,7 +131,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ Auth::user()->name }}
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" style="background-color: white !important;">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}"
